@@ -130,6 +130,7 @@ body.dark .topbar{background:rgba(17,24,39,.88);border-bottom:1px solid rgba(30,
 
 /* ── TOPBAR ── */
 .page-title{font-family:'Inter',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.3px;color:var(--text)}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:1px solid var(--border);border-radius:9px;cursor:pointer;padding:8px;margin-right:8px}.hamburger span{display:block;height:2px;background:var(--text2);border-radius:2px;transition:all .25s}.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99}
 .topbar-actions{display:flex;align-items:center;gap:6px}
 .topbar-btn{width:36px;height:36px;border-radius:9px;background:transparent;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text3);cursor:pointer;transition:all .16s;position:relative}
 .topbar-btn:hover{border-color:var(--border);color:var(--text2);background:var(--surface2)}
@@ -408,7 +409,7 @@ textarea.input{resize:vertical}
 @media(max-width:700px){.msg-layout{grid-template-columns:1fr}.msg-sidebar{display:none}.cal-cell{min-height:60px}}
 
 @media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.auth-left{display:none}.auth-right{width:100%}}
-@media(max-width:700px){.sidebar{transform:translateX(-100%)}.main-content{margin-left:0}.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.page-content{padding:16px}}
+@media(max-width:700px){.sidebar{transform:translateX(-100%);transition:transform .25s ease}.sidebar.open{transform:translateX(0)}.main-content{margin-left:0}.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.page-content{padding:16px}.hamburger{display:flex!important}.sidebar-overlay{display:block}}
 /* ── AI ASSISTANT CHAT ── */
 .ai-chat-wrap{display:flex;flex-direction:column;height:calc(100vh - var(--topbar-h) - 56px);min-height:420px;max-width:780px;margin:0 auto;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow-sm)}
 .ai-chat-header{background:linear-gradient(135deg,var(--accent) 0%,#991b1b 100%);padding:18px 22px;display:flex;align-items:center;gap:14px;flex-shrink:0}
@@ -534,8 +535,12 @@ textarea.input{resize:vertical}
       </div>
     </aside>
     <div class="main-content">
+      <div id="sidebar-overlay" class="sidebar-overlay" onclick="closeSidebar()"></div>
       <div class="topbar">
-        <div class="row"><div class="page-title" id="page-title">Dashboard</div></div>
+        <div class="row">
+          <button class="hamburger" id="hamburger-btn" onclick="toggleSidebar()" aria-label="Menu"><span></span><span></span><span></span></button>
+          <div class="page-title" id="page-title">Dashboard</div>
+        </div>
         <div class="row" style="gap:10px">
           <div id="topbar-role-badge" class="topbar-role-badge"></div>
           <div class="topbar-btn" onclick="showPage('notifiche')" id="notif-btn">
@@ -1238,6 +1243,8 @@ const navConfig={
 };
 
 /* ── DARK MODE ── */
+function toggleSidebar(){const s=document.getElementById('sidebar');const o=document.getElementById('sidebar-overlay');s.classList.toggle('open');o.style.display=s.classList.contains('open')?'block':'none';}
+function closeSidebar(){const s=document.getElementById('sidebar');const o=document.getElementById('sidebar-overlay');s.classList.remove('open');o.style.display='none';}
 function toggleDark(){
   const isDark=document.body.classList.toggle('dark');
   localStorage.setItem('stayactive_dark',isDark?'1':'0');
@@ -1303,6 +1310,7 @@ const pageTitles={dashboard:'Dashboard',statistiche:'Statistiche',utenti:'Gestio
 function showPage(page,param){
   currentPage=page;
   document.getElementById('page-title').textContent=pageTitles[page]||page;
+  closeSidebar();
   buildSidebar();
   const renders={
     dashboard:()=>currentRole==='admin'?pgAdminDash():currentRole==='trainer'?pgTrainerDash():pgClientDash(),
