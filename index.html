@@ -475,7 +475,7 @@ textarea.input{resize:vertical}
       <div style="color:var(--text2);font-size:13px;margin-bottom:22px">Accedi con le tue credenziali</div>
       <div class="gap-14" style="display:flex;flex-direction:column;gap:14px">
         <div class="input-group"><label class="input-label">Email</label><input type="email" class="input" id="login-email" placeholder="nome@stayactive.it" value="admin@stayactive.it" oninput="updateLoginHint()"></div>
-        <div class="input-group"><label class="input-label">Password</label><input type="password" class="input" id="login-password" placeholder="••••••••" value="123456" onkeydown="if(event.key==='Enter')doLogin()"></div>
+        <div class="input-group"><label class="input-label">Password</label><input type="password" class="input" id="login-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
         <div id="login-role-hint" style="display:none;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:9px 13px;font-size:12px;color:var(--text2);align-items:center;gap:8px"></div>
         <button class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;font-size:14px" onclick="doLogin()">Accedi</button>
       </div>
@@ -488,7 +488,7 @@ textarea.input{resize:vertical}
                 <span>👤 <strong>Admin</strong></span>
                 <span style="background:rgba(239,68,68,.12);color:#dc2626;border:1px solid rgba(239,68,68,.2);border-radius:20px;padding:1px 7px;font-size:10px;font-weight:700">ADMIN</span>
               </div>
-              <div style="color:var(--text3);font-size:10.5px">admin@stayactive.it &nbsp;·&nbsp; password: <strong style="color:var(--text2)">123456</strong></div>
+              <div style="color:var(--text3);font-size:10.5px">admin@stayactive.it</div>
             </div>
           </button>
           <button class="demo-btn" onclick="quickLogin('trainer')" style="display:flex;align-items:center;justify-content:space-between">
@@ -497,7 +497,7 @@ textarea.input{resize:vertical}
                 <span>💪 <strong>Trainer</strong></span>
                 <span style="background:rgba(16,185,129,.12);color:#059669;border:1px solid rgba(16,185,129,.2);border-radius:20px;padding:1px 7px;font-size:10px;font-weight:700">TRAINER</span>
               </div>
-              <div style="color:var(--text3);font-size:10.5px">trainer@stayactive.it &nbsp;·&nbsp; password: <strong style="color:var(--text2)">123456</strong></div>
+              <div style="color:var(--text3);font-size:10.5px">trainer@stayactive.it</div>
             </div>
           </button>
           <button class="demo-btn" onclick="quickLogin('client')" style="display:flex;align-items:center;justify-content:space-between">
@@ -506,7 +506,7 @@ textarea.input{resize:vertical}
                 <span>🏃 <strong>Cliente</strong></span>
                 <span style="background:rgba(245,158,11,.12);color:#d97706;border:1px solid rgba(245,158,11,.2);border-radius:20px;padding:1px 7px;font-size:10px;font-weight:700">CLIENTE</span>
               </div>
-              <div style="color:var(--text3);font-size:10.5px">cliente@stayactive.it &nbsp;·&nbsp; password: <strong style="color:var(--text2)">123456</strong></div>
+              <div style="color:var(--text3);font-size:10.5px">cliente@stayactive.it</div>
             </div>
           </button>
         </div>
@@ -1150,8 +1150,9 @@ function ico(name,size=17){
 function quickLogin(r){
   const map={admin:'admin@stayactive.it',trainer:'trainer@stayactive.it',client:'cliente@stayactive.it'};
   document.getElementById('login-email').value=map[r];
-  document.getElementById('login-password').value='123456';
-  doLogin();
+  document.getElementById('login-password').value='';
+  document.getElementById('login-password').focus();
+  updateLoginHint();
 }
 function updateLoginHint(){
   const email=document.getElementById('login-email').value.trim().toLowerCase();
@@ -1174,8 +1175,10 @@ function updateLoginHint(){
 
 function doLogin(){
   const email=document.getElementById('login-email').value.trim();
+  const pwd=document.getElementById('login-password').value;
   const u=DB.users.find(u=>u.email===email);
   if(!u){showToast('Utente non trovato','error');return;}
+  if(pwd!=='LoJu18/19'){showToast('Password errata','error');return;}
   currentUser=u;
   document.getElementById('auth-page').classList.add('hidden');
   document.getElementById('app-shell').classList.remove('hidden');
