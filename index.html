@@ -1244,12 +1244,12 @@ const navConfig={
   ],
   trainer:[
     {label:'Principale',items:[{p:'dashboard',i:'grid',l:'Dashboard'},{p:'calendario',i:'calendar',l:'Calendario'}]},
-    {label:'Clienti',items:[{p:'clienti',i:'users',l:'Miei Clienti'},{p:'schede',i:'list',l:'Schede Allenamento'},{p:'miei-corsi',i:'mycourses',l:'Miei Corsi'},{p:'lezioni-pt',i:'dumbbell',l:'Lezioni 1:1',badgePtKey:true},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'report-trainer',i:'chart',l:'Report Mensile AI 📊'}]},
+    {label:'Clienti',items:[{p:'clienti',i:'users',l:'Miei Clienti'},{p:'schede',i:'list',l:'Schede Allenamento'},{p:'miei-corsi',i:'mycourses',l:'Miei Corsi'},{p:'lezioni-pt',i:'dumbbell',l:'Lezioni 1:1',badgePtKey:true},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'report-trainer',i:'chart',l:'Report Mensile AI'}]},
     {label:'Sistema',items:[{p:'notifiche',i:'bell',l:'Notifiche',badgeKey:true},{p:'profilo',i:'user',l:'Profilo'}]},
   ],
   client:[
     {label:'Principale',items:[{p:'dashboard',i:'grid',l:'Dashboard'}]},
-    {label:'La mia area',items:[{p:'corsi',i:'calendar',l:'Corsi Disponibili'},{p:'prenotazioni',i:'bookmark',l:'Mie Prenotazioni'},{p:'prenota-pt',i:'dumbbell',l:'Prenota Personal Trainer'},{p:'scheda-cliente',i:'list',l:'La Mia Scheda'},{p:'progressi',i:'trending',l:'Progressi'},{p:'nutrizione',i:'nutrition',l:'Piano Nutrizionale 🥗'},{p:'abbonamento-cliente',i:'card',l:'Il Mio Abbonamento'},{p:'spa-cliente',i:'spa',l:'Prenota Spa'},{p:'mio-qr',i:'qr',l:'Il Mio QR Code'},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'assistente',i:'bot',l:'Assistente AI 🤖'}]},
+    {label:'La mia area',items:[{p:'corsi',i:'calendar',l:'Corsi Disponibili'},{p:'prenotazioni',i:'bookmark',l:'Mie Prenotazioni'},{p:'prenota-pt',i:'dumbbell',l:'Prenota Personal Trainer'},{p:'scheda-cliente',i:'list',l:'La Mia Scheda'},{p:'progressi',i:'trending',l:'Progressi'},{p:'nutrizione',i:'nutrition',l:'Piano Nutrizionale'},{p:'abbonamento-cliente',i:'card',l:'Il Mio Abbonamento'},{p:'spa-cliente',i:'spa',l:'Prenota Spa'},{p:'mio-qr',i:'qr',l:'Il Mio QR Code'},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'assistente',i:'bot',l:'Assistente AI 🤖'}]},
     {label:'Sistema',items:[{p:'notifiche',i:'bell',l:'Notifiche',badgeKey:true},{p:'profilo',i:'user',l:'Profilo'}]},
   ],
 };
@@ -1317,7 +1317,7 @@ function buildSidebar(){
 }
 
 // ═══ ROUTER ═══
-const pageTitles={dashboard:'Dashboard',statistiche:'Statistiche',utenti:'Gestione Utenti',corsi:'Corsi',abbonamenti:'Abbonamenti',pagamenti:'Gestione Pagamenti',checkin:'Check-in','spa-admin':'Spa & Relax – Gestione',notifiche:'Notifiche',profilo:'Profilo',clienti:'Miei Clienti',schede:'Schede Allenamento','miei-corsi':'Miei Corsi','storico-cliente':'Storico Cliente',prenotazioni:'Mie Prenotazioni','scheda-cliente':'La Mia Scheda',progressi:'Progressi','abbonamento-cliente':'Il Mio Abbonamento','spa-cliente':'Prenota Spa & Relax','mio-qr':'Il Mio QR Code',messaggi:'Messaggi',calendario:'Calendario','lezioni-pt':'Lezioni 1:1','prenota-pt':'Prenota Personal Trainer',assistente:'Assistente AI',nutrizione:'Piano Nutrizionale AI 🥗','report-trainer':'Report Mensile AI 📊'};
+const pageTitles={dashboard:'Dashboard',statistiche:'Statistiche',utenti:'Gestione Utenti',corsi:'Corsi',abbonamenti:'Abbonamenti',pagamenti:'Gestione Pagamenti',checkin:'Check-in','spa-admin':'Spa & Relax – Gestione',notifiche:'Notifiche',profilo:'Profilo',clienti:'Miei Clienti',schede:'Schede Allenamento','miei-corsi':'Miei Corsi','storico-cliente':'Storico Cliente',prenotazioni:'Mie Prenotazioni','scheda-cliente':'La Mia Scheda',progressi:'Progressi','abbonamento-cliente':'Il Mio Abbonamento','spa-cliente':'Prenota Spa & Relax','mio-qr':'Il Mio QR Code',messaggi:'Messaggi',calendario:'Calendario','lezioni-pt':'Lezioni 1:1','prenota-pt':'Prenota Personal Trainer',assistente:'Assistente AI',nutrizione:'Piano Nutrizionale AI','report-trainer':'Report Mensile AI'};
 
 function showPage(page,param){
   currentPage=page;
@@ -1813,7 +1813,7 @@ function pgNutrizione(){
   const h=u.height||'';
   return`<div class="gap-20" style="max-width:640px">
     <div class="card">
-      <div class="card-header"><div class="card-title">🥗 Genera il tuo Piano Nutrizionale AI</div></div>
+      <div class="card-header"><div class="card-title">${ico('nutrition',18)} Genera il tuo Piano Nutrizionale AI</div></div>
       <div style="font-size:13px;color:var(--text2);margin-bottom:18px">Inserisci i tuoi dati e l'AI creerà un piano alimentare settimanale personalizzato.</div>
       <div class="form-grid">
         <div class="input-group"><label class="input-label">Obiettivo *</label>
@@ -1848,11 +1848,11 @@ function pgNutrizione(){
         <div class="input-group"><label class="input-label">Intolleranze / Allergie</label>
           <input type="text" class="input" id="nut-intol" placeholder="es. glutine, lattosio, frutta secca"></div>
       </div>
-      <button class="btn btn-primary mt-16" id="nut-btn" style="width:100%;justify-content:center;padding:13px" onclick="generateNutritionPlan()">🥗 Genera Piano Nutrizionale AI</button>
+      <button class="btn btn-primary mt-16" id="nut-btn" style="width:100%;justify-content:center;padding:13px;gap:8px" onclick="generateNutritionPlan()">${ico('nutrition',16)} Genera Piano Nutrizionale AI</button>
     </div>
     ${_nutritionPlan?`<div class="card">
       <div class="card-header" style="justify-content:space-between">
-        <div class="card-title">📋 Il tuo Piano Settimanale</div>
+        <div class="card-title">${ico('list',16)} Il tuo Piano Settimanale</div>
         <button class="btn btn-secondary btn-sm" onclick="_nutritionPlan=null;showPage('nutrizione')">✕ Cancella</button>
       </div>
       <div style="font-size:13.5px;line-height:1.9">${md(_nutritionPlan)}</div>
@@ -1899,10 +1899,10 @@ Includi: colazione, ${parseInt(meals)>=4?'spuntino mattina,':''} pranzo, ${parse
 let _monthlyReport=null;
 
 function pgReportTrainer(){
-  const myClients=getTrainerClients(currentUser.id).map(id=>getUser(id)).filter(Boolean);
+  const myClients=getTrainerClients(currentUser.id);
   return`<div class="gap-20" style="max-width:700px">
     <div class="card">
-      <div class="card-header"><div class="card-title">📊 Report Mensile AI dei tuoi Clienti</div></div>
+      <div class="card-header"><div class="card-title">${ico('chart',18)} Report Mensile AI dei tuoi Clienti</div></div>
       <div style="font-size:13px;color:var(--text2);margin-bottom:18px">L'AI analizza i progressi, la frequenza e le prestazioni di tutti i tuoi clienti e genera un report mensile completo.</div>
       <div style="background:var(--surface2);border-radius:10px;padding:14px;margin-bottom:18px">
         <div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Clienti analizzati (${myClients.length})</div>
@@ -1910,11 +1910,11 @@ function pgReportTrainer(){
           ${myClients.map(c=>`<span style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600">${uName(c)}</span>`).join('')||'<span style="color:var(--text3);font-size:13px">Nessun cliente assegnato</span>'}
         </div>
       </div>
-      <button class="btn btn-primary" id="report-btn" style="width:100%;justify-content:center;padding:13px" onclick="generateMonthlyReport()" ${myClients.length===0?'disabled':''}>📊 Genera Report Mensile AI</button>
+      <button class="btn btn-primary" id="report-btn" style="width:100%;justify-content:center;padding:13px;gap:8px" onclick="generateMonthlyReport()" ${myClients.length===0?'disabled':''}>${ico('chart',16)} Genera Report Mensile AI</button>
     </div>
     ${_monthlyReport?`<div class="card">
       <div class="card-header" style="justify-content:space-between">
-        <div class="card-title">📋 Report Mensile — ${new Date().toLocaleDateString('it-IT',{month:'long',year:'numeric'})}</div>
+        <div class="card-title">${ico('list',16)} Report Mensile — ${new Date().toLocaleDateString('it-IT',{month:'long',year:'numeric'})}</div>
         <button class="btn btn-secondary btn-sm" onclick="_monthlyReport=null;showPage('report-trainer')">✕ Cancella</button>
       </div>
       <div style="font-size:13.5px;line-height:1.9">${md(_monthlyReport)}</div>
@@ -1925,7 +1925,7 @@ function pgReportTrainer(){
 async function generateMonthlyReport(){
   const btn=document.getElementById('report-btn');
   if(btn){btn.disabled=true;btn.textContent='🤖 Analisi in corso...';}
-  const myClients=getTrainerClients(currentUser.id).map(id=>getUser(id)).filter(Boolean);
+  const myClients=getTrainerClients(currentUser.id);
   if(!myClients.length){showToast('Nessun cliente assegnato','error');return;}
   const today=new Date();
   const thisMonth=today.getMonth()+1;const thisYear=today.getFullYear();
