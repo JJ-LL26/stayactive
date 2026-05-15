@@ -1148,6 +1148,7 @@ function ico(name,size=17){
     'check-circle':`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
     repeat:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"/></svg>`,
     bot:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 001.357 2.059l1.143.476M14.25 3.104c.251.023.501.05.75.082M19.5 6.75l-1.5 1.5m0 0l-1.5 1.5m1.5-1.5v6.75M4.5 6.75l1.5 1.5m0 0l1.5 1.5M6 8.25V15M12 3v2.25m0 0a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zm0 0V3m-3 9h6"/></svg>`,
+    nutrition:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1.2 5.4-6 7.8-6 12a6 6 0 0012 0c0-4.2-4.8-6.6-6-12z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18"/></svg>`,
   };
   return m[name]||'';
 }
@@ -1243,12 +1244,12 @@ const navConfig={
   ],
   trainer:[
     {label:'Principale',items:[{p:'dashboard',i:'grid',l:'Dashboard'},{p:'calendario',i:'calendar',l:'Calendario'}]},
-    {label:'Clienti',items:[{p:'clienti',i:'users',l:'Miei Clienti'},{p:'schede',i:'list',l:'Schede Allenamento'},{p:'miei-corsi',i:'mycourses',l:'Miei Corsi'},{p:'lezioni-pt',i:'dumbbell',l:'Lezioni 1:1',badgePtKey:true},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true}]},
+    {label:'Clienti',items:[{p:'clienti',i:'users',l:'Miei Clienti'},{p:'schede',i:'list',l:'Schede Allenamento'},{p:'miei-corsi',i:'mycourses',l:'Miei Corsi'},{p:'lezioni-pt',i:'dumbbell',l:'Lezioni 1:1',badgePtKey:true},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'report-trainer',i:'chart',l:'Report Mensile AI 📊'}]},
     {label:'Sistema',items:[{p:'notifiche',i:'bell',l:'Notifiche',badgeKey:true},{p:'profilo',i:'user',l:'Profilo'}]},
   ],
   client:[
     {label:'Principale',items:[{p:'dashboard',i:'grid',l:'Dashboard'}]},
-    {label:'La mia area',items:[{p:'corsi',i:'calendar',l:'Corsi Disponibili'},{p:'prenotazioni',i:'bookmark',l:'Mie Prenotazioni'},{p:'prenota-pt',i:'dumbbell',l:'Prenota Personal Trainer'},{p:'scheda-cliente',i:'list',l:'La Mia Scheda'},{p:'progressi',i:'trending',l:'Progressi'},{p:'abbonamento-cliente',i:'card',l:'Il Mio Abbonamento'},{p:'spa-cliente',i:'spa',l:'Prenota Spa'},{p:'mio-qr',i:'qr',l:'Il Mio QR Code'},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'assistente',i:'bot',l:'Assistente AI 🤖'}]},
+    {label:'La mia area',items:[{p:'corsi',i:'calendar',l:'Corsi Disponibili'},{p:'prenotazioni',i:'bookmark',l:'Mie Prenotazioni'},{p:'prenota-pt',i:'dumbbell',l:'Prenota Personal Trainer'},{p:'scheda-cliente',i:'list',l:'La Mia Scheda'},{p:'progressi',i:'trending',l:'Progressi'},{p:'nutrizione',i:'nutrition',l:'Piano Nutrizionale 🥗'},{p:'abbonamento-cliente',i:'card',l:'Il Mio Abbonamento'},{p:'spa-cliente',i:'spa',l:'Prenota Spa'},{p:'mio-qr',i:'qr',l:'Il Mio QR Code'},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'assistente',i:'bot',l:'Assistente AI 🤖'}]},
     {label:'Sistema',items:[{p:'notifiche',i:'bell',l:'Notifiche',badgeKey:true},{p:'profilo',i:'user',l:'Profilo'}]},
   ],
 };
@@ -1316,7 +1317,7 @@ function buildSidebar(){
 }
 
 // ═══ ROUTER ═══
-const pageTitles={dashboard:'Dashboard',statistiche:'Statistiche',utenti:'Gestione Utenti',corsi:'Corsi',abbonamenti:'Abbonamenti',pagamenti:'Gestione Pagamenti',checkin:'Check-in','spa-admin':'Spa & Relax – Gestione',notifiche:'Notifiche',profilo:'Profilo',clienti:'Miei Clienti',schede:'Schede Allenamento','miei-corsi':'Miei Corsi','storico-cliente':'Storico Cliente',prenotazioni:'Mie Prenotazioni','scheda-cliente':'La Mia Scheda',progressi:'Progressi','abbonamento-cliente':'Il Mio Abbonamento','spa-cliente':'Prenota Spa & Relax','mio-qr':'Il Mio QR Code',messaggi:'Messaggi',calendario:'Calendario','lezioni-pt':'Lezioni 1:1','prenota-pt':'Prenota Personal Trainer',assistente:'Assistente AI'};
+const pageTitles={dashboard:'Dashboard',statistiche:'Statistiche',utenti:'Gestione Utenti',corsi:'Corsi',abbonamenti:'Abbonamenti',pagamenti:'Gestione Pagamenti',checkin:'Check-in','spa-admin':'Spa & Relax – Gestione',notifiche:'Notifiche',profilo:'Profilo',clienti:'Miei Clienti',schede:'Schede Allenamento','miei-corsi':'Miei Corsi','storico-cliente':'Storico Cliente',prenotazioni:'Mie Prenotazioni','scheda-cliente':'La Mia Scheda',progressi:'Progressi','abbonamento-cliente':'Il Mio Abbonamento','spa-cliente':'Prenota Spa & Relax','mio-qr':'Il Mio QR Code',messaggi:'Messaggi',calendario:'Calendario','lezioni-pt':'Lezioni 1:1','prenota-pt':'Prenota Personal Trainer',assistente:'Assistente AI',nutrizione:'Piano Nutrizionale AI 🥗','report-trainer':'Report Mensile AI 📊'};
 
 function showPage(page,param){
   currentPage=page;
@@ -1336,6 +1337,8 @@ function showPage(page,param){
     'abbonamento-cliente':pgAbbonamentoCliente,'spa-cliente':pgSpaCliente,'mio-qr':pgMioQR,
     'lezioni-pt':pgLezioniPT,'prenota-pt':pgPrenotaPT,
     assistente:pgAssistente,
+    nutrizione:pgNutrizione,
+    'report-trainer':pgReportTrainer,
   };
   const fn=renders[page];
   document.getElementById('page-content').innerHTML=fn?`<div class="page">${fn()}</div>`:'';
@@ -1798,6 +1801,166 @@ Fornisci: 1) Sintesi stato palestra 2) Punti critici da affrontare 3) 2 azioni p
     showToast('Errore analisi AI. Riprova.','error');
   }
   if(btn){btn.disabled=false;btn.textContent='🤖 Analisi AI';}
+}
+
+// ─── PIANO NUTRIZIONALE AI (cliente) ───
+let _nutritionPlan=null;
+
+function pgNutrizione(){
+  const u=currentUser;
+  const prog=DB.progressLogs.filter(l=>l.userId===u.id).sort((a,b)=>b.date.localeCompare(a.date));
+  const lastW=prog.length?prog[0].weight:'';
+  const h=u.height||'';
+  return`<div class="gap-20" style="max-width:640px">
+    <div class="card">
+      <div class="card-header"><div class="card-title">🥗 Genera il tuo Piano Nutrizionale AI</div></div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:18px">Inserisci i tuoi dati e l'AI creerà un piano alimentare settimanale personalizzato.</div>
+      <div class="form-grid">
+        <div class="input-group"><label class="input-label">Obiettivo *</label>
+          <select class="input" id="nut-goal">
+            <option value="Dimagrimento">Dimagrimento</option>
+            <option value="Aumento massa muscolare">Aumento massa muscolare</option>
+            <option value="Mantenimento">Mantenimento</option>
+            <option value="Tonificazione">Tonificazione</option>
+            <option value="Miglioramento performance sportiva">Performance sportiva</option>
+          </select>
+        </div>
+        <div class="input-group"><label class="input-label">Numero pasti al giorno</label>
+          <select class="input" id="nut-meals">
+            <option value="3">3 pasti</option>
+            <option value="4">4 pasti</option>
+            <option value="5" selected>5 pasti</option>
+            <option value="6">6 pasti</option>
+          </select>
+        </div>
+        <div class="input-group"><label class="input-label">Peso (kg)</label>
+          <input type="number" class="input" id="nut-weight" value="${lastW}" placeholder="es. 72"></div>
+        <div class="input-group"><label class="input-label">Altezza (cm)</label>
+          <input type="number" class="input" id="nut-height" value="${h}" placeholder="es. 175"></div>
+        <div class="input-group"><label class="input-label">Stile alimentare</label>
+          <select class="input" id="nut-diet">
+            <option value="onnivoro">Onnivoro</option>
+            <option value="vegetariano">Vegetariano</option>
+            <option value="vegano">Vegano</option>
+            <option value="mediterraneo">Mediterraneo</option>
+          </select>
+        </div>
+        <div class="input-group"><label class="input-label">Intolleranze / Allergie</label>
+          <input type="text" class="input" id="nut-intol" placeholder="es. glutine, lattosio, frutta secca"></div>
+      </div>
+      <button class="btn btn-primary mt-16" id="nut-btn" style="width:100%;justify-content:center;padding:13px" onclick="generateNutritionPlan()">🥗 Genera Piano Nutrizionale AI</button>
+    </div>
+    ${_nutritionPlan?`<div class="card">
+      <div class="card-header" style="justify-content:space-between">
+        <div class="card-title">📋 Il tuo Piano Settimanale</div>
+        <button class="btn btn-secondary btn-sm" onclick="_nutritionPlan=null;showPage('nutrizione')">✕ Cancella</button>
+      </div>
+      <div style="font-size:13.5px;line-height:1.9">${md(_nutritionPlan)}</div>
+    </div>`:''}
+  </div>`;
+}
+
+async function generateNutritionPlan(){
+  const btn=document.getElementById('nut-btn');
+  if(btn){btn.disabled=true;btn.textContent='🤖 Generazione in corso...';}
+  const goal=document.getElementById('nut-goal').value;
+  const meals=document.getElementById('nut-meals').value;
+  const weight=document.getElementById('nut-weight').value;
+  const height=document.getElementById('nut-height').value;
+  const diet=document.getElementById('nut-diet').value;
+  const intol=document.getElementById('nut-intol').value||'nessuna';
+  const plan=DB.workoutPlans.find(p=>p.clientId===currentUser.id&&p.status==='active');
+  const messages=[
+    {role:'system',content:'Sei un nutrizionista sportivo AI. Crea piani alimentari settimanali personalizzati in italiano. Sii preciso, pratico e includi porzioni. Usa il formato markdown con grassetto e elenchi.'},
+    {role:'user',content:`Crea un piano nutrizionale settimanale per:
+- Nome: ${currentUser.firstName}
+- Obiettivo: ${goal}
+- Peso: ${weight||'non specificato'} kg, Altezza: ${height||'non specificata'} cm
+- Pasti al giorno: ${meals}
+- Stile alimentare: ${diet}
+- Intolleranze: ${intol}
+- Scheda allenamento: ${plan?`"${plan.title}" (${plan.goal})`:'nessuna'}
+
+Includi: colazione, ${parseInt(meals)>=4?'spuntino mattina,':''} pranzo, ${parseInt(meals)>=5?'spuntino pomeriggio,':''} cena. Per ogni pasto indica alimenti e grammi. Aggiungi i macronutrienti stimati giornalieri.`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:900,temperature:0.7})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    _nutritionPlan=data.choices[0].message.content;
+    showPage('nutrizione');
+  }catch(e){
+    showToast('Errore generazione piano. Riprova.','error');
+    if(btn){btn.disabled=false;btn.textContent='🥗 Genera Piano Nutrizionale AI';}
+  }
+}
+
+// ─── REPORT MENSILE AI (trainer) ───
+let _monthlyReport=null;
+
+function pgReportTrainer(){
+  const myClients=getTrainerClients(currentUser.id).map(id=>getUser(id)).filter(Boolean);
+  return`<div class="gap-20" style="max-width:700px">
+    <div class="card">
+      <div class="card-header"><div class="card-title">📊 Report Mensile AI dei tuoi Clienti</div></div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:18px">L'AI analizza i progressi, la frequenza e le prestazioni di tutti i tuoi clienti e genera un report mensile completo.</div>
+      <div style="background:var(--surface2);border-radius:10px;padding:14px;margin-bottom:18px">
+        <div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Clienti analizzati (${myClients.length})</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          ${myClients.map(c=>`<span style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600">${uName(c)}</span>`).join('')||'<span style="color:var(--text3);font-size:13px">Nessun cliente assegnato</span>'}
+        </div>
+      </div>
+      <button class="btn btn-primary" id="report-btn" style="width:100%;justify-content:center;padding:13px" onclick="generateMonthlyReport()" ${myClients.length===0?'disabled':''}>📊 Genera Report Mensile AI</button>
+    </div>
+    ${_monthlyReport?`<div class="card">
+      <div class="card-header" style="justify-content:space-between">
+        <div class="card-title">📋 Report Mensile — ${new Date().toLocaleDateString('it-IT',{month:'long',year:'numeric'})}</div>
+        <button class="btn btn-secondary btn-sm" onclick="_monthlyReport=null;showPage('report-trainer')">✕ Cancella</button>
+      </div>
+      <div style="font-size:13.5px;line-height:1.9">${md(_monthlyReport)}</div>
+    </div>`:''}
+  </div>`;
+}
+
+async function generateMonthlyReport(){
+  const btn=document.getElementById('report-btn');
+  if(btn){btn.disabled=true;btn.textContent='🤖 Analisi in corso...';}
+  const myClients=getTrainerClients(currentUser.id).map(id=>getUser(id)).filter(Boolean);
+  if(!myClients.length){showToast('Nessun cliente assegnato','error');return;}
+  const today=new Date();
+  const thisMonth=today.getMonth()+1;const thisYear=today.getFullYear();
+  const clientData=myClients.map(c=>{
+    const prog=DB.progressLogs.filter(l=>l.userId===c.id).sort((a,b)=>b.date.localeCompare(a.date));
+    const checkins=DB.checkins.filter(ci=>ci.userId===c.id&&new Date(ci.date).getMonth()+1===thisMonth&&new Date(ci.date).getFullYear()===thisYear).length;
+    const bookings=DB.bookings.filter(b=>b.userId===c.id&&b.status==='booked').length;
+    const plan=DB.workoutPlans.find(p=>p.clientId===c.id&&p.status==='active');
+    const mem=getActiveMembership(c.id);
+    const lastW=prog.length?prog[0].weight:null;
+    const prevW=prog.length>1?prog[1].weight:null;
+    return `- **${uName(c)}**: check-in questo mese: ${checkins}, corsi prenotati: ${bookings}, ${plan?`scheda: "${plan.title}" (${plan.goal})`:'nessuna scheda'}, ${mem?`abbonamento ${mem.status==='warning'?'⚠ in scadenza':'attivo'}`:'abbonamento scaduto'}, ${lastW?`peso: ${lastW}kg${prevW?` (${lastW>prevW?'+':''}${(lastW-prevW).toFixed(1)}kg vs precedente)`:''}`: 'nessun dato peso'}`;
+  }).join('\n');
+  const messages=[
+    {role:'system',content:`Sei un assistente AI per personal trainer. Genera report mensili professionali in italiano. Usa markdown con sezioni chiare, grassetto e bullet point.`},
+    {role:'user',content:`Sono il trainer ${uName(currentUser)}. Genera un report mensile (${new Date().toLocaleDateString('it-IT',{month:'long',year:'numeric'})}) per i miei clienti:
+
+${clientData}
+
+Il report deve includere:
+1. **Sintesi generale** del mese
+2. **Analisi per cliente** (andamento, punti di forza, aree di miglioramento)
+3. **Clienti da monitorare** (bassa frequenza o abbonamenti in scadenza)
+4. **Azioni consigliate** per il prossimo mese`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:1000,temperature:0.7})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    _monthlyReport=data.choices[0].message.content;
+    showPage('report-trainer');
+  }catch(e){
+    showToast('Errore generazione report. Riprova.','error');
+    if(btn){btn.disabled=false;btn.textContent='📊 Genera Report Mensile AI';}
+  }
 }
 
 // ─── ADMIN DASHBOARD ───
