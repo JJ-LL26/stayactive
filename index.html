@@ -9,6 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -877,9 +878,14 @@ function checkMemberships(){
     if(m.status==='inactive') return;
     const end=new Date(m.end);
     const diff=Math.ceil((end-today)/(86400000));
+    const prevStatus=m.status;
     if(diff<0) m.status='expired';
     else if(diff<=7) m.status='warning';
     else m.status='active';
+    // Invia email solo quando lo stato diventa 'warning' per la prima volta
+    if(prevStatus!=='warning'&&m.status==='warning'){
+      sendEmailExpiry(m.userId,m.end,diff);
+    }
   });
 }
 
@@ -1185,6 +1191,8 @@ function doLogin(){
   checkMemberships();
   switchRole(u.role,true);
   showToast(`Benvenuto, ${u.firstName}! 👋`);
+  // Richiedi permesso notifiche e invia notifiche contestuali
+  setTimeout(()=>initPushNotifications(u),1500);
   // GDPR: mostra banner solo ai clienti se non hanno ancora accettato
   if(u.role==='client'){
     const consent=DB.gdprConsents.find(c=>c.userId===u.id);
@@ -1355,6 +1363,48 @@ let _progressAiAnalysis=null;
 let _schedaAiSuggestions=null;
 
 function md(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/^- (.+)/gm,'• $1').replace(/\n/g,'<br>');}
+
+// ─── EMAILJS INIT ───
+(function(){try{emailjs.init(EJS_PUBLIC_KEY);}catch(e){}})();
+
+function sendEmailBooking(courseId,userId){
+  try{
+    const c=getCourse(courseId);const u=getUser(userId);
+    if(!c||!u||!u.email)return;
+    emailjs.send(EJS_SERVICE_ID,EJS_TPL_BOOKING,{
+      to_email:u.email,to_name:u.firstName,
+      course_name:c.title,course_date:fmtDate(c.date),
+      course_time:c.timeStart+' – '+c.timeEnd,course_room:c.room
+    });
+  }catch(e){}
+}
+
+function sendEmailPayment(userId,amount,planName,date){
+  try{
+    const u=getUser(userId);if(!u||!u.email)return;
+    emailjs.send(EJS_SERVICE_ID,EJS_TPL_PAYMENT,{
+      to_email:u.email,to_name:u.firstName,
+      plan_name:planName,amount:'€'+amount,payment_date:fmtDate(date)
+    });
+  }catch(e){}
+}
+
+function sendEmailExpiry(userId,expiryDate,daysLeft){
+  try{
+    const u=getUser(userId);if(!u||!u.email)return;
+    emailjs.send(EJS_SERVICE_ID,EJS_TPL_EXPIRY,{
+      to_email:u.email,to_name:u.firstName,
+      expiry_date:fmtDate(expiryDate),days_left:daysLeft
+    });
+  }catch(e){}
+}
+
+// ─── EMAILJS CONFIG ───
+const EJS_PUBLIC_KEY    = 'INSERISCI_PUBLIC_KEY';
+const EJS_SERVICE_ID    = 'INSERISCI_SERVICE_ID';
+const EJS_TPL_BOOKING   = 'INSERISCI_TEMPLATE_BOOKING';
+const EJS_TPL_PAYMENT   = 'INSERISCI_TEMPLATE_PAYMENT';
+const EJS_TPL_EXPIRY    = 'INSERISCI_TEMPLATE_EXPIRY';
 
 // ─── REGOLO.AI CONFIG ───
 const REGOLO_API_KEY = 'sk-4NkeOe2pz2j2552HFSMkIA';
@@ -1659,6 +1709,97 @@ function aiChatResponse(msg,u){
   ];
   return defaults[Math.floor(Math.random()*defaults.length)];
 }
+// ─── WEB PUSH NOTIFICATIONS ───
+function sendPush(title,body,icon='🏋️'){
+  if(!('Notification' in window)||Notification.permission!=='granted')return;
+  try{new Notification(title,{body,icon:'https://stayactive.vercel.app/favicon.ico',badge:'https://stayactive.vercel.app/favicon.ico',tag:title});}catch(e){}
+}
+
+async function initPushNotifications(u){
+  if(!('Notification' in window))return;
+  if(Notification.permission==='default'){
+    const perm=await Notification.requestPermission();
+    if(perm!=='granted')return;
+  }
+  if(Notification.permission!=='granted')return;
+  checkMemberships();
+  // Notifica abbonamento in scadenza
+  if(u.role==='client'){
+    const mem=getActiveMembership(u.id);
+    if(mem&&mem.status==='warning'){
+      const days=Math.ceil((new Date(mem.end)-new Date())/86400000);
+      sendPush('⚠️ Abbonamento in scadenza',`Il tuo abbonamento scade tra ${days} giorni. Rinnova ora!`);
+    }
+    // Notifica corsi prenotati oggi
+    const corsiOggi=DB.bookings
+      .filter(b=>b.userId===u.id&&b.status==='booked')
+      .map(b=>getCourse(b.courseId))
+      .filter(c=>c&&c.date===todayStr());
+    if(corsiOggi.length>0){
+      const c=corsiOggi[0];
+      sendPush('🏃 Hai un corso oggi!',`${c.title} alle ${c.timeStart} in ${c.room}. In bocca al lupo!`);
+    }
+  }
+  // Notifica admin: abbonamenti in scadenza
+  if(u.role==='admin'){
+    const expiring=DB.memberships.filter(m=>m.status==='warning').length;
+    if(expiring>0) sendPush('📋 Dashboard StayActive',`${expiring} abbonament${expiring===1?'o':'i'} in scadenza. Controlla la dashboard.`);
+  }
+}
+
+function testPushNotification(){
+  if(Notification.permission==='granted'){
+    sendPush('🏋️ StayActive','Le notifiche funzionano correttamente!');
+  } else {
+    Notification.requestPermission().then(p=>{
+      if(p==='granted') sendPush('🏋️ StayActive','Notifiche attivate con successo!');
+      else showToast('Notifiche non autorizzate','error');
+    });
+  }
+}
+
+async function generateAIDashboardReport(){
+  const btn=document.getElementById('ai-dash-btn');
+  if(btn){btn.disabled=true;btn.textContent='🤖 Analisi in corso...';}
+  const today=new Date();
+  const thisMonth=today.getMonth()+1;const thisYear=today.getFullYear();
+  const activeU=DB.users.filter(u=>u.status==='active').length;
+  const clienti=DB.users.filter(u=>u.role==='client').length;
+  const trainer=DB.users.filter(u=>u.role==='trainer').length;
+  const activeMem=DB.memberships.filter(m=>m.status==='active').length;
+  const expiring=DB.memberships.filter(m=>m.status==='warning').length;
+  const expired=DB.memberships.filter(m=>m.status==='expired').length;
+  const monthRev=DB.payments.filter(p=>{const d=new Date(p.date);return d.getFullYear()===thisYear&&d.getMonth()+1===thisMonth;}).reduce((s,p)=>s+(p.amount||0),0);
+  const totalRev=DB.payments.reduce((s,p)=>s+(p.amount||0),0);
+  const checkinsToday=DB.checkins.filter(c=>c.date===todayStr()).length;
+  const corsiTotali=DB.courses.length;
+  const corsiPieni=DB.courses.filter(c=>realBooked(c.id)>=c.capacity).length;
+  const spaBookings=DB.spaBookings.length;
+  const messages=[
+    {role:'system',content:'Sei un business analyst AI per la palestra StayActive. Analizza i dati e fornisci un report esecutivo conciso in italiano. Usa bullet point e grassetto. Massimo 200 parole.'},
+    {role:'user',content:`Dati palestra aggiornati:
+- Utenti attivi: ${activeU} (clienti: ${clienti}, trainer: ${trainer})
+- Abbonamenti: ${activeMem} attivi, ${expiring} in scadenza, ${expired} scaduti
+- Ricavi mese corrente: €${monthRev} / Totale storico: €${totalRev}
+- Check-in oggi: ${checkinsToday}
+- Corsi: ${corsiTotali} totali, ${corsiPieni} al completo
+- Prenotazioni spa: ${spaBookings}
+
+Fornisci: 1) Sintesi stato palestra 2) Punti critici da affrontare 3) 2 azioni prioritarie consigliate.`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:400,temperature:0.7})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    const card=document.getElementById('ai-dashboard-card');
+    const txt=document.getElementById('ai-dashboard-text');
+    if(card&&txt){txt.innerHTML=md(data.choices[0].message.content);card.style.display='block';card.scrollIntoView({behavior:'smooth'});}
+  }catch(e){
+    showToast('Errore analisi AI. Riprova.','error');
+  }
+  if(btn){btn.disabled=false;btn.textContent='🤖 Analisi AI';}
+}
+
 // ─── ADMIN DASHBOARD ───
 function pgAdminDash(){
   return `${filterBar()}<div id="dash-body">${renderAdminDashBody()}</div>`;
@@ -1749,11 +1890,23 @@ function renderAdminDashBody(){
       </div>
     </div>
 
+    <!-- ══ AI REPORT ══ -->
+    <div class="card" id="ai-dashboard-card" style="display:none">
+      <div class="card-header" style="justify-content:space-between">
+        <div class="card-title">🤖 Analisi AI della Palestra</div>
+        <button class="btn btn-secondary btn-sm" onclick="document.getElementById('ai-dashboard-card').style.display='none'">✕</button>
+      </div>
+      <div id="ai-dashboard-text" style="font-size:13.5px;line-height:1.8;color:var(--text)"></div>
+    </div>
+
     <!-- ══ ANALYTICS CHARTS ══ -->
     <div class="card">
       <div class="card-header">
         <div class="card-title">📈 Ricavi ultimi 6 mesi</div>
-        <button class="btn btn-primary btn-sm" onclick="openReportModal()">📄 Genera Report PDF</button>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-secondary btn-sm" id="ai-dash-btn" onclick="generateAIDashboardReport()">🤖 Analisi AI</button>
+          <button class="btn btn-primary btn-sm" onclick="openReportModal()">📄 Genera Report PDF</button>
+        </div>
       </div>
       <div style="position:relative;height:220px"><canvas id="chart-revenue"></canvas></div>
     </div>
@@ -3641,6 +3794,7 @@ function saveAdminPayment(){
   DB.payments.push({id:DB.nextId.payment++,userId:uid,amount,plan:planName,method,date,status:'completed',membershipId,note:document.getElementById('adm-pay-note')?.value||''});
   const u=getUser(uid);
   addNotification('Pagamento registrato',`€${amount} da ${u?uName(u):'–'} – ${planName}.`,'success',false,'admin');
+  sendEmailPayment(uid,amount,planName,date);
   closeModal();showPage('pagamenti');showToast(`Pagamento di €${amount} registrato! ✅`);
 }
 
@@ -3742,6 +3896,14 @@ function pgProfilo(){
       <div class="row mt-16" style="gap:10px">
         <button class="btn btn-primary" onclick="saveProfilo()">Salva modifiche</button>
         <button class="btn btn-secondary" onclick="openCambioPassword()">Cambia password</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">🔔 Notifiche Push</div></div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:14px">Ricevi notifiche native sul tuo dispositivo per corsi, abbonamenti e aggiornamenti.</div>
+      <div class="row" style="gap:10px;align-items:center">
+        <button class="btn btn-primary" onclick="testPushNotification()">🔔 Attiva / Testa notifiche</button>
+        <span id="push-status" style="font-size:12px;color:var(--text3)">${'Notification' in window?(Notification.permission==='granted'?'✅ Notifiche attive':Notification.permission==='denied'?'❌ Bloccate dal browser':'⏳ Non ancora autorizzate'):'❌ Non supportate'}</span>
       </div>
     </div>
   </div>`;
@@ -5658,6 +5820,7 @@ function prenotaCorso(cid){
   c.booked++;
   if(realBooked(c.id)>=c.capacity)addNotification('Corso al completo',`"${c.title}" del ${fmtDate(c.date)} è al completo.`,'warning',false,'trainer');
   addNotification('Nuova prenotazione',`${uName(currentUser)} ha prenotato "${c.title}".`,'info',false,'trainer');
+  sendEmailBooking(cid,currentUser.id);
   filterCorsiC();
   showToast(`"${c.title}" prenotato! ✅`);
 }
