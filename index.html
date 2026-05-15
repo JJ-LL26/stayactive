@@ -1352,6 +1352,11 @@ function showPage(page,param){
 // ═══════════ ASSISTENTE AI ═══════════
 let _aiHistory=[];
 
+// ─── REGOLO.AI CONFIG ───
+const REGOLO_API_KEY = 'sk-4NkeOe2pz2j2552HFSMkIA';
+const REGOLO_API_URL = 'https://api.regolo.ai/v1/chat/completions';
+const REGOLO_MODEL   = 'meta-llama/llama-3.3-70b-instruct';
+
 function pgAssistente(){
   const u=currentUser;
   const mem=getActiveMembership(u.id);
@@ -1416,7 +1421,35 @@ function aiChip(elOrText){
   if(inp&&text){inp.value=text;sendAiMessage();}
 }
 
-function sendAiMessage(){
+async function callRegoloAI(text,u){
+  const mem=getActiveMembership(u.id);
+  const plan=DB.workoutPlans.find(p=>p.clientId===u.id&&p.status==='active');
+  const prog=DB.progressLogs.filter(r=>r.userId===u.id).sort((a,b)=>b.date.localeCompare(a.date));
+  const lastW=prog.length?prog[0].weight:null;
+  const bmi=lastW&&u.height?parseFloat((lastW/((u.height/100)**2)).toFixed(1)):null;
+  const systemPrompt=`Sei FitBot, l'assistente AI della palestra StayActive. Parla sempre in italiano, sii amichevole, motivante e professionale. Il cliente si chiama ${u.firstName} ${u.lastName}.
+Dati cliente:
+- Abbonamento: ${mem?`${mem.plan} (scade il ${mem.end})`:'Nessun abbonamento attivo'}
+- Scheda allenamento: ${plan?`"${plan.title}" attiva`:'Nessuna scheda attiva'}
+- Peso attuale: ${lastW?`${lastW} kg`:'non registrato'}
+- BMI: ${bmi||'non calcolabile'}
+Rispondi in modo conciso ma utile. Usa il grassetto (**testo**) e gli elenchi per formattare le risposte. Dai consigli pratici personalizzati quando hai i dati del cliente.`;
+  const messages=[
+    {role:'system',content:systemPrompt},
+    ..._aiHistory.slice(-8).map(m=>({role:m.role==='bot'?'assistant':'user',content:m.text})),
+    {role:'user',content:text}
+  ];
+  const res=await fetch(REGOLO_API_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},
+    body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:1024,temperature:0.7})
+  });
+  if(!res.ok)throw new Error('API error '+res.status);
+  const data=await res.json();
+  return data.choices[0].message.content;
+}
+
+async function sendAiMessage(){
   const inp=document.getElementById('ai-input');
   if(!inp)return;
   const text=inp.value.trim();
@@ -1426,7 +1459,6 @@ function sendAiMessage(){
   const msgEl=document.getElementById('ai-messages');
   if(msgEl){
     msgEl.innerHTML=_renderAiMessages();
-    // mostra typing indicator
     const typing=document.createElement('div');
     typing.id='ai-typing';
     typing.className='ai-msg bot';
@@ -1434,76 +1466,28 @@ function sendAiMessage(){
     msgEl.appendChild(typing);
     _scrollAiBottom();
   }
-  // Svuota chips mentre il bot "scrive"
   const chips=document.getElementById('ai-chips');
-  if(chips) chips.innerHTML='';
-  setTimeout(()=>{
-    const reply=aiChatResponse(text,currentUser);
-    _aiHistory.push({role:'bot',text:reply});
-    const typing=document.getElementById('ai-typing');
-    if(typing)typing.remove();
-    if(msgEl){msgEl.innerHTML=_renderAiMessages();_scrollAiBottom();}
-    // Mostra chip contestuali dopo ogni risposta
-    const chipsEl=document.getElementById('ai-chips');
-    if(chipsEl){
-      const q=text.toLowerCase();
-      let suggestions;
-      if(/protei|macro|whey/.test(q)){
-        suggestions=[
-          ['🥗 Pasto post-allenamento?','Cosa mangio dopo allenamento post-workout?'],
-          ['🔥 Quante calorie mi servono?','Quante calorie mi servono al giorno?'],
-          ['💊 Integratori e supplementi','Quali integratori e supplementi mi consigli?'],
-          ['😴 Quanto devo dormire?','Quanto devo dormire per recuperare?']
-        ];
-      } else if(/prima.*allena|pre.?workout|mangio/.test(q)){
-        suggestions=[
-          ['🥩 Pasto post-workout','Cosa mangio dopo allenamento post-workout?'],
-          ['💧 Quanta acqua bevo?','Quanta acqua devo bere al giorno?'],
-          ['🏋️ Quante proteine?','Quante proteine devo assumere?'],
-          ['📅 Ogni quanti giorni allenarsi?','Ogni quanti giorni devo allenarmi?']
-        ];
-      } else if(/motiv|stanco|demotivat/.test(q)){
-        suggestions=[
-          ['💪 Migliorare la scheda','Come migliorare la mia scheda allenamento?'],
-          ['📊 I miei progressi','Come sto andando con i progressi?'],
-          ['🥗 Consigli nutrizionali','Cosa devo mangiare per stare in forma?'],
-          ['🏃 Corsi consigliati','Quali corsi mi consigli?']
-        ];
-      } else if(/peso|bmi|progress|dimagr/.test(q)){
-        suggestions=[
-          ['🔥 Bruciare grassi','Come dimagrire con deficit calorico?'],
-          ['🥩 Proteine necessarie','Quante proteine devo assumere?'],
-          ['💪 Scheda allenamento','Come migliorare la mia scheda allenamento?'],
-          ['😴 Sonno e peso','Il sonno influenza il dimagrimento?']
-        ];
-      } else if(/recup|dorm|sonno/.test(q)){
-        suggestions=[
-          ['🧘 Stretching','Stretching e flessibilita consigliati?'],
-          ['🥗 Mangiare post-workout','Cosa mangio dopo allenamento post-workout?'],
-          ['💊 Integratori recupero','Quali integratori e supplementi mi consigli?'],
-          ['📅 Frequenza allenamento','Ogni quanti giorni devo allenarmi?']
-        ];
-      } else if(/scheda|workout|esercizi/.test(q)){
-        suggestions=[
-          ['🥗 Pre-workout','Cosa mangio prima di allenarmi?'],
-          ['🥩 Proteine','Quante proteine devo assumere?'],
-          ['😴 Recupero','Quanto devo dormire per recuperare?'],
-          ['📅 Frequenza','Ogni quanti giorni devo allenarmi?']
-        ];
-      } else {
-        suggestions=[
-          ['🥗 Nutrizione pre-workout','Cosa mangio prima di allenarmi?'],
-          ['💪 La mia scheda','Come migliorare la mia scheda allenamento?'],
-          ['📊 I miei progressi','Come sto andando con i progressi?'],
-          ['🔥 Motivazione','Dammi motivazione per allenarmi!']
-        ];
-      }
-      chipsEl.style.display='flex';
-      chipsEl.innerHTML=suggestions.map(([label,query])=>
-        `<button class="ai-chip" data-q="${query}" onclick="aiChip(this)">${label}</button>`
-      ).join('');
-    }
-  },700+Math.random()*600);
+  if(chips)chips.innerHTML='';
+  let reply;
+  try{
+    reply=await callRegoloAI(text,currentUser);
+  }catch(e){
+    reply=aiChatResponse(text,currentUser);
+  }
+  _aiHistory.push({role:'bot',text:reply});
+  const typing=document.getElementById('ai-typing');
+  if(typing)typing.remove();
+  if(msgEl){msgEl.innerHTML=_renderAiMessages();_scrollAiBottom();}
+  const chipsEl=document.getElementById('ai-chips');
+  if(chipsEl){
+    chipsEl.style.display='flex';
+    chipsEl.innerHTML=[
+      ['🥗 Nutrizione pre-workout','Cosa mangio prima di allenarmi?'],
+      ['💪 La mia scheda','Come migliorare la mia scheda allenamento?'],
+      ['📊 I miei progressi','Come sto andando con i progressi?'],
+      ['🔥 Motivazione','Dammi motivazione per allenarmi!']
+    ].map(([label,query])=>`<button class="ai-chip" data-q="${query}" onclick="aiChip(this)">${label}</button>`).join('');
+  }
 }
 
 function aiChatResponse(msg,u){
