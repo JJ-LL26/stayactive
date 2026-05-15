@@ -1351,6 +1351,10 @@ function showPage(page,param){
 
 // ═══════════ ASSISTENTE AI ═══════════
 let _aiHistory=[];
+let _progressAiAnalysis=null;
+let _schedaAiSuggestions=null;
+
+function md(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/^- (.+)/gm,'• $1').replace(/\n/g,'<br>');}
 
 // ─── REGOLO.AI CONFIG ───
 const REGOLO_API_KEY = 'sk-4NkeOe2pz2j2552HFSMkIA';
@@ -4049,6 +4053,37 @@ function pgSchede(){
   </div>`;
 }
 
+async function suggestExercisesWithAI(planId){
+  const plan=DB.workoutPlans.find(x=>x.id===planId);if(!plan)return;
+  const c=getUser(plan.clientId);
+  const btn=document.getElementById('ai-scheda-btn');
+  const box=document.getElementById('ai-scheda-box');
+  if(!btn||!box)return;
+  btn.disabled=true;btn.textContent='🤖 Analisi in corso...';
+  box.style.display='none';
+  const prog=DB.progressLogs.filter(r=>r.userId===plan.clientId).sort((a,b)=>b.date.localeCompare(a.date));
+  const lastW=prog.length?prog[0].weight:null;
+  const esistenti=plan.days.flatMap(d=>d.exercises.map(e=>e.name)).join(', ')||'nessuno ancora';
+  const messages=[
+    {role:'system',content:`Sei un personal trainer AI esperto. Suggerisci esercizi per una scheda di allenamento. Rispondi in italiano, in modo strutturato e pratico.`},
+    {role:'user',content:`Sto creando una scheda per ${c?uName(c):'un cliente'}${lastW?` (peso: ${lastW}kg)`:''}.
+Obiettivo: ${plan.goal}
+Esercizi già presenti: ${esistenti}
+Suggerisci 6 esercizi aggiuntivi adatti a questo obiettivo, indicando per ognuno: nome, serie x ripetizioni e muscoli coinvolti. Sii conciso.`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:500,temperature:0.7})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    box.innerHTML='<div style="font-weight:700;margin-bottom:8px;color:var(--accent)">🤖 Suggerimenti AI per obiettivo '+plan.goal+':</div>'+md(data.choices[0].message.content);
+    box.style.display='block';
+  }catch(e){
+    box.innerHTML='<span style="color:var(--danger)">Errore nel recupero suggerimenti. Riprova.</span>';
+    box.style.display='block';
+  }
+  btn.disabled=false;btn.textContent='🤖 Aggiorna suggerimenti AI';
+}
+
 function toggleScheda(planId){
   const p=DB.workoutPlans.find(x=>x.id===planId);if(!p)return;
   p.status=p.status==='active'?'archived':'active';
@@ -4100,6 +4135,12 @@ function openSchedaBuilder(planId){
   document.getElementById('modal-body').innerHTML=`
     <div class="modal-title">📋 ${plan.title}</div>
     <div style="font-size:13px;color:var(--text2);margin-bottom:16px">Cliente: <strong>${c?uName(c):'–'}</strong> · Obiettivo: ${plan.goal}</div>
+
+    <!-- AI SUGGERIMENTI -->
+    <div style="margin-bottom:16px">
+      <button class="btn btn-secondary" onclick="suggestExercisesWithAI(${plan.id})" id="ai-scheda-btn">🤖 Suggerisci esercizi con AI</button>
+    </div>
+    <div id="ai-scheda-box" style="display:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;font-size:13px;line-height:1.8"></div>
 
     <!-- AGGIUNGI ESERCIZIO -->
     <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
@@ -5117,6 +5158,9 @@ function pgProgressi(){
   const textColor=dark?'#aaa':'#888';
 
   return`<div class="gap-20">
+    <!-- AI Analysis Card -->
+    <div class="card" id="ai-progress-card" style="${_progressAiAnalysis?'display:block':'display:none'}">${renderProgressAiCard()}</div>
+
     <!-- KPI cards -->
     <div class="grid-4">
       <div class="kpi-card blue">
@@ -5255,11 +5299,43 @@ function saveHeight(){
   closeModal();showPage('progressi');showToast('Altezza aggiornata ✓','success');
 }
 
-function saveProgresso(){
+async function saveProgresso(){
   const w=parseFloat(document.getElementById('pr-w').value);const date=document.getElementById('pr-d').value;
   if(!w||!date){showToast('Inserisci almeno data e peso','error');return;}
   DB.progressLogs.push({userId:currentUser.id,date,weight:w,fat:parseFloat(document.getElementById('pr-f').value)||0,chest:parseFloat(document.getElementById('pr-ch').value)||0,waist:parseFloat(document.getElementById('pr-wa').value)||0});
-  showPage('progressi');showToast('Progressi salvati! 📈','success');
+  _progressAiAnalysis=null;
+  showPage('progressi');
+  showToast('Progressi salvati! 🤖 Analisi AI in corso...','success');
+  analyzeProgressWithAI();
+}
+
+async function analyzeProgressWithAI(){
+  const logs=DB.progressLogs.filter(l=>l.userId===currentUser.id).sort((a,b)=>a.date.localeCompare(b.date));
+  if(!logs.length)return;
+  const u=currentUser;
+  const h=u.height||0;
+  const latest=logs[logs.length-1];
+  const bmi=latest&&h?parseFloat((latest.weight/((h/100)**2)).toFixed(1)):null;
+  const plan=DB.workoutPlans.find(p=>p.clientId===u.id&&p.status==='active');
+  const logsText=logs.map(l=>`${l.date}: ${l.weight}kg${l.fat?` grasso ${l.fat}%`:''}${l.waist?` vita ${l.waist}cm`:''}${l.chest?` petto ${l.chest}cm`:''}`).join('\n');
+  const messages=[
+    {role:'system',content:`Sei un coach fitness AI di StayActive. Analizza i dati di progresso del cliente ${u.firstName} (altezza ${h}cm, BMI ${bmi||'n/d'}). Rispondi in italiano, sii motivante e pratico. Massimo 5 righe.`},
+    {role:'user',content:`Ecco i miei progressi:\n${logsText}\n${plan?`Scheda attiva: "${plan.title}" obiettivo ${plan.goal}`:'Nessuna scheda attiva'}\nAnalizza il mio andamento e dammi 3 consigli personalizzati.`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:400,temperature:0.7})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    _progressAiAnalysis=data.choices[0].message.content;
+    const el=document.getElementById('ai-progress-card');
+    if(el){el.innerHTML=renderProgressAiCard();el.style.display='block';}
+    else showPage('progressi');
+  }catch(e){/* silent fail */}
+}
+
+function renderProgressAiCard(){
+  if(!_progressAiAnalysis)return'';
+  return`<div class="card-header" style="justify-content:space-between"><div class="card-title">🤖 Analisi AI dei tuoi progressi</div><button class="btn btn-secondary btn-sm" onclick="_progressAiAnalysis=null;document.getElementById('ai-progress-card').style.display='none'">✕</button></div><div style="font-size:13.5px;line-height:1.8;color:var(--text)">${md(_progressAiAnalysis)}</div>`;
 }
 
 // ─── ABBONAMENTO CLIENTE ───
