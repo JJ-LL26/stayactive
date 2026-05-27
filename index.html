@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
@@ -481,12 +481,12 @@ textarea.input{resize:vertical}
         <button class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;font-size:14px" onclick="doLogin()">Accedi</button>
       </div>
       <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-top:18px">
-        <p style="font-size:10.5px;color:var(--text3);margin-bottom:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase">🔑 Accesso rapido demo</p>
+        <p style="font-size:10.5px;color:var(--text3);margin-bottom:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase">Accesso rapido demo</p>
         <div style="display:flex;flex-direction:column;gap:6px">
           <button class="demo-btn" onclick="quickLogin('admin')" style="display:flex;align-items:center;justify-content:space-between">
             <div style="text-align:left">
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
-                <span>👤 <strong>Admin</strong></span>
+                <span><strong>Admin</strong></span>
                 <span style="background:rgba(239,68,68,.12);color:#dc2626;border:1px solid rgba(239,68,68,.2);border-radius:20px;padding:1px 7px;font-size:10px;font-weight:700">ADMIN</span>
               </div>
               <div style="color:var(--text3);font-size:10.5px">admin@stayactive.it</div>
@@ -495,7 +495,7 @@ textarea.input{resize:vertical}
           <button class="demo-btn" onclick="quickLogin('trainer')" style="display:flex;align-items:center;justify-content:space-between">
             <div style="text-align:left">
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
-                <span>💪 <strong>Trainer</strong></span>
+                <span><strong>Trainer</strong></span>
                 <span style="background:rgba(16,185,129,.12);color:#059669;border:1px solid rgba(16,185,129,.2);border-radius:20px;padding:1px 7px;font-size:10px;font-weight:700">TRAINER</span>
               </div>
               <div style="color:var(--text3);font-size:10.5px">trainer@stayactive.it</div>
@@ -504,7 +504,7 @@ textarea.input{resize:vertical}
           <button class="demo-btn" onclick="quickLogin('client')" style="display:flex;align-items:center;justify-content:space-between">
             <div style="text-align:left">
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px">
-                <span>🏃 <strong>Cliente</strong></span>
+                <span><strong>Cliente</strong></span>
                 <span style="background:rgba(245,158,11,.12);color:#d97706;border:1px solid rgba(245,158,11,.2);border-radius:20px;padding:1px 7px;font-size:10px;font-weight:700">CLIENTE</span>
               </div>
               <div style="color:var(--text3);font-size:10.5px">cliente@stayactive.it</div>
@@ -634,12 +634,12 @@ const DB = {
     {id:60,firstName:'Niccolò',lastName:'Bassi',email:'niccolo.bassi@email.it',phone:'+39 348 6000045',birth:'1999-04-02',gender:'Maschio',role:'client',status:'active',joined:'2026-01-10',qrCode:'SA-CLI-060',height:186,address:'Via Ravenna 5, 48100 Ravenna'},
   ],
   courses:[
-    {id:1,title:'Spinning Mattutino',trainerId:2,date:'2026-04-21',timeStart:'07:00',timeEnd:'08:00',capacity:15,booked:12,room:'Sala A'},
-    {id:2,title:'Yoga Flow',trainerId:3,date:'2026-04-21',timeStart:'09:00',timeEnd:'10:00',capacity:20,booked:18,room:'Sala B'},
-    {id:3,title:'CrossFit HIIT',trainerId:2,date:'2026-04-21',timeStart:'18:00',timeEnd:'19:00',capacity:12,booked:8,room:'Box'},
-    {id:4,title:'Pilates',trainerId:3,date:'2026-04-22',timeStart:'10:00',timeEnd:'11:00',capacity:15,booked:15,room:'Sala B'},
-    {id:5,title:'Zumba',trainerId:3,date:'2026-04-23',timeStart:'19:00',timeEnd:'20:00',capacity:25,booked:20,room:'Salone'},
-    {id:6,title:'Body Pump',trainerId:2,date:'2026-04-23',timeStart:'08:00',timeEnd:'09:00',capacity:20,booked:9,room:'Sala A'},
+    {id:1,title:'Spinning Mattutino',trainerId:2,date:'2026-05-27',timeStart:'07:00',timeEnd:'08:00',capacity:15,room:'Sala A'},
+    {id:2,title:'Yoga Flow',trainerId:3,date:'2026-05-27',timeStart:'09:00',timeEnd:'10:00',capacity:20,room:'Sala B'},
+    {id:3,title:'CrossFit HIIT',trainerId:2,date:'2026-05-27',timeStart:'18:00',timeEnd:'19:00',capacity:12,room:'Box'},
+    {id:4,title:'Pilates',trainerId:3,date:'2026-05-28',timeStart:'10:00',timeEnd:'11:00',capacity:15,room:'Sala B'},
+    {id:5,title:'Zumba',trainerId:3,date:'2026-05-29',timeStart:'19:00',timeEnd:'20:00',capacity:25,room:'Salone'},
+    {id:6,title:'Body Pump',trainerId:2,date:'2026-05-29',timeStart:'08:00',timeEnd:'09:00',capacity:20,room:'Sala A'},
   ],
   memberships:[
     {id:1, userId:4,  plan:'Premium Annuale',    start:'2025-03-10',end:'2026-12-10',status:'active', price:599},
@@ -693,22 +693,22 @@ const DB = {
     {id:49,userId:60, plan:'Base Trimestrale',   start:'2026-03-10',end:'2026-06-10',status:'active', price:129},
   ],
   bookings:[
-    {id:1,userId:4,courseId:1,status:'booked',bookedAt:'2026-04-20'},
-    {id:2,userId:4,courseId:2,status:'booked',bookedAt:'2026-04-20'},
-    {id:3,userId:5,courseId:3,status:'cancelled',bookedAt:'2026-04-15'},
+    {id:1,userId:4,courseId:1,status:'booked',bookedAt:'2026-05-25'},
+    {id:2,userId:4,courseId:2,status:'booked',bookedAt:'2026-05-25'},
+    {id:3,userId:5,courseId:3,status:'cancelled',bookedAt:'2026-05-20'},
   ],
   spaBookings:[
-    {id:1,userId:4,date:'2026-04-21',slot:'09:00–10:00',people:1,bookedAt:'2026-04-20'},
-    {id:2,userId:7,date:'2026-04-21',slot:'11:00–12:00',people:2,bookedAt:'2026-04-20'},
-    {id:3,userId:5,date:'2026-04-21',slot:'15:00–16:00',people:1,bookedAt:'2026-04-20'},
+    {id:1,userId:4,date:'2026-05-27',slot:'09:00–10:00',people:1,bookedAt:'2026-05-25'},
+    {id:2,userId:7,date:'2026-05-27',slot:'11:00–12:00',people:2,bookedAt:'2026-05-25'},
+    {id:3,userId:5,date:'2026-05-27',slot:'15:00–16:00',people:1,bookedAt:'2026-05-25'},
   ],
   checkins:[
-    {id:1,userId:4,time:'08:05',method:'QR Code',date:'2026-04-21'},
-    {id:2,userId:5,time:'08:22',method:'Manuale',date:'2026-04-21'},
-    {id:3,userId:7,time:'08:42',method:'QR Code',date:'2026-04-21'},
-    {id:4,userId:2,time:'09:00',method:'Manuale',date:'2026-04-21'},
-    {id:5,userId:5,time:'09:30',method:'Manuale',date:'2026-04-20'},
-    {id:6,userId:4,time:'10:00',method:'QR Code',date:'2026-04-19'},
+    {id:1,userId:4,time:'08:05',method:'QR Code',date:'2026-05-26'},
+    {id:2,userId:5,time:'08:22',method:'Manuale',date:'2026-05-26'},
+    {id:3,userId:7,time:'08:42',method:'QR Code',date:'2026-05-26'},
+    {id:4,userId:2,time:'09:00',method:'Manuale',date:'2026-05-26'},
+    {id:5,userId:5,time:'09:30',method:'Manuale',date:'2026-05-24'},
+    {id:6,userId:4,time:'10:00',method:'QR Code',date:'2026-05-22'},
   ],
   notifications:[
     {id:1,title:'Abbonamento in scadenza',msg:'L\'abbonamento di Davide Ricci scade tra pochi giorni.',time:'2026-04-21T08:00:00',read:false,type:'warning',adminOnly:false,targetRole:'admin'},
@@ -780,19 +780,19 @@ const DB = {
   courseAttendance:[], // {id, courseId, userId, date, present}
   gdprConsents:[], // {userId, accepted:bool, date}
   ptSessions:[ // lezioni one-to-one tra trainer e cliente
-    {id:1,clientId:4,trainerId:2,date:'2026-04-28',timeStart:'10:00',timeEnd:'11:00',status:'confirmed',notes:'Focus su core e postura',createdAt:'2026-04-20'},
-    {id:2,clientId:5,trainerId:2,date:'2026-04-29',timeStart:'09:00',timeEnd:'10:00',status:'pending',notes:'Prima sessione valutazione',createdAt:'2026-04-21'},
+    {id:1,clientId:4,trainerId:2,date:'2026-06-03',timeStart:'10:00',timeEnd:'11:00',status:'confirmed',notes:'Focus su core e postura',createdAt:'2026-05-24'},
+    {id:2,clientId:5,trainerId:2,date:'2026-06-04',timeStart:'09:00',timeEnd:'10:00',status:'pending',notes:'Prima sessione valutazione',createdAt:'2026-05-25'},
   ],
   // trainer_id → [clientIds] — ogni cliente può essere assegnato a UN SOLO trainer
   trainerClients:{
-    2:[4,5,16,17,18],          // Luca Bianchi
-    3:[7,19,20,21],            // Sara Romano
-    10:[22,23,24,25,26],       // Matteo Ferraro
-    11:[27,28,29,30,31],       // Valentina Russo
-    12:[32,33,34,35,36],       // Alessandro Marino
-    13:[37,38,39,40,41],       // Chiara Lombardi
-    14:[42,43,44,45,46],       // Francesco Rizzo
-    15:[47,48,49,50,51],       // Martina Colombo
+    2:[4,5,16,17,18,58],       // Luca Bianchi
+    3:[6,7,19,20,21,59],       // Sara Romano
+    10:[22,23,24,25,26,52,60], // Matteo Ferraro
+    11:[27,28,29,30,31,53],    // Valentina Russo
+    12:[32,33,34,35,36,54],    // Alessandro Marino
+    13:[37,38,39,40,41,55],    // Chiara Lombardi
+    14:[42,43,44,45,46,56],    // Francesco Rizzo
+    15:[47,48,49,50,51,57],    // Martina Colombo
   },
 };
 
@@ -1018,7 +1018,7 @@ function filterBar(){
     <select id="filter-month-sel" onchange="setFilterCustom()" style="background:var(--surface2);border:1.5px solid ${isCustom?'var(--accent)':'var(--border)'};border-radius:8px;padding:5px 10px;font-size:13px;color:var(--text);cursor:pointer">
       ${months.map((m,i)=>`<option value="${i+1}" ${i+1===dashFilter.month?'selected':''}>${m}</option>`).join('')}
     </select>
-    <span id="filter-active-badge" style="display:${isCustom?'inline-flex':'none'};font-size:11px;background:rgba(224,32,32,.1);color:var(--accent);padding:3px 10px;border-radius:99px;font-weight:700;white-space:nowrap;align-items:center">${isCustom?`📅 ${months[dashFilter.month-1]} ${dashFilter.year}`:''}</span>
+    <span id="filter-active-badge" style="display:${isCustom?'inline-flex':'none'};font-size:11px;background:rgba(224,32,32,.1);color:var(--accent);padding:3px 10px;border-radius:99px;font-weight:700;white-space:nowrap;align-items:center">${isCustom?`${ico('calendar',13)} ${months[dashFilter.month-1]} ${dashFilter.year}`:''}</span>
   </div>`;
 }
 
@@ -1075,7 +1075,7 @@ function syncFilterBarUI(){
   const badge=document.getElementById('filter-active-badge');
   if(badge){
     badge.style.display=isCustom?'inline-flex':'none';
-    if(isCustom) badge.textContent=`📅 ${months[dashFilter.month-1]} ${dashFilter.year}`;
+    if(isCustom) badge.innerHTML=`${ico('calendar',13)} ${months[dashFilter.month-1]} ${dashFilter.year}`;
   }
 }
 
@@ -1149,6 +1149,24 @@ function ico(name,size=17){
     repeat:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3"/></svg>`,
     bot:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 001.357 2.059l1.143.476M14.25 3.104c.251.023.501.05.75.082M19.5 6.75l-1.5 1.5m0 0l-1.5 1.5m1.5-1.5v6.75M4.5 6.75l1.5 1.5m0 0l1.5 1.5M6 8.25V15M12 3v2.25m0 0a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5zm0 0V3m-3 9h6"/></svg>`,
     nutrition:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1.2 5.4-6 7.8-6 12a6 6 0 0012 0c0-4.2-4.8-6.6-6-12z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18"/></svg>`,
+    warning:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>`,
+    document:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>`,
+    clock:`<svg ${s}><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    info:`<svg ${s}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    lock:`<svg ${s}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>`,
+    location:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>`,
+    people:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>`,
+    trophy:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/></svg>`,
+    zap:`<svg ${s}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    ruler:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg>`,
+    sleep:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`,
+    running:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 5.25a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM5.25 7.5l3-1.5 2.25 3 3-1.5 1.5 4.5M5.25 7.5l-1.5 6M5.25 7.5l3 9m6-13.5l1.5 4.5m0 0l1.5 3M14.25 16.5l-1.5-4.5"/></svg>`,
+    admin:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>`,
+    'x-circle':`<svg ${s}><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>`,
+    fire:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/></svg>`,
+    'arrow-right':`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>`,
+    lightbulb:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>`,
+    money:`<svg ${s}><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>`,
   };
   return m[name]||'';
 }
@@ -1168,12 +1186,12 @@ function updateLoginHint(){
   const u=DB.users.find(u=>u.email.toLowerCase()===email);
   if(u){
     const cfg={
-      admin:{icon:'🔐',label:'Amministratore',desc:'Accederai alla gestione completa della palestra',color:'#dc2626'},
-      trainer:{icon:'💪',label:'Personal Trainer',desc:'Accederai alla gestione clienti e schede',color:'#059669'},
-      client:{icon:'🏃',label:'Cliente',desc:'Accederai alla tua area personale',color:'#d97706'},
-    }[u.role]||{icon:'👤',label:u.role,desc:'',color:'var(--text2)'};
+      admin:{icon:'admin',label:'Amministratore',desc:'Accederai alla gestione completa della palestra',color:'#dc2626'},
+      trainer:{icon:'dumbbell',label:'Personal Trainer',desc:'Accederai alla gestione clienti e schede',color:'#059669'},
+      client:{icon:'running',label:'Cliente',desc:'Accederai alla tua area personale',color:'#d97706'},
+    }[u.role]||{icon:'people',label:u.role,desc:'',color:'var(--text2)'};
     hint.style.display='flex';
-    hint.innerHTML=`<span style="font-size:18px">${cfg.icon}</span><div><div style="font-weight:700;font-size:12px;color:${cfg.color}">${cfg.label}</div><div style="font-size:11px;color:var(--text3)">${cfg.desc}</div></div>`;
+    hint.innerHTML=`<span style="font-size:18px">${ico(cfg.icon,20)}</span><div><div style="font-weight:700;font-size:12px;color:${cfg.color}">${cfg.label}</div><div style="font-size:11px;color:var(--text3)">${cfg.desc}</div></div>`;
   } else {
     hint.style.display='none';
     hint.innerHTML='';
@@ -1191,7 +1209,7 @@ function doLogin(){
   document.getElementById('app-shell').classList.remove('hidden');
   checkMemberships();
   switchRole(u.role,true);
-  showToast(`Benvenuto, ${u.firstName}! 👋`);
+  showToast(`Benvenuto, ${u.firstName}!`);
   // Richiedi permesso notifiche e invia notifiche contestuali
   setTimeout(()=>initPushNotifications(u),1500);
   // GDPR: mostra banner solo ai clienti se non hanno ancora accettato
@@ -1208,7 +1226,7 @@ function showGdprBanner(){
   banner.className='gdpr-banner';
   banner.innerHTML=`
     <div style="flex:1;min-width:200px">
-      <div style="font-weight:700;font-size:14px;margin-bottom:4px">🔒 Privacy & Cookie – GDPR</div>
+      <div style="font-weight:700;font-size:14px;margin-bottom:4px">${ico('lock',14)} Privacy & Cookie – GDPR</div>
       <div style="font-size:12px;color:rgba(255,255,255,.75)">Stay Active tratta i tuoi dati personali per la gestione del tuo account, abbonamento, schede allenamento e accesso alle strutture. I dati non vengono ceduti a terzi. Puoi esercitare i tuoi diritti (accesso, rettifica, cancellazione) contattando la reception.</div>
     </div>
     <div style="display:flex;gap:10px;flex-shrink:0">
@@ -1228,11 +1246,27 @@ function acceptGdpr(full){
 }
 function doLogout(){
   closeModal();
+  // Resetta stato sessione
+  currentUser=DB.users[0];
+  currentRole='admin';
+  currentPage='dashboard';
   _ptBookState={trainerId:null,date:'',slot:''};
+  // Resetta stato AI
+  _aiHistory=[];
+  _progressAiAnalysis=null;
+  _schedaAiSuggestions=null;
+  _clientBriefings={};
+  _recoveryAnalysis=null;
+  _weeklyChallenge={week:null,text:null,done:false};
+  // Resetta nutrizione/report
+  _nutritionPlan=null;
+  _monthlyReport=null;
   document.getElementById('app-shell').classList.add('hidden');
   document.getElementById('auth-page').classList.remove('hidden');
-  // Resetta hint email login
+  // Resetta hint e campi login
   const hint=document.getElementById('login-role-hint');if(hint)hint.style.display='none';
+  const em=document.getElementById('login-email');if(em)em.value='';
+  const pw=document.getElementById('login-password');if(pw)pw.value='';
 }
 
 // ═══ NAV CONFIG ═══
@@ -1249,7 +1283,7 @@ const navConfig={
   ],
   client:[
     {label:'Principale',items:[{p:'dashboard',i:'grid',l:'Dashboard'}]},
-    {label:'La mia area',items:[{p:'corsi',i:'calendar',l:'Corsi Disponibili'},{p:'prenotazioni',i:'bookmark',l:'Mie Prenotazioni'},{p:'prenota-pt',i:'dumbbell',l:'Prenota Personal Trainer'},{p:'scheda-cliente',i:'list',l:'La Mia Scheda'},{p:'progressi',i:'trending',l:'Progressi'},{p:'nutrizione',i:'nutrition',l:'Piano Nutrizionale'},{p:'abbonamento-cliente',i:'card',l:'Il Mio Abbonamento'},{p:'spa-cliente',i:'spa',l:'Prenota Spa'},{p:'mio-qr',i:'qr',l:'Il Mio QR Code'},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'assistente',i:'bot',l:'Assistente AI 🤖'}]},
+    {label:'La mia area',items:[{p:'corsi',i:'calendar',l:'Corsi Disponibili'},{p:'prenotazioni',i:'bookmark',l:'Mie Prenotazioni'},{p:'prenota-pt',i:'dumbbell',l:'Prenota Personal Trainer'},{p:'scheda-cliente',i:'list',l:'La Mia Scheda'},{p:'progressi',i:'trending',l:'Progressi'},{p:'nutrizione',i:'nutrition',l:'Piano Nutrizionale'},{p:'abbonamento-cliente',i:'card',l:'Il Mio Abbonamento'},{p:'spa-cliente',i:'spa',l:'Prenota Spa'},{p:'mio-qr',i:'qr',l:'Il Mio QR Code'},{p:'messaggi',i:'message',l:'Messaggi',badgeMsgKey:true},{p:'assistente',i:'bot',l:'Assistente AI'}]},
     {label:'Sistema',items:[{p:'notifiche',i:'bell',l:'Notifiche',badgeKey:true},{p:'profilo',i:'user',l:'Profilo'}]},
   ],
 };
@@ -1364,8 +1398,18 @@ function showPage(page,param){
 let _aiHistory=[];
 let _progressAiAnalysis=null;
 let _schedaAiSuggestions=null;
+let _clientBriefings={};
+let _recoveryAnalysis=null;
+let _weeklyChallenge={week:null,text:null,done:false};
 
 function md(t){return t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/^- (.+)/gm,'• $1').replace(/\n/g,'<br>');}
+
+// ─── EMAILJS CONFIG ───
+const EJS_PUBLIC_KEY    = 'INSERISCI_PUBLIC_KEY';
+const EJS_SERVICE_ID    = 'INSERISCI_SERVICE_ID';
+const EJS_TPL_BOOKING   = 'INSERISCI_TEMPLATE_BOOKING';
+const EJS_TPL_PAYMENT   = 'INSERISCI_TEMPLATE_PAYMENT';
+const EJS_TPL_EXPIRY    = 'INSERISCI_TEMPLATE_EXPIRY';
 
 // ─── EMAILJS INIT ───
 (function(){try{emailjs.init(EJS_PUBLIC_KEY);}catch(e){}})();
@@ -1402,13 +1446,6 @@ function sendEmailExpiry(userId,expiryDate,daysLeft){
   }catch(e){}
 }
 
-// ─── EMAILJS CONFIG ───
-const EJS_PUBLIC_KEY    = 'INSERISCI_PUBLIC_KEY';
-const EJS_SERVICE_ID    = 'INSERISCI_SERVICE_ID';
-const EJS_TPL_BOOKING   = 'INSERISCI_TEMPLATE_BOOKING';
-const EJS_TPL_PAYMENT   = 'INSERISCI_TEMPLATE_PAYMENT';
-const EJS_TPL_EXPIRY    = 'INSERISCI_TEMPLATE_EXPIRY';
-
 // ─── REGOLO.AI CONFIG ───
 const REGOLO_API_KEY = 'sk-4NkeOe2pz2j2552HFSMkIA';
 const REGOLO_API_URL = 'https://api.regolo.ai/v1/chat/completions';
@@ -1421,11 +1458,11 @@ function pgAssistente(){
   const prog=DB.progressLogs.filter(r=>r.userId===u.id).sort((a,b)=>b.date.localeCompare(a.date));
   const lastW=prog.length?prog[0].weight:null;
   _aiHistory=[];
-  const greeting=`Ciao ${u.firstName}! 👋 Sono il tuo assistente personale StayActive. Posso aiutarti con **nutrizione**, **allenamento**, **motivazione** e informazioni sulla palestra. Come posso esserti utile oggi?`;
+  const greeting=`Ciao ${u.firstName}! Sono il tuo assistente personale StayActive. Posso aiutarti con **nutrizione**, **allenamento**, **motivazione** e informazioni sulla palestra. Come posso esserti utile oggi?`;
   _aiHistory.push({role:'bot',text:greeting});
   return `<div class="ai-chat-wrap">
     <div class="ai-chat-header">
-      <div class="ai-avatar">🤖</div>
+      <div class="ai-avatar">${ico('bot',22)}</div>
       <div>
         <div style="font-weight:800;font-size:16px;color:#fff;letter-spacing:.3px">Assistente StayActive AI</div>
         <div style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px">Nutrizionista · Coach · Supporto 24/7</div>
@@ -1439,12 +1476,12 @@ function pgAssistente(){
       ${_renderAiMessages()}
     </div>
     <div class="ai-chips" id="ai-chips">
-      <button class="ai-chip" data-q="Come migliorare la mia scheda?" onclick="aiChip(this)">💪 La mia scheda</button>
-      <button class="ai-chip" data-q="Cosa mangio prima di allenarmi?" onclick="aiChip(this)">🥗 Pre-workout</button>
-      <button class="ai-chip" data-q="Dammi motivazione!" onclick="aiChip(this)">🔥 Motivazione</button>
-      <button class="ai-chip" data-q="Come sto andando con i progressi?" onclick="aiChip(this)">📊 Progressi</button>
-      <button class="ai-chip" data-q="Quanto devo dormire per recuperare?" onclick="aiChip(this)">😴 Recupero</button>
-      <button class="ai-chip" data-q="Quante proteine devo assumere?" onclick="aiChip(this)">🏋️ Proteine</button>
+      <button class="ai-chip" data-q="Come migliorare la mia scheda?" onclick="aiChip(this)">${ico('dumbbell',13)} La mia scheda</button>
+      <button class="ai-chip" data-q="Cosa mangio prima di allenarmi?" onclick="aiChip(this)">${ico('nutrition',13)} Pre-workout</button>
+      <button class="ai-chip" data-q="Dammi motivazione!" onclick="aiChip(this)">${ico('fire',13)} Motivazione</button>
+      <button class="ai-chip" data-q="Come sto andando con i progressi?" onclick="aiChip(this)">${ico('chart',13)} Progressi</button>
+      <button class="ai-chip" data-q="Quanto devo dormire per recuperare?" onclick="aiChip(this)">${ico('sleep',13)} Recupero</button>
+      <button class="ai-chip" data-q="Quante proteine devo assumere?" onclick="aiChip(this)">${ico('dumbbell',13)} Proteine</button>
     </div>
     <div class="ai-chat-input-wrap">
       <textarea class="ai-chat-input" id="ai-input" rows="1" placeholder="Scrivi un messaggio..." onkeydown="aiKeyDown(event)" oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px'"></textarea>
@@ -1458,7 +1495,7 @@ function pgAssistente(){
 function _renderAiMessages(){
   return _aiHistory.map(m=>`
     <div class="ai-msg ${m.role}">
-      <div class="ai-msg-avatar">${m.role==='bot'?'🤖':'👤'}</div>
+      <div class="ai-msg-avatar">${m.role==='bot'?ico('bot',16):ico('people',16)}</div>
       <div class="ai-bubble">${m.text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</div>
     </div>`).join('');
 }
@@ -1519,7 +1556,7 @@ async function sendAiMessage(){
     const typing=document.createElement('div');
     typing.id='ai-typing';
     typing.className='ai-msg bot';
-    typing.innerHTML='<div class="ai-msg-avatar">🤖</div><div class="ai-typing"><span></span><span></span><span></span></div>';
+    typing.innerHTML='<div class="ai-msg-avatar">'+ico('bot',16)+'</div><div class="ai-typing"><span></span><span></span><span></span></div>';
     msgEl.appendChild(typing);
     _scrollAiBottom();
   }
@@ -1539,10 +1576,10 @@ async function sendAiMessage(){
   if(chipsEl){
     chipsEl.style.display='flex';
     chipsEl.innerHTML=[
-      ['🥗 Nutrizione pre-workout','Cosa mangio prima di allenarmi?'],
-      ['💪 La mia scheda','Come migliorare la mia scheda allenamento?'],
-      ['📊 I miei progressi','Come sto andando con i progressi?'],
-      ['🔥 Motivazione','Dammi motivazione per allenarmi!']
+      ['Nutrizione pre-workout','Cosa mangio prima di allenarmi?'],
+      ['La mia scheda','Come migliorare la mia scheda allenamento?'],
+      ['I miei progressi','Come sto andando con i progressi?'],
+      ['Motivazione','Dammi motivazione per allenarmi!']
     ].map(([label,query])=>`<button class="ai-chip" data-q="${query}" onclick="aiChip(this)">${label}</button>`).join('');
   }
 }
@@ -1570,7 +1607,7 @@ function aiChatResponse(msg,u){
       bmiInfo=`\n\nIl tuo **BMI attuale è ${bmi}** (${bmiCat}).`;
     }
     const trend=prog.length>1?(lastW-prog[1].weight).toFixed(1):null;
-    const trendTxt=trend?(parseFloat(trend)>0?`\n\n📈 Rispetto all'ultima misurazione hai guadagnato **${trend} kg**.`:`\n\n📉 Rispetto all'ultima misurazione hai perso **${Math.abs(trend)} kg** — ottimo lavoro!`):'';
+    const trendTxt=trend?(parseFloat(trend)>0?`\n\nRispetto all'ultima misurazione hai guadagnato **${trend} kg**.`:`\n\nRispetto all'ultima misurazione hai perso **${Math.abs(trend)} kg** — ottimo lavoro!`):'';
     return `Il tuo peso attuale è **${lastW} kg**, ${name}! 💪${bmiInfo}${trendTxt}\n\nPer migliorare la composizione corporea ti consiglio di:\n- Mantenere un **deficit calorico moderato** (200-300 kcal/die) se vuoi perdere peso\n- Privilegiare **proteine alte** (1.6-2.2g per kg di peso)\n- **Allenamento di resistenza** almeno 3 volte a settimana`;
   }
 
@@ -1713,7 +1750,7 @@ function aiChatResponse(msg,u){
   return defaults[Math.floor(Math.random()*defaults.length)];
 }
 // ─── WEB PUSH NOTIFICATIONS ───
-function sendPush(title,body,icon='🏋️'){
+function sendPush(title,body,icon=''){
   if(!('Notification' in window)||Notification.permission!=='granted')return;
   try{new Notification(title,{body,icon:'https://stayactive.vercel.app/favicon.ico',badge:'https://stayactive.vercel.app/favicon.ico',tag:title});}catch(e){}
 }
@@ -1731,7 +1768,7 @@ async function initPushNotifications(u){
     const mem=getActiveMembership(u.id);
     if(mem&&mem.status==='warning'){
       const days=Math.ceil((new Date(mem.end)-new Date())/86400000);
-      sendPush('⚠️ Abbonamento in scadenza',`Il tuo abbonamento scade tra ${days} giorni. Rinnova ora!`);
+      sendPush('Abbonamento in scadenza',`Il tuo abbonamento scade tra ${days} giorni. Rinnova ora!`);
     }
     // Notifica corsi prenotati oggi
     const corsiOggi=DB.bookings
@@ -1740,22 +1777,22 @@ async function initPushNotifications(u){
       .filter(c=>c&&c.date===todayStr());
     if(corsiOggi.length>0){
       const c=corsiOggi[0];
-      sendPush('🏃 Hai un corso oggi!',`${c.title} alle ${c.timeStart} in ${c.room}. In bocca al lupo!`);
+      sendPush('Corso in programma oggi',`${c.title} alle ${c.timeStart} in ${c.room}. In bocca al lupo!`);
     }
   }
   // Notifica admin: abbonamenti in scadenza
   if(u.role==='admin'){
     const expiring=DB.memberships.filter(m=>m.status==='warning').length;
-    if(expiring>0) sendPush('📋 Dashboard StayActive',`${expiring} abbonament${expiring===1?'o':'i'} in scadenza. Controlla la dashboard.`);
+    if(expiring>0) sendPush('Dashboard StayActive',`${expiring} abbonament${expiring===1?'o':'i'} in scadenza. Controlla la dashboard.`);
   }
 }
 
 function testPushNotification(){
   if(Notification.permission==='granted'){
-    sendPush('🏋️ StayActive','Le notifiche funzionano correttamente!');
+    sendPush('StayActive','Le notifiche funzionano correttamente!');
   } else {
     Notification.requestPermission().then(p=>{
-      if(p==='granted') sendPush('🏋️ StayActive','Notifiche attivate con successo!');
+      if(p==='granted') sendPush('StayActive','Notifiche attivate con successo!');
       else showToast('Notifiche non autorizzate','error');
     });
   }
@@ -1763,7 +1800,7 @@ function testPushNotification(){
 
 async function generateAIDashboardReport(){
   const btn=document.getElementById('ai-dash-btn');
-  if(btn){btn.disabled=true;btn.textContent='🤖 Analisi in corso...';}
+  if(btn){btn.disabled=true;btn.innerHTML='Analisi in corso...';}
   const today=new Date();
   const thisMonth=today.getMonth()+1;const thisYear=today.getFullYear();
   const activeU=DB.users.filter(u=>u.status==='active').length;
@@ -1800,7 +1837,7 @@ Fornisci: 1) Sintesi stato palestra 2) Punti critici da affrontare 3) 2 azioni p
   }catch(e){
     showToast('Errore analisi AI. Riprova.','error');
   }
-  if(btn){btn.disabled=false;btn.textContent='🤖 Analisi AI';}
+  if(btn){btn.disabled=false;btn.innerHTML="${ico('bot',14)} Analisi AI";}
 }
 
 // ─── PIANO NUTRIZIONALE AI (cliente) ───
@@ -1862,7 +1899,7 @@ function pgNutrizione(){
 
 async function generateNutritionPlan(){
   const btn=document.getElementById('nut-btn');
-  if(btn){btn.disabled=true;btn.textContent='🤖 Generazione in corso...';}
+  if(btn){btn.disabled=true;btn.textContent='Generazione in corso...';}
   const goal=document.getElementById('nut-goal').value;
   const meals=document.getElementById('nut-meals').value;
   const weight=document.getElementById('nut-weight').value;
@@ -1891,7 +1928,7 @@ Includi: colazione, ${parseInt(meals)>=4?'spuntino mattina,':''} pranzo, ${parse
     showPage('nutrizione');
   }catch(e){
     showToast('Errore generazione piano. Riprova.','error');
-    if(btn){btn.disabled=false;btn.textContent='🥗 Genera Piano Nutrizionale AI';}
+    if(btn){btn.disabled=false;btn.textContent='Genera Piano Nutrizionale AI';}
   }
 }
 
@@ -1924,9 +1961,9 @@ function pgReportTrainer(){
 
 async function generateMonthlyReport(){
   const btn=document.getElementById('report-btn');
-  if(btn){btn.disabled=true;btn.textContent='🤖 Analisi in corso...';}
+  if(btn){btn.disabled=true;btn.innerHTML='Analisi in corso...';}
   const myClients=getTrainerClients(currentUser.id);
-  if(!myClients.length){showToast('Nessun cliente assegnato','error');return;}
+  if(!myClients.length){showToast('Nessun cliente assegnato','error');if(btn){btn.disabled=false;btn.textContent='Genera Report Mensile AI';}return;}
   const today=new Date();
   const thisMonth=today.getMonth()+1;const thisYear=today.getFullYear();
   const clientData=myClients.map(c=>{
@@ -1937,7 +1974,7 @@ async function generateMonthlyReport(){
     const mem=getActiveMembership(c.id);
     const lastW=prog.length?prog[0].weight:null;
     const prevW=prog.length>1?prog[1].weight:null;
-    return `- **${uName(c)}**: check-in questo mese: ${checkins}, corsi prenotati: ${bookings}, ${plan?`scheda: "${plan.title}" (${plan.goal})`:'nessuna scheda'}, ${mem?`abbonamento ${mem.status==='warning'?'⚠ in scadenza':'attivo'}`:'abbonamento scaduto'}, ${lastW?`peso: ${lastW}kg${prevW?` (${lastW>prevW?'+':''}${(lastW-prevW).toFixed(1)}kg vs precedente)`:''}`: 'nessun dato peso'}`;
+    return `- **${uName(c)}**: check-in questo mese: ${checkins}, corsi prenotati: ${bookings}, ${plan?`scheda: "${plan.title}" (${plan.goal})`:'nessuna scheda'}, ${mem?`abbonamento ${mem.status==='warning'?'in scadenza':'attivo'}`:'abbonamento scaduto'}, ${lastW?`peso: ${lastW}kg${prevW?` (${lastW>prevW?'+':''}${(lastW-prevW).toFixed(1)}kg vs precedente)`:''}`: 'nessun dato peso'}`;
   }).join('\n');
   const messages=[
     {role:'system',content:`Sei un assistente AI per personal trainer. Genera report mensili professionali in italiano. Usa markdown con sezioni chiare, grassetto e bullet point.`},
@@ -1959,7 +1996,151 @@ Il report deve includere:
     showPage('report-trainer');
   }catch(e){
     showToast('Errore generazione report. Riprova.','error');
-    if(btn){btn.disabled=false;btn.textContent='📊 Genera Report Mensile AI';}
+    if(btn){btn.disabled=false;btn.textContent='Genera Report Mensile AI';}
+  }
+}
+
+// ─── ANALISI RECUPERO AI (cliente) ───
+function getCurrentWeek(){const d=new Date();const j=new Date(d.getFullYear(),0,1);return Math.ceil(((d-j)/86400000+j.getDay()+1)/7);}
+
+async function analyzeRecoveryAI(){
+  const btn=document.getElementById('recovery-btn');
+  const textEl=document.getElementById('recovery-text');
+  if(btn){btn.disabled=true;btn.innerHTML='Analisi in corso...';}
+  const u=currentUser;
+  const cins=DB.checkins.filter(c=>c.userId===u.id).sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
+  const now=new Date();
+  const cin7=cins.filter(c=>(now-new Date(c.date))/86400000<=7).length;
+  const cinToday=cins.some(c=>c.date===todayStr());
+  const lastCin=cins[0];
+  const daysSince=lastCin?Math.floor((now-new Date(lastCin.date))/86400000):null;
+  const plan=DB.workoutPlans.find(p=>p.clientId===u.id&&p.status==='active');
+  const logs=DB.progressLogs.filter(l=>l.userId===u.id).sort((a,b)=>b.date.localeCompare(a.date));
+  const goal=plan?plan.goal:'benessere generale';
+  const peso=logs.length?`${logs[0].weight}kg`:'non rilevato';
+
+  // ── Determina scenario reale ──────────────────────────────────────────────
+  let userPrompt;
+  if(daysSince===null||daysSince>21){
+    // Inattivo da molto tempo — NON ha senso parlare di recupero
+    const giorni=daysSince!==null?`${daysSince} giorni`:'un lungo periodo';
+    userPrompt=`${u.firstName} non si allena da ${giorni}. Non ha bisogno di consigli di recupero — ha bisogno di tornare ad allenarsi.
+Scheda attiva: ${plan?`"${plan.title}" (${goal})`:'nessuna'}, peso: ${peso}.
+
+Rispondi con:
+1. **Situazione attuale** (1 riga diretta e onesta: cosa succede al corpo dopo una pausa così lunga)
+2. **Come ricominciare** (piano pratico per i prossimi 2-3 giorni: tipo e durata degli allenamenti consigliati per il rientro graduale)
+3. **Prima cosa da fare** (1 azione concreta e motivante da fare oggi o domani)`;
+  } else if(daysSince>7){
+    // Pausa media — rientro graduale
+    userPrompt=`${u.firstName} non si allena da ${daysSince} giorni (frequenza recente: ${cin7} volte/settimana).
+Obiettivo: ${goal}, peso: ${peso}.
+
+Rispondi con:
+1. **Effetto della pausa** (cosa ha perso/mantenuto il corpo in ${daysSince} giorni di stop)
+2. **Come riprendere** (intensità e volume consigliato per il primo allenamento dopo questa pausa)
+3. **Consiglio pratico** (1 cosa da fare per facilitare il rientro: alimentazione, riscaldamento, ecc.)`;
+  } else if(cin7>=5){
+    // Alta frequenza — rischio sovrallenamento
+    userPrompt=`${u.firstName} si è allenato ${cin7} volte negli ultimi 7 giorni${cinToday?' incluso oggi':''}.
+Obiettivo: ${goal}, peso: ${peso}.
+
+Rispondi con:
+1. **Stato recupero** (valutazione onesta: sta esagerando o è una frequenza sostenibile per il suo obiettivo?)
+2. **Consiglio per oggi** (riposo, attività leggera o allenamento regolare — con motivazione)
+3. **Tip anti-sovrallenamento** (sonno, nutrizione, giorni di riposo attivo)`;
+  } else if(cinToday){
+    // Ha già allenato oggi — recupero post-sessione
+    userPrompt=`${u.firstName} ha già completato un allenamento oggi (frequenza settimanale: ${cin7}x).
+Obiettivo: ${goal}, peso: ${peso}.
+
+Rispondi con:
+1. **Ottimo lavoro** (1 riga di feedback positivo sul fatto che si è allenato)
+2. **Recupero post-sessione** (cosa fare nelle prossime ore: alimentazione, stretching, idratazione)
+3. **Prossimo allenamento** (quando è ideale il prossimo e a quale intensità, considerando il suo obiettivo)`;
+  } else if(daysSince!==null&&daysSince<=3){
+    // Attivo di recente — classica analisi recupero
+    userPrompt=`${u.firstName} si è allenato ${daysSince===0?'oggi':daysSince===1?'ieri':`${daysSince} giorni fa`} (${cin7} allenamenti negli ultimi 7 giorni).
+Obiettivo: ${goal}, peso: ${peso}.
+
+Rispondi con:
+1. **Stato recupero** (muscolare ed energetico, basato sui giorni di riposo e frequenza)
+2. **Consiglio per oggi** (allenarsi o riposare? quale gruppo muscolare o tipo di sessione se si allena?)
+3. **Tip di recupero** (1 azione pratica contestuale: stretching, proteine, sonno, ecc.)`;
+  } else {
+    // 4-7 giorni di pausa — rientro normale
+    userPrompt=`${u.firstName} non si allena da ${daysSince} giorni (${cin7} sessioni negli ultimi 7 giorni).
+Obiettivo: ${goal}, peso: ${peso}.
+
+Rispondi con:
+1. **Stato forma** (cosa succede al corpo dopo ${daysSince} giorni di riposo)
+2. **Consiglio per oggi** (è il momento giusto per allenarsi? quale intensità?)
+3. **Tip pratico** (1 consiglio per massimizzare la prossima sessione)`;
+  }
+
+  const messages=[
+    {role:'system',content:'Sei un coach fitness AI preciso e contestuale. Adatta sempre i tuoi consigli alla situazione reale del cliente: non dare mai consigli di recupero post-allenamento a chi non si allena da settimane, e non dire mai di riposare a chi è inattivo. Rispondi in italiano, conciso, con grassetto per i titoli. Massimo 150 parole.'},
+    {role:'user',content:userPrompt}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:280,temperature:0.65})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    _recoveryAnalysis=data.choices[0].message.content;
+    if(textEl)textEl.innerHTML=md(_recoveryAnalysis);
+    if(btn){btn.disabled=false;btn.innerHTML=`${ico('bot',13)} Aggiorna`;}
+  }catch(e){
+    showToast('Errore analisi. Riprova.','error');
+    if(btn){btn.disabled=false;btn.innerHTML=`${ico('bot',13)} Analizza`;}
+  }
+}
+
+// ─── SFIDA SETTIMANALE AI (cliente) ───
+function renderChallengeCard(){
+  if(!_weeklyChallenge.text)return'';
+  return`<div style="font-size:13.5px;line-height:1.8">${md(_weeklyChallenge.text)}</div>
+  <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <button class="btn ${_weeklyChallenge.done?'btn-secondary':'btn-primary'} btn-sm" onclick="_weeklyChallenge.done=!_weeklyChallenge.done;document.getElementById('challenge-text').innerHTML=renderChallengeCard()" style="gap:6px">
+      ${_weeklyChallenge.done?`${ico('repeat',13)} Riapri sfida`:`${ico('check',13)} Segna completata`}
+    </button>
+    ${_weeklyChallenge.done?'<span style="color:var(--success);font-weight:700;font-size:13px">Ottimo lavoro! Sfida completata!</span>':''}
+  </div>`;
+}
+
+async function generateWeeklyChallenge(force=false){
+  const cw=getCurrentWeek();
+  if(!force&&_weeklyChallenge.week===cw&&_weeklyChallenge.text)return;
+  const btn=document.getElementById('challenge-btn');
+  const textEl=document.getElementById('challenge-text');
+  if(btn){btn.disabled=true;btn.innerHTML='Generazione in corso...';}
+  const u=currentUser;
+  const plan=DB.workoutPlans.find(p=>p.clientId===u.id&&p.status==='active');
+  const cins=DB.checkins.filter(c=>c.userId===u.id);
+  const cin30=cins.filter(c=>(new Date()-new Date(c.date))/86400000<=30).length;
+  const logs=DB.progressLogs.filter(l=>l.userId===u.id).sort((a,b)=>b.date.localeCompare(a.date));
+  const messages=[
+    {role:'system',content:'Sei un coach fitness AI. Crea sfide settimanali motivanti e realistiche. Rispondi in italiano. Massimo 120 parole.'},
+    {role:'user',content:`Crea una sfida settimanale personalizzata per ${u.firstName}:
+- Obiettivo principale: ${plan?plan.goal:'benessere generale'}
+- Check-in negli ultimi 30 giorni: ${cin30}
+- Peso attuale: ${logs.length?`${logs[0].weight}kg`:'non noto'}
+
+La sfida deve essere:
+- **Specifica** (es. "3 sessioni da 30 min", "bevi 2L d'acqua ogni giorno")
+- **Realistica** per la frequenza attuale
+- **Misurabile** con un contatore (es. "0/3 completate")
+Struttura risposta: **Nome Sfida** in grassetto, descrizione breve (2 righe max), obiettivo numerico con contatore, 1 tip per riuscirci.`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:220,temperature:0.75})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    _weeklyChallenge={week:cw,text:data.choices[0].message.content,done:false};
+    if(textEl)textEl.innerHTML=renderChallengeCard();
+    if(btn){btn.disabled=false;btn.innerHTML=`${ico('bot',13)} Nuova Sfida`;}
+  }catch(e){
+    showToast('Errore generazione sfida. Riprova.','error');
+    if(btn){btn.disabled=false;btn.innerHTML=`${ico('bot',13)} Genera Sfida`;}
   }
 }
 
@@ -1987,7 +2168,7 @@ function renderAdminDashBody(){
       <div class="kpi-card purple" style="cursor:pointer" onclick="showPage('corsi')"><div class="kpi-icon">${ico('calendar',22)}</div><div class="kpi-body"><div class="kpi-label">Corsi Totali</div><div class="kpi-value">${DB.courses.length}</div><div class="kpi-sub">${fCou.length} nel periodo</div></div></div>
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;display:flex;gap:24px;flex-wrap:wrap;align-items:center;box-shadow:var(--shadow-sm)">
-      <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;flex-basis:100%;margin-bottom:-8px;font-weight:700">📊 Dati periodo: ${periodLabel}</div>
+      <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;flex-basis:100%;margin-bottom:-8px;font-weight:700">${ico('chart',14)} Dati periodo: ${periodLabel}</div>
       <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--accent)">${fCI.length}</div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px">Check-in</div></div>
       <div style="width:1px;height:40px;background:var(--border)"></div>
       <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--spa)">${fSpa.length}</div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px">Prenotazioni Spa</div></div>
@@ -2030,7 +2211,7 @@ function renderAdminDashBody(){
             const t=getUser(c.trainerId);const p=Math.round(realBooked(c.id)/c.capacity*100);
             return`<div class="course-card" style="cursor:pointer" onclick="openCourseParticipants(${c.id})" title="Clicca per vedere i partecipanti">
               <div class="row-between">
-                <div><div style="font-weight:700;font-size:14px">${c.title}</div><div style="font-size:12px;color:var(--text3)">👤 ${t?uName(t):'-'} · ${fmtDate(c.date)}</div></div>
+                <div><div style="font-weight:700;font-size:14px">${c.title}</div><div style="font-size:12px;color:var(--text3)">${ico('user',13)} ${t?uName(t):'-'} · ${fmtDate(c.date)}</div></div>
                 <div style="text-align:right"><div class="course-time">${c.timeStart}</div><div style="font-size:11px;color:var(--text3)">${realBooked(c.id)}/${c.capacity}</div></div>
               </div>
               <div class="pb-wrap"><div class="pb ${p>=100?'red':p>=80?'orange':''}" style="width:${Math.min(p,100)}%"></div></div>
@@ -2048,7 +2229,7 @@ function renderAdminDashBody(){
               <div style="font-size:12px;color:var(--text2);margin-top:1px">${n.msg}</div>
               <div style="font-size:11px;color:var(--text3);margin-top:2px">${fmtTime(n.time)||n.time}</div>
             </div>
-            <span class="badge ${n.type==='warning'?'warning':n.type==='success'?'success':'info'}" style="flex-shrink:0">${n.type==='warning'?'⚠':'ℹ'}</span>
+            <span class="badge ${n.type==='warning'?'warning':n.type==='success'?'success':'info'}" style="flex-shrink:0">${n.type==='warning'?ico('warning',12):n.type==='success'?ico('check',12):ico('info',12)}</span>
           </div>`).join('')}
       </div>
     </div>
@@ -2056,7 +2237,7 @@ function renderAdminDashBody(){
     <!-- ══ AI REPORT ══ -->
     <div class="card" id="ai-dashboard-card" style="display:none">
       <div class="card-header" style="justify-content:space-between">
-        <div class="card-title">🤖 Analisi AI della Palestra</div>
+        <div class="card-title">${ico('bot',15)} Analisi AI della Palestra</div>
         <button class="btn btn-secondary btn-sm" onclick="document.getElementById('ai-dashboard-card').style.display='none'">✕</button>
       </div>
       <div id="ai-dashboard-text" style="font-size:13.5px;line-height:1.8;color:var(--text)"></div>
@@ -2065,26 +2246,26 @@ function renderAdminDashBody(){
     <!-- ══ ANALYTICS CHARTS ══ -->
     <div class="card">
       <div class="card-header">
-        <div class="card-title">📈 Ricavi ultimi 6 mesi</div>
+        <div class="card-title">${ico('trending',16)} Ricavi ultimi 6 mesi</div>
         <div style="display:flex;gap:8px">
-          <button class="btn btn-secondary btn-sm" id="ai-dash-btn" onclick="generateAIDashboardReport()">🤖 Analisi AI</button>
-          <button class="btn btn-primary btn-sm" onclick="openReportModal()">📄 Genera Report PDF</button>
+          <button class="btn btn-secondary btn-sm" id="ai-dash-btn" onclick="generateAIDashboardReport()">${ico('bot',14)} Analisi AI</button>
+          <button class="btn btn-primary btn-sm" onclick="openReportModal()">${ico('document',14)} Genera Report PDF</button>
         </div>
       </div>
       <div style="position:relative;height:220px"><canvas id="chart-revenue"></canvas></div>
     </div>
     <div class="grid-2">
       <div class="card">
-        <div class="card-header"><div class="card-title">📅 Check-in per giorno settimana</div></div>
+        <div class="card-header"><div class="card-title">${ico('calendar',13)} Check-in per giorno settimana</div></div>
         <div style="position:relative;height:185px"><canvas id="chart-checkins"></canvas></div>
       </div>
       <div class="card">
-        <div class="card-header"><div class="card-title">💳 Piani abbonamento attivi</div></div>
+        <div class="card-header"><div class="card-title">${ico('card',15)} Piani abbonamento attivi</div></div>
         <div style="position:relative;height:185px"><canvas id="chart-plans"></canvas></div>
       </div>
     </div>
     <div class="card">
-      <div class="card-header"><div class="card-title">🏋️ Occupazione media corsi (top 6)</div></div>
+      <div class="card-header"><div class="card-title">${ico('dumbbell',16)} Occupazione media corsi (top 6)</div></div>
       <div style="position:relative;height:185px"><canvas id="chart-courses"></canvas></div>
     </div>
   </div>`;
@@ -2232,7 +2413,7 @@ function showTrainerClientsWithMembership(){
           <div style="flex:1"><div style="font-weight:700;font-size:13px">${uName(u)}</div>
             ${mem?`<div style="font-size:11px;color:var(--text3)">${mem.plan} · scade ${fmtDate(mem.end)}</div>`:`<div style="font-size:11px;color:var(--danger)">Nessun abbonamento attivo</div>`}
           </div>
-          <span class="badge ${mem?'active':'danger'}">${mem?'✅ Attivo':'⚠ Scaduto'}</span>
+          <span class="badge ${mem?'active':'danger'}">${mem?'Attivo':'Scaduto'}</span>
         </div>`}).join('')}
     </div>
     <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">Chiudi</button><button class="btn btn-primary" onclick="closeModal();showPage('clienti')">Vai ai clienti</button></div>`;
@@ -2260,8 +2441,8 @@ function pgClientDash(){
       <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:rgba(255,255,255,.6);letter-spacing:2px">${mem.plan}</div>
       <div style="font-size:18px;font-weight:700;margin:4px 0">${uName(currentUser)}</div>
       <div style="font-size:13px;color:rgba(255,255,255,.6)">${fmtDate(mem.start)} → ${fmtDate(mem.end)}</div>
-      ${mem.status==='warning'?'<div style="font-size:12px;color:#fbbf24;font-weight:600;margin-top:8px">⚠ In scadenza presto</div>':''}
-    </div>`:`<div class="card" style="border-color:var(--danger)"><div style="color:var(--danger);font-weight:700">⚠ Nessun abbonamento attivo</div><div style="color:var(--text2);font-size:13px;margin-top:4px">Contatta la reception.</div></div>`}
+      ${mem.status==='warning'?`<div style="font-size:12px;color:#fbbf24;font-weight:600;margin-top:8px">${ico('warning',13)} In scadenza presto</div>`:''}
+    </div>`:`<div class="card" style="border-color:var(--danger)"><div style="color:var(--danger);font-weight:700">${ico('warning',13)} Nessun abbonamento attivo</div><div style="color:var(--text2);font-size:13px;margin-top:4px">Contatta la reception.</div></div>`}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px">
       <div class="kpi-card red" style="cursor:pointer" onclick="showPage('prenotazioni')"><div class="kpi-icon">${ico('calendar',22)}</div><div class="kpi-body"><div class="kpi-label">Corsi prenotati</div><div class="kpi-value">${myB.length}</div><div class="kpi-sub">attivi</div></div></div>
       <div class="kpi-card blue" style="cursor:pointer" onclick="showPage('progressi')"><div class="kpi-icon">${ico('trending',22)}</div><div class="kpi-body"><div class="kpi-label">Peso attuale</div><div class="kpi-value">${latest?latest.weight:'–'}</div><div class="kpi-sub">${latest?'kg · '+logs.length+' misurazioni':'inserisci'}</div></div></div>
@@ -2269,12 +2450,35 @@ function pgClientDash(){
       <div class="kpi-card orange" style="cursor:pointer" onclick="showPage('scheda-cliente')"><div class="kpi-icon">${ico('list',22)}</div><div class="kpi-body"><div class="kpi-label">Scheda attiva</div><div class="kpi-value">${myActivePlans.length>0?myActivePlans.length:'–'}</div><div class="kpi-sub">${myPlan?totalEx+' esercizi':'nessuna scheda'}</div></div></div>
       <div class="kpi-card${nextPT&&nextPT.status==='pending'?' orange':' green'}" style="cursor:pointer" onclick="showPage('prenota-pt')"><div class="kpi-icon">${ico('dumbbell',22)}</div><div class="kpi-body"><div class="kpi-label">Sessioni PT</div><div class="kpi-value">${ptUpcoming.length}</div><div class="kpi-sub">${nextPT?`Prossima: ${fmtDate(nextPT.date)}`:'Prenota ora'}</div></div></div>
     </div>
+
+    <!-- ── AI RECUPERO ── -->
+    <div class="card" id="recovery-card" style="border-left:3px solid var(--accent3)">
+      <div class="card-header" style="justify-content:space-between">
+        <div class="card-title" style="display:flex;align-items:center;gap:8px">${ico('bot',16)} Analisi Recupero AI</div>
+        <button class="btn btn-primary btn-sm" id="recovery-btn" onclick="analyzeRecoveryAI()" style="gap:6px">${ico('bot',13)} ${_recoveryAnalysis?'Aggiorna':'Analizza Recupero'}</button>
+      </div>
+      <div id="recovery-text" style="font-size:13.5px;line-height:1.8;color:var(--text)">
+        ${_recoveryAnalysis?md(_recoveryAnalysis):`<span style="color:var(--text3);font-size:13px">Ricevi consigli AI personalizzati: stato di recupero, intensità consigliata per oggi e un tip pratico, basati sulla tua frequenza di allenamento.</span>`}
+      </div>
+    </div>
+
+    <!-- ── SFIDA SETTIMANALE ── -->
+    ${(()=>{const cw=getCurrentWeek();const hasChallenge=_weeklyChallenge.week===cw&&_weeklyChallenge.text;return`<div class="card" style="border-left:3px solid var(--accent2)">
+      <div class="card-header" style="justify-content:space-between">
+        <div class="card-title" style="display:flex;align-items:center;gap:8px">${ico('trending',16)} Sfida della Settimana</div>
+        <button class="btn btn-secondary btn-sm" id="challenge-btn" onclick="generateWeeklyChallenge(true)" style="gap:6px">${ico('bot',13)} ${hasChallenge?'Nuova Sfida':'Genera Sfida'}</button>
+      </div>
+      <div id="challenge-text" style="font-size:13.5px;line-height:1.8;color:var(--text)">
+        ${hasChallenge?renderChallengeCard():`<span style="color:var(--text3);font-size:13px">Clicca "Genera Sfida" per ricevere una micro-sfida personalizzata per questa settimana, basata sul tuo obiettivo e sulla tua attività recente.</span>`}
+      </div>
+    </div>`;})()}
+
     <div class="grid-2">
       <div class="card">
         <div class="card-header"><div class="card-title">Prossimi corsi</div><button class="btn btn-secondary btn-sm" onclick="showPage('corsi')">Esplora</button></div>
         ${DB.courses.slice(0,3).map(c=>{const t=getUser(c.trainerId);return`<div class="course-card">
           <div class="row-between">
-            <div><div style="font-weight:700;font-size:14px">${c.title}</div><div style="font-size:12px;color:var(--text3)">👤 ${t?uName(t):'-'}</div></div>
+            <div><div style="font-weight:700;font-size:14px">${c.title}</div><div style="font-size:12px;color:var(--text3)">${ico('user',13)} ${t?uName(t):'-'}</div></div>
             <div class="course-time">${c.timeStart}</div>
           </div>
         </div>`;}).join('')}
@@ -2285,19 +2489,19 @@ function pgClientDash(){
             <div class="avatar green" style="width:40px;height:40px;font-size:13px;flex-shrink:0">${(()=>{const t=getUser(nextPT.trainerId);return t?uInit(t):'?';})()}</div>
             <div style="flex:1">
               <div style="font-weight:700;font-size:14px">${(()=>{const t=getUser(nextPT.trainerId);return t?uName(t):'Trainer';})()}</div>
-              <div style="font-size:12px;color:var(--text2)">📅 ${fmtDate(nextPT.date)} &nbsp;·&nbsp; 🕐 ${nextPT.timeStart}</div>
+              <div style="font-size:12px;color:var(--text2)">${ico('calendar',13)} ${fmtDate(nextPT.date)} &nbsp;·&nbsp; ${ico('clock',13)} ${nextPT.timeStart}</div>
               ${nextPT.notes?`<div style="font-size:11px;color:var(--text3);margin-top:2px;font-style:italic">${nextPT.notes}</div>`:''}
             </div>
             <span class="badge ${PT_STATUS_COLORS[nextPT.status]}">${PT_STATUS_LABELS[nextPT.status]}</span>
           </div>
           ${ptUpcoming.length>1?`<div style="font-size:11px;color:var(--text3);text-align:center;padding:4px 0">+ ${ptUpcoming.length-1} altra sessione in programma</div>`:''}
-        `:`<div style="padding:20px;text-align:center;color:var(--text3)"><div style="font-size:26px;margin-bottom:6px">💪</div><div>Nessuna sessione PT in programma</div></div>`}
+        `:`<div style="padding:20px;text-align:center;color:var(--text3)"><div style="margin-bottom:6px">${ico('dumbbell',26)}</div><div>Nessuna sessione PT in programma</div></div>`}
       </div>
     </div>
     <div class="card">
       <div class="card-header"><div class="card-title">Prossime prenotazioni Spa</div><button class="btn btn-spa btn-sm" onclick="showPage('spa-cliente')">Prenota</button></div>
       ${mySpa.length?`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px">${mySpa.slice(0,4).map(s=>`<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
-        <span style="font-size:20px">🧖</span>
+        <span>${ico('spa',20)}</span>
         <div><div style="font-size:13px;font-weight:600">${s.slot}</div><div style="font-size:11px;color:var(--text3)">${fmtDate(s.date)}</div></div>
       </div>`).join('')}</div>`:`<div style="color:var(--text3);font-size:13px;text-align:center;padding:16px">Nessuna prenotazione spa</div>`}
     </div>
@@ -2319,8 +2523,8 @@ function renderStatBody(){
   const periodLabel=getPeriodLabel();
   return`<div class="gap-20">
     <div style="background:rgba(224,32,32,.05);border:1px solid rgba(224,32,32,.15);border-radius:10px;padding:10px 16px;font-size:13px;color:var(--text2)">
-      📊 Mostrando dati per: <strong style="color:var(--accent)">${periodLabel}</strong>
-      ${fCI.length===0&&fMem.length===0?` — <span style="color:var(--warning)">⚠ Nessun dato in questo periodo</span>`:''}
+      ${ico('chart',14)} Mostrando dati per: <strong style="color:var(--accent)">${periodLabel}</strong>
+      ${fCI.length===0&&fMem.length===0?` — <span style="color:var(--warning)">${ico('warning',13)} Nessun dato in questo periodo</span>`:''}
     </div>
     <div class="grid-4">
       <div class="kpi-card red"><div class="kpi-label">Ricavi periodo</div><div class="kpi-value">€${(totalRev/1000).toFixed(1)}k</div><div class="kpi-sub">${fMem.length} abbonamenti</div></div>
@@ -2412,10 +2616,10 @@ function openUserProfile(uid){
       <div><div style="font-size:18px;font-weight:700">${uName(u)}</div><div style="font-size:13px;color:var(--text2)">${u.email}</div></div>
     </div>
     <div class="form-grid" style="gap:10px">
-      ${[['Telefono',u.phone||'–'],['Nascita',fmtDate(u.birth)],['Genere',u.gender||'–'],['Iscritto il',fmtDate(u.joined)],['QR Code',u.qrCode],['Stato',u.status==='active'?'✅ Attivo':'❌ Inattivo']].map(([l,v])=>`<div><div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">${l}</div><div style="font-size:14px;font-weight:600">${v}</div></div>`).join('')}
+      ${[['Telefono',u.phone||'–'],['Nascita',fmtDate(u.birth)],['Genere',u.gender||'–'],['Iscritto il',fmtDate(u.joined)],['QR Code',u.qrCode],['Stato',u.status==='active'?'Attivo':'Inattivo']].map(([l,v])=>`<div><div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">${l}</div><div style="font-size:14px;font-weight:600">${v}</div></div>`).join('')}
     </div>
     <div style="margin-top:16px;padding:14px;background:${mem?'rgba(5,150,105,.06)':'rgba(220,38,38,.05)'};border:1px solid ${mem?'rgba(5,150,105,.2)':'rgba(220,38,38,.2)'};border-radius:10px">
-      ${mem?`<div style="font-weight:700;color:var(--success)">✅ Abbonamento attivo: ${mem.plan}</div><div style="font-size:12px;color:var(--text2);margin-top:3px">${mem.start} → ${mem.end}</div>`:`<div style="font-weight:700;color:var(--danger)">⚠ Nessun abbonamento attivo</div>`}
+      ${mem?`<div style="font-weight:700;color:var(--success)">Abbonamento attivo: ${mem.plan}</div><div style="font-size:12px;color:var(--text2);margin-top:3px">${mem.start} → ${mem.end}</div>`:`<div style="font-weight:700;color:var(--danger)">${ico('warning',13)} Nessun abbonamento attivo</div>`}
     </div>
     <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">Chiudi</button><button class="btn btn-primary" onclick="closeModal();openEditUser(${uid})">Modifica</button></div>`;
   openModal();
@@ -2497,7 +2701,7 @@ function saveNuovoUtente(){
   const nu={id:DB.nextId.user++,firstName:fn,lastName:ln,email:em,phone:document.getElementById('nu-ph').value.trim(),birth:document.getElementById('nu-bi').value,gender:document.getElementById('nu-ge').value,role,status:'active',joined:todayStr(),qrCode:`SA-${role.toUpperCase().slice(0,3)}-${String(DB.nextId.user).padStart(3,'0')}`,codiceFiscale:document.getElementById('nu-cf').value.trim()||'',address:document.getElementById('nu-addr').value.trim()||''};
   DB.users.push(nu);
   addNotification('Nuovo utente registrato',`${fn} ${ln} (${role}) si è iscritto.`,'info',false,'admin');
-  closeModal();showPage('utenti');showToast(`${fn} ${ln} creato! 🎉`);
+  closeModal();showPage('utenti');showToast(`${fn} ${ln} creato!`);
 }
 
 // ─── CORSI ADMIN ───
@@ -2613,7 +2817,7 @@ function saveNuovoCorso(){
     }
   }
   addNotification('Nuovo corso creato',`"${t}" aggiunto per il ${fmtDate(d)}${isRec?' ('+recWeeks+' settimane generate)':''}.`,'info',false,'admin');
-  closeModal();showPage('corsi');showToast(isRec?`Serie "${t}" creata! (${recWeeks+1} istanze) 🎉`:`Corso "${t}" creato! 🎉`);
+  closeModal();showPage('corsi');showToast(isRec?`Serie "${t}" creata! (${recWeeks+1} istanze)`:`Corso "${t}" creato!`);
 }
 function openEditCorso(id){
   const c=getCourse(id);if(!c)return;
@@ -2724,7 +2928,7 @@ function saveRinnova(id){
   m.plan=plan;m.start=start;m.end=end;m.price=price;m.status='active';
   const u=getUser(m.userId);
   addNotification('Abbonamento rinnovato',`L'abbonamento di ${u?uName(u):'–'} rinnovato: ${plan} fino al ${fmtDate(end)}.`,'success',false,'admin');
-  closeModal();showPage('abbonamenti');showToast(`Abbonamento rinnovato! ✅`);
+  closeModal();showPage('abbonamenti');showToast(`Abbonamento rinnovato! `);
 }
 function openNuovoAbbonamento(){
   document.getElementById('modal-body').innerHTML=`<div class="modal-title">Nuovo Abbonamento</div>
@@ -2775,7 +2979,7 @@ function saveNuovoAbb(){
   const nm={id:DB.nextId.membership++,userId:cid,plan:v.split('|')[0],start:s,end:e,status:'active',price:pr};
   DB.memberships.push(nm);
   const u=getUser(cid);addNotification('Nuovo abbonamento',`"${nm.plan}" attivato per ${u?uName(u):'–'}.`,'success',false,'admin');
-  closeModal();showPage('abbonamenti');showToast(`Abbonamento creato! ✅`);
+  closeModal();showPage('abbonamenti');showToast(`Abbonamento creato! `);
 }
 function openEditMemb(id){
   const m=DB.memberships.find(x=>x.id===id);if(!m)return;
@@ -2824,7 +3028,7 @@ function pgCheckin(){
         <button class="btn btn-primary" onclick="registraCheckin()">✓ Registra</button>
         <button class="btn btn-secondary" onclick="openCameraScanner()" style="gap:7px">${ico('camera',16)} Scansiona QR</button>
       </div>
-      <div style="font-size:12px;color:var(--text3);margin-top:8px">ℹ️ Il check-in è valido solo con abbonamento attivo.</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:8px">${ico('info',13)} Il check-in è valido solo con abbonamento attivo.</div>
     </div>
     <div class="card">
       <div class="card-header"><div class="card-title">Check-in di oggi – ${fmtDate(todayStr())}</div></div>
@@ -2843,7 +3047,7 @@ function acCheckin(q){
   const list=document.getElementById('ci-ac');if(!list||q.length<1){list&&list.classList.remove('open');return;}
   const res=DB.users.filter(u=>u.role!=='admin'&&(uName(u).toLowerCase().includes(q.toLowerCase())||u.email.toLowerCase().includes(q.toLowerCase())));
   if(!res.length){list.classList.remove('open');return;}
-  list.innerHTML=res.map(u=>{const ok=!!getActiveMembership(u.id);return`<div class="autocomplete-item" data-uid="${u.id}" data-name="${uName(u).replace(/"/g,'&quot;')}" onclick="selectCI(this)">${uName(u)}<span style="color:var(--text3);font-size:12px;margin-left:8px">${u.email}</span><span style="font-size:11px;margin-left:6px;color:${ok?'var(--success)':'var(--danger)'}">${ok?'✅':'❌'}</span></div>`;}).join('');
+  list.innerHTML=res.map(u=>{const ok=!!getActiveMembership(u.id);return`<div class="autocomplete-item" data-uid="${u.id}" data-name="${uName(u).replace(/"/g,'&quot;')}" onclick="selectCI(this)">${uName(u)}<span style="color:var(--text3);font-size:12px;margin-left:8px">${u.email}</span><span style="font-size:11px;margin-left:6px;color:${ok?'var(--success)':'var(--danger)'}">${ok?ico('check',12):ico('x-circle',12)}</span></div>`;}).join('');
   list.classList.add('open');
 }
 function selectCI(el){const uid=parseInt(el.dataset.uid);const name=el.dataset.name;document.getElementById('ci-uid').value=uid;document.getElementById('ci-search').value=name;document.getElementById('ci-ac').classList.remove('open');}
@@ -2851,7 +3055,7 @@ function registraCheckin(uid,method){
   uid=uid||parseInt(document.getElementById('ci-uid')?.value||0);method=method||'Manuale';
   if(!uid){showToast('Seleziona prima un cliente','error');return;}
   const u=getUser(uid);if(!u)return;
-  if(!getActiveMembership(uid)){showToast(`❌ ${uName(u)} non ha abbonamento attivo!`,'error');return;}
+  if(!getActiveMembership(uid)){showToast(`${uName(u)} non ha abbonamento attivo!`,'error');return;}
   if(DB.checkins.find(c=>c.userId===uid&&c.date===todayStr())){showToast(`${uName(u)} ha già fatto check-in oggi!`,'error');return;}
   const t=new Date().toTimeString().slice(0,5);
   DB.checkins.push({id:DB.nextId.checkin++,userId:uid,time:t,method,date:todayStr()});
@@ -2863,7 +3067,7 @@ function registraCheckin(uid,method){
   if(man)man.textContent=todayCI.filter(c=>c.method==='Manuale').length;
   const si=document.getElementById('ci-search');const ui=document.getElementById('ci-uid');
   if(si)si.value='';if(ui)ui.value='';
-  showToast(`Check-in: ${uName(u)} (${method}) ✅`);
+  showToast(`Check-in: ${uName(u)} (${method}) `);
 }
 function renderCIList(list){
   if(!list.length)return`<div style="text-align:center;padding:20px;color:var(--text3)">Nessun check-in oggi</div>`;
@@ -2877,7 +3081,7 @@ function renderCIList(list){
 // ─── CAMERA SCANNER ───
 function openCameraScanner(){
   document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('camera',20)} Scansiona QR Code</div>
-    <div id="cam-status" style="font-size:12px;color:var(--text3);margin-bottom:8px;text-align:center">⏳ Avvio fotocamera...</div>
+    <div id="cam-status" style="font-size:12px;color:var(--text3);margin-bottom:8px;text-align:center">Avvio fotocamera...</div>
     <div class="camera-wrap">
       <video id="camera-video" autoplay playsinline muted style="width:100%;border-radius:10px"></video>
       <canvas id="camera-canvas" style="display:none"></canvas>
@@ -2885,7 +3089,7 @@ function openCameraScanner(){
     </div>
     <div class="camera-result" id="cam-result"></div>
     <div style="margin-top:14px;padding:14px;background:var(--surface2);border-radius:10px;border:1px solid var(--border)">
-      <p style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px">📋 Inserisci il codice manualmente:</p>
+      <p style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px">${ico('document',13)} Inserisci il codice manualmente:</p>
       <p style="font-size:11px;color:var(--text3);margin-bottom:8px">Esempi: <code>SA-CLI-004</code> oppure <code>SA-ADM-001</code></p>
       <div class="row" style="gap:10px">
         <input type="text" class="input" id="cam-manual" placeholder="es. SA-CLI-004" style="flex:1" onkeydown="if(event.key==='Enter')processQRCode(this.value.trim())">
@@ -2893,7 +3097,7 @@ function openCameraScanner(){
       </div>
     </div>
     <div style="margin-top:10px;padding:10px 14px;background:rgba(59,91,219,.05);border:1px solid rgba(59,91,219,.15);border-radius:10px;font-size:11px;color:var(--text3)">
-      ℹ️ <strong>Nota:</strong> La scansione automatica via fotocamera richiede: connessione HTTPS e permesso fotocamera concesso nel browser. Se la fotocamera non è disponibile, usa il campo manuale inserendo il codice visibile nella schermata QR del cliente.
+      ${ico('info',13)} <strong>Nota:</strong> La scansione automatica via fotocamera richiede: connessione HTTPS e permesso fotocamera concesso nel browser. Se la fotocamera non è disponibile, usa il campo manuale inserendo il codice visibile nella schermata QR del cliente.
     </div>
     <div class="modal-footer"><button class="btn btn-secondary" onclick="stopCamera();closeModal()">Chiudi</button></div>`;
   openModal();
@@ -2920,7 +3124,7 @@ async function startCamera(){
     const activate=()=>{
       if(qrScanActive) return; // evita doppio avvio
       video.play().catch(()=>{});
-      if(statusEl) statusEl.innerHTML='🟢 Fotocamera attiva – punta il QR Code al mirino';
+      if(statusEl) statusEl.innerHTML='Fotocamera attiva – punta il QR Code al mirino';
       qrScanActive=true;
       scanQRLoop();
     };
@@ -2936,13 +3140,13 @@ async function startCamera(){
     const code=e.name||'';
     let msg='';
     if(code==='NotAllowedError'||code==='PermissionDeniedError')
-      msg='🔒 Permesso fotocamera negato. Clicca sul lucchetto nella barra del browser e consenti la fotocamera.';
+      msg='Permesso fotocamera negato. Clicca sul lucchetto nella barra del browser e consenti la fotocamera.';
     else if(code==='NotFoundError'||code==='DevicesNotFoundError')
-      msg='📷 Nessuna fotocamera trovata su questo dispositivo.';
+      msg='Nessuna fotocamera trovata su questo dispositivo.';
     else if(location.protocol!=='https:'&&location.hostname!=='localhost')
-      msg='⚠️ La fotocamera richiede HTTPS. Usa il campo manuale qui sotto.';
+      msg='La fotocamera richiede HTTPS. Usa il campo manuale qui sotto.';
     else
-      msg=`⚠️ Fotocamera non disponibile (${code||e.message}). Usa il campo manuale.`;
+      msg=`Fotocamera non disponibile (${code||e.message}). Usa il campo manuale.`;
     if(statusEl) statusEl.innerHTML=`<span style="color:var(--danger)">${msg}</span>`;
     const wrap=document.querySelector('.camera-wrap');
     if(wrap) wrap.style.display='none';
@@ -2991,7 +3195,7 @@ function scanQRLoop(){
 function processQRCode(code){
   stopCamera();qrScanActive=false;
   const res=document.getElementById('cam-result');
-  if(!code){if(res){res.className='camera-result show';res.innerHTML=`<div style="color:var(--danger);font-weight:600">❌ Codice non riconosciuto</div>`;}return;}
+  if(!code){if(res){res.className='camera-result show';res.innerHTML=`<div style="color:var(--danger);font-weight:600">${ico('x-circle',14)} Codice non riconosciuto</div>`;}return;}
   // Parse SA:QRCODE:ID format (generated by the app)
   let u=null;
   if(code.startsWith('SA:')){
@@ -3005,7 +3209,7 @@ function processQRCode(code){
   if(!u) u=DB.users.find(x=>x.qrCode===code);
   if(!u) u=DB.users.find(x=>code.includes(x.qrCode));
   if(!u){
-    if(res){res.className='camera-result show';res.innerHTML=`<div style="color:var(--danger);font-weight:600">❌ Codice QR non riconosciuto: ${code}</div>`;}
+    if(res){res.className='camera-result show';res.innerHTML=`<div style="color:var(--danger);font-weight:600">${ico('x-circle',14)} Codice QR non riconosciuto: ${code}</div>`;}
     return;
   }
   processUser(u,res);
@@ -3050,7 +3254,7 @@ function processUser(u,res){
     res.style.background='rgba(5,150,105,.13)';
     res.innerHTML=`
       <div style="text-align:center;padding:8px 0">
-        <div style="font-size:36px;margin-bottom:6px">✅</div>
+        <div style="margin-bottom:6px;color:var(--success)">${ico('check',44)}</div>
         <div style="color:var(--success);font-weight:700;font-size:16px;margin-bottom:4px">Accesso Consentito</div>
         <div style="font-weight:600;font-size:14px">${uName(u)}</div>
         <div style="font-size:12px;color:var(--text2);margin-top:3px">Abbonamento: ${mem.plan} · scade ${fmtDate(mem.end)}</div>
@@ -3063,7 +3267,7 @@ function processUser(u,res){
     res.style.background='rgba(220,38,38,.10)';
     res.innerHTML=`
       <div style="text-align:center;padding:8px 0">
-        <div style="font-size:36px;margin-bottom:6px">🚫</div>
+        <div style="margin-bottom:6px">${ico('x-circle',36)}</div>
         <div style="color:var(--danger);font-weight:700;font-size:16px;margin-bottom:4px">Accesso Negato</div>
         <div style="font-weight:600;font-size:14px">${uName(u)}</div>
         <div style="font-size:12px;color:var(--danger);margin-top:3px">Nessun abbonamento attivo.</div>
@@ -3130,13 +3334,13 @@ function pgSpaCliente(){
         <div><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--spa)">Area Spa & Relax</div><div style="font-size:13px;color:var(--text2)">Capienza massima 10 persone per fascia oraria · Durata massima 1 ora</div></div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-        <span class="spa-amenity">🧖 Bagno Turco</span>
-        <span class="spa-amenity">🔥 Sauna</span>
-        <span class="spa-amenity">💆 Idromassaggio</span>
-        <span class="spa-amenity">🌿 Zona Relax</span>
+        <span class="spa-amenity">${ico('spa',14)} Bagno Turco</span>
+        <span class="spa-amenity">${ico('fire',13)} Sauna</span>
+        <span class="spa-amenity">${ico('spa',14)} Idromassaggio</span>
+        <span class="spa-amenity">${ico('spa',14)} Zona Relax</span>
       </div>
     </div>
-    ${!mem?`<div class="card" style="border-color:var(--danger)"><div style="color:var(--danger);font-weight:700">⚠ Abbonamento non attivo – La spa è riservata agli iscritti.</div></div>`:''}
+    ${!mem?`<div class="card" style="border-color:var(--danger)"><div style="color:var(--danger);font-weight:700">${ico('warning',13)} Abbonamento non attivo – La spa è riservata agli iscritti.</div></div>`:''}
     <div class="card">
       <div class="card-header"><div class="card-title">Prenota una fascia oraria</div></div>
       <div class="form-grid" style="margin-bottom:16px">
@@ -3183,7 +3387,7 @@ function renderSpaSlots_html(date){
 }
 function prenotaSpa(slot){
   const mem=getActiveMembership(currentUser.id);
-  if(!mem){showToast('⚠ Abbonamento non attivo','error');return;}
+  if(!mem){showToast('Abbonamento non attivo','error');return;}
   const date=document.getElementById('spa-date')?.value||todayStr();
   const people=parseInt(document.getElementById('spa-people')?.value||1);
   if(DB.spaBookings.find(s=>s.userId===currentUser.id&&s.date===date&&s.slot===slot)){showToast('Hai già prenotato questo slot!','error');return;}
@@ -3191,7 +3395,7 @@ function prenotaSpa(slot){
   if(occ+people>SPA_CAPACITY){showToast(`Non ci sono abbastanza posti! Disponibili: ${SPA_CAPACITY-occ}`,'error');return;}
   DB.spaBookings.push({id:DB.nextId.spaBooking++,userId:currentUser.id,date,slot,people,bookedAt:todayStr()});
   addNotification('Prenotazione Spa confermata',`${uName(currentUser)} ha prenotato la Spa per ${fmtDate(date)} – ${slot}.`,'info',false,'admin');
-  showPage('spa-cliente');showToast(`Spa prenotata: ${slot} del ${fmtDate(date)} ✅`);
+  showPage('spa-cliente');showToast(`Spa prenotata: ${slot} del ${fmtDate(date)} `);
 }
 function cancelSpaBkg(id){
   DB.spaBookings=DB.spaBookings.filter(s=>s.id!==id);
@@ -3199,7 +3403,7 @@ function cancelSpaBkg(id){
 }
 
 // ─── PAGAMENTI ADMIN ───
-const PAY_METHOD_LABELS={card:'💳 Carta',paypal:'🅿️ PayPal',apple:'🍎 Apple Pay',google:'🔵 Google Pay',klarna:'⚡ Klarna',cash:'💵 Contanti',transfer:'🏦 Bonifico',admin:'🔧 Gestione'};
+const PAY_METHOD_LABELS={card:'Carta',paypal:'PayPal',apple:'Apple Pay',google:'Google Pay',klarna:'Klarna',cash:'Contanti',transfer:'🏦 Bonifico',admin:'🔧 Gestione'};
 
 // ── Membership table: search + pagination ──
 let _memPage=0,_memSearch='';
@@ -3294,7 +3498,7 @@ function pgPagamenti(){
       <div class="card-header">
         <div class="card-title">Riepilogo abbonamenti clienti</div>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-          <input type="text" class="input" id="mem-search" placeholder="🔍 Cerca cliente..." style="width:200px" oninput="filterMemberships()">
+          <input type="text" class="input" id="mem-search" placeholder="Cerca cliente..." style="width:200px" oninput="filterMemberships()">
           <button class="btn btn-primary" onclick="openNuovoPagamento()">${ico('plus',16)} Registra pagamento</button>
         </div>
       </div>
@@ -3322,7 +3526,7 @@ function pgPagamenti(){
         <tbody id="pay-tbody">${renderPayRows(allPayments)}</tbody>
       </table></div>
     </div>`:`<div class="card" style="text-align:center;padding:32px;color:var(--text3)">
-      <div style="font-size:36px;margin-bottom:8px">💳</div>
+      <div style="margin-bottom:8px;color:var(--accent)">${ico('card',44)}</div>
       <div style="font-weight:700;font-size:15px;margin-bottom:6px">Nessun pagamento registrato</div>
       <div style="font-size:13px">I pagamenti appariranno qui quando i clienti rinnovano o l'admin registra un pagamento manuale.</div>
     </div>`}
@@ -3330,7 +3534,7 @@ function pgPagamenti(){
     <!-- SEZIONE COUPON -->
     <div class="card">
       <div class="card-header">
-        <div class="card-title">🏷️ Codici Sconto</div>
+        <div class="card-title">${ico('money',15)} Codici Sconto</div>
         <button class="btn btn-primary" onclick="openCreaCoupon()">${ico('plus',16)} Nuovo coupon</button>
       </div>
       <div class="table-wrap"><table>
@@ -3350,10 +3554,10 @@ function renderPayRows(pays){
       <td style="font-size:13px">${p.plan||'–'}</td>
       <td><strong style="color:var(--success)">€${p.amount}</strong></td>
       <td><span class="badge info" style="font-size:11px">${PAY_METHOD_LABELS[p.method]||p.method||'–'}</span></td>
-      <td><span class="badge ${p.status==='completed'?'active':p.status==='pending'?'warning':'danger'}">${p.status==='completed'?'✅ Completato':p.status==='pending'?'⏳ In attesa':'❌ Fallito'}</span></td>
+      <td><span class="badge ${p.status==='completed'?'active':p.status==='pending'?'warning':'danger'}">${p.status==='completed'?'Completato':p.status==='pending'?'⏳ In attesa':'❌ Fallito'}</span></td>
       <td><div class="row" style="gap:5px">
         <button class="btn btn-secondary btn-sm" onclick="sendReceiptEmail(${p.id})" title="Invia ricevuta via email">✉ Ricevuta</button>
-        <button class="btn btn-secondary btn-sm" onclick="openFattura(${p.id})" title="Genera e invia fattura" style="color:var(--accent3);border-color:rgba(52,81,199,.3)">📄 Fattura</button>
+        <button class="btn btn-secondary btn-sm" onclick="openFattura(${p.id})" title="Genera e invia fattura" style="color:var(--accent3);border-color:rgba(52,81,199,.3)">${ico('document',14)} Fattura</button>
         <button class="btn-icon danger" onclick="cancelPayment(${p.id})" title="Annulla pagamento">${ico('trash',13)}</button>
       </div></td>
     </tr>`;
@@ -3386,7 +3590,7 @@ function openFattura(payId){
   const addrCliente=u.address||'';
 
   document.getElementById('modal-body').innerHTML=`
-    <div class="modal-title">📄 Genera Fattura</div>
+    <div class="modal-title">${ico('document',16)} Genera Fattura</div>
 
     <!-- Anteprima fattura -->
     <div id="fattura-preview" style="border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:18px;background:var(--surface2);font-size:13px">
@@ -3657,7 +3861,7 @@ ${palestraEmail}`);
     const infoDiv=document.createElement('div');
     infoDiv.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:28px 32px;box-shadow:0 20px 60px rgba(0,0,0,.25);z-index:9999;max-width:420px;text-align:center;font-family:inherit';
     infoDiv.innerHTML=`
-      <div style="font-size:42px;margin-bottom:12px">📎</div>
+      <div style="margin-bottom:12px">${ico('document',42)}</div>
       <div style="font-size:17px;font-weight:700;color:#111827;margin-bottom:8px">PDF scaricato!</div>
       <div style="font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:20px">
         Il file <strong style="color:#111827">Fattura_${fattNum}.pdf</strong> è stato salvato.<br>
@@ -3673,7 +3877,7 @@ ${palestraEmail}`);
     document.body.appendChild(overlay);
 
     setTimeout(()=>{ window.open(`mailto:${u.email}?subject=${soggetto}&body=${corpo}`,'_blank'); },600);
-    showToast(`📎 PDF scaricato — allegalo all'email che si apre ora`,'success');
+    showToast(`PDF scaricato — allegalo all'email che si apre ora`,'success');
 
   }catch(err){
     console.error('jsPDF error:',err);
@@ -3774,7 +3978,7 @@ function renderCouponRows(){
 }
 
 function openCreaCoupon(){
-  document.getElementById('modal-body').innerHTML=`<div class="modal-title">🏷️ Nuovo Codice Sconto</div>
+  document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('money',16)} Nuovo Codice Sconto</div>
     <div class="form-grid">
       <div class="input-group"><label class="input-label">Codice (es. SUMMER20)</label>
         <input type="text" class="input" id="cp-code" placeholder="PROMO2026" style="text-transform:uppercase" oninput="this.value=this.value.toUpperCase()">
@@ -3807,7 +4011,7 @@ function saveCoupon(){
   if(DB.coupons.find(c=>c.code===code)){showToast('Codice già esistente','error');return;}
   const maxU=parseInt(document.getElementById('cp-max').value)||0;
   DB.coupons.push({id:DB.nextId.coupon++,code,discount,description:document.getElementById('cp-desc').value.trim(),active:true,usages:0,maxUsages:maxU||null,expiresAt:document.getElementById('cp-exp').value||null});
-  closeModal();showPage('pagamenti');showToast(`Coupon ${code} creato ✓`,'success');
+  closeModal();showPage('pagamenti');showToast(`Coupon ${code} creato`,'success');
 }
 
 function toggleCoupon(id){
@@ -3887,12 +4091,12 @@ function exportPaymentsCSV(){
   const a=document.createElement('a');a.href=url;a.download=`pagamenti_${y}_${String(m).padStart(2,'0')}.csv`;
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  closeModal();showToast(`CSV scaricato: ${pays.length} transazioni ✅`);
+  closeModal();showToast(`CSV scaricato: ${pays.length} transazioni `);
 }
 
 function openNuovoPagamento(presetUserId){
   const clients=clientUsers();
-  document.getElementById('modal-body').innerHTML=`<div class="modal-title">💳 Registra Pagamento</div>
+  document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('card',16)} Registra Pagamento</div>
     <div class="gap-16">
       <div class="input-group"><label class="input-label">Cliente *</label>
         <select class="input" id="adm-pay-uid">
@@ -3958,14 +4162,14 @@ function saveAdminPayment(){
   const u=getUser(uid);
   addNotification('Pagamento registrato',`€${amount} da ${u?uName(u):'–'} – ${planName}.`,'success',false,'admin');
   sendEmailPayment(uid,amount,planName,date);
-  closeModal();showPage('pagamenti');showToast(`Pagamento di €${amount} registrato! ✅`);
+  closeModal();showPage('pagamenti');showToast(`Pagamento di €${amount} registrato! `);
 }
 
 function openStoricoPagamentiUtente(uid){
   const u=getUser(uid);if(!u)return;
   const pays=DB.payments.filter(p=>p.userId===uid).sort((a,b)=>b.date.localeCompare(a.date));
   const total=pays.reduce((s,p)=>s+(p.amount||0),0);
-  document.getElementById('modal-body').innerHTML=`<div class="modal-title">📋 Storico – ${uName(u)}</div>
+  document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('document',16)} Storico – ${uName(u)}</div>
     <div style="margin-bottom:14px;background:var(--surface2);padding:12px 16px;border-radius:10px;display:flex;gap:20px">
       <div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px">Totale pagato</div><div style="font-size:20px;font-weight:700;color:var(--success)">€${total}</div></div>
       <div><div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px">Transazioni</div><div style="font-size:20px;font-weight:700">${pays.length}</div></div>
@@ -3975,7 +4179,7 @@ function openStoricoPagamentiUtente(uid){
       <td>${fmtDate(p.date)}</td><td>${p.plan||'–'}</td>
       <td><strong style="color:var(--success)">€${p.amount}</strong></td>
       <td>${PAY_METHOD_LABELS[p.method]||p.method||'–'}</td>
-      <td><span class="badge ${p.status==='completed'?'active':'warning'}">${p.status==='completed'?'✅ OK':'⏳ Attesa'}</span></td>
+      <td><span class="badge ${p.status==='completed'?'active':'warning'}">${p.status==='completed'?'OK':'In attesa'}</span></td>
     </tr>`).join('')}</tbody></table></div>`:`<div style="text-align:center;padding:20px;color:var(--text3)">Nessun pagamento registrato per questo cliente.</div>`}
     <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">Chiudi</button><button class="btn btn-primary" onclick="closeModal();openNuovoPagamento(${uid})">+ Nuovo pagamento</button></div>`;
   openModal();
@@ -4022,7 +4226,7 @@ function renderNotifList(notifs){
         <div style="font-size:12.5px;color:var(--text2);margin-top:2px">${n.msg}</div>
         <div style="font-size:11px;color:var(--text3);margin-top:3px">${fmtTime(n.time)||n.time}</div>
       </div>
-      <span class="badge ${n.type==='warning'?'warning':n.type==='success'?'success':'info'}" style="flex-shrink:0">${n.type==='warning'?'⚠ Avviso':n.type==='success'?'✅ OK':'ℹ Info'}</span>
+      <span class="badge ${n.type==='warning'?'warning':n.type==='success'?'success':'info'}" style="flex-shrink:0;display:inline-flex;align-items:center;gap:3px">${n.type==='warning'?ico('warning',11)+' Avviso':n.type==='success'?ico('check',11)+' OK':ico('info',11)+' Info'}</span>
     </div>`).join('');
 }
 function markRead(id){
@@ -4062,11 +4266,11 @@ function pgProfilo(){
       </div>
     </div>
     <div class="card">
-      <div class="card-header"><div class="card-title">🔔 Notifiche Push</div></div>
+      <div class="card-header"><div class="card-title">${ico('bell',15)} Notifiche Push</div></div>
       <div style="font-size:13px;color:var(--text2);margin-bottom:14px">Ricevi notifiche native sul tuo dispositivo per corsi, abbonamenti e aggiornamenti.</div>
       <div class="row" style="gap:10px;align-items:center">
-        <button class="btn btn-primary" onclick="testPushNotification()">🔔 Attiva / Testa notifiche</button>
-        <span id="push-status" style="font-size:12px;color:var(--text3)">${'Notification' in window?(Notification.permission==='granted'?'✅ Notifiche attive':Notification.permission==='denied'?'❌ Bloccate dal browser':'⏳ Non ancora autorizzate'):'❌ Non supportate'}</span>
+        <button class="btn btn-primary" onclick="testPushNotification()">${ico('bell',14)} Attiva / Testa notifiche</button>
+        <span id="push-status" style="font-size:12px;color:var(--text3)">${'Notification' in window?(Notification.permission==='granted'?'Notifiche attive':Notification.permission==='denied'?'Bloccate dal browser':'In attesa di autorizzazione'):'Non supportate'}</span>
       </div>
     </div>
   </div>`;
@@ -4076,7 +4280,7 @@ function saveProfilo(){
   currentUser.email=document.getElementById('p-em').value.trim();currentUser.phone=document.getElementById('p-ph').value.trim();
   currentUser.birth=document.getElementById('p-bi').value;currentUser.gender=document.getElementById('p-ge').value;
   document.getElementById('sidebar-username').textContent=uName(currentUser);document.getElementById('sidebar-avatar').textContent=uInit(currentUser);document.getElementById('topbar-avatar').textContent=uInit(currentUser);
-  showToast('Profilo aggiornato! ✅');
+  showToast('Profilo aggiornato!');
 }
 function openCambioPassword(){
   document.getElementById('modal-body').innerHTML=`<div class="modal-title">Cambia Password</div>
@@ -4120,7 +4324,7 @@ function renderCliGrid(cl){
         <div style="text-align:center;background:var(--surface2);padding:7px;border-radius:8px"><div style="font-size:14px;font-weight:700">${lat?lat.weight+' kg':'–'}</div><div style="font-size:10px;color:var(--text3)">PESO</div></div>
         <div style="text-align:center;background:var(--surface2);padding:7px;border-radius:8px"><div style="font-size:14px;font-weight:700">${myPlans.length}</div><div style="font-size:10px;color:var(--text3)">SCHEDE</div></div>
       </div>
-      <div style="font-size:11px;color:${mem?'var(--success)':'var(--danger)'};font-weight:600;margin-bottom:10px">${mem?'✅ Abbonamento attivo':'❌ Nessun abbonamento'}</div>
+      <div style="font-size:11px;color:${mem?'var(--success)':'var(--danger)'};font-weight:600;margin-bottom:10px">${mem?'Abbonamento attivo':'Nessun abbonamento'}</div>
       <div class="row" style="gap:6px">
         <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center;font-size:11px" onclick="showPage('storico-cliente',${u.id})">${ico('history',13)} Storico</button>
         <button class="btn btn-primary btn-sm" style="flex:1;justify-content:center;font-size:11px" onclick="openNuovaScheda(${u.id})">+ Scheda</button>
@@ -4154,7 +4358,7 @@ function openAssegnaCliente(){
 }
 function confermAssegna(clientId){
   assignClientToTrainer(clientId,currentUser.id);
-  const u=getUser(clientId);closeModal();showPage('clienti');showToast(`${u?uName(u):'Cliente'} assegnato! ✅`);
+  const u=getUser(clientId);closeModal();showPage('clienti');showToast(`${u?uName(u):'Cliente'} assegnato! `);
 }
 function rimuoviCliente(clientId){
   const u=getUser(clientId);
@@ -4201,7 +4405,7 @@ function openCourseParticipants(courseId){
   const participants=bookings.map(b=>getUser(b.userId)).filter(Boolean);
   const trainer=getUser(c.trainerId);
   document.getElementById('modal-body').innerHTML=`
-    <div class="modal-title">👥 Partecipanti – ${c.title}</div>
+    <div class="modal-title">${ico('people',18)} Partecipanti – ${c.title}</div>
     <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:18px;padding:14px;background:var(--surface2);border-radius:12px">
       <div><div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px">Data</div><div style="font-size:14px;font-weight:600;margin-top:2px">${fmtDate(c.date)}</div></div>
       <div><div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px">Orario</div><div style="font-size:14px;font-weight:600;margin-top:2px">${c.timeStart}–${c.timeEnd}</div></div>
@@ -4221,7 +4425,7 @@ function openCourseParticipants(courseId){
                 <div style="font-size:11px;color:var(--text3);margin-top:1px">${u.email} · Prenotato il ${fmtDate(booking?.bookedAt||'')}</div>
               </div>
               <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
-                <span class="badge ${mem?'active':'danger'}" style="font-size:10px">${mem?'✅ Abb. attivo':'⚠ No abb.'}</span>
+                <span class="badge ${mem?'active':'danger'}" style="font-size:10px">${mem?'Abb. attivo':'No abb.'}</span>
                 <span class="badge active" style="font-size:10px">Prenotato</span>
               </div>
             </div>`;
@@ -4241,7 +4445,7 @@ function openCourseParticipants(courseId){
     })()}
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal()">Chiudi</button>
-      ${currentRole==='admin'||currentRole==='trainer'?`<button class="btn btn-primary" onclick="openAttendanceRegister(${courseId})">📋 Registro Presenze</button>`:''}
+      ${currentRole==='admin'||currentRole==='trainer'?`<button class="btn btn-primary" onclick="openAttendanceRegister(${courseId})">${ico('list',14)} Registro Presenze</button>`:''}
     </div>`;
   openModal();
 }
@@ -4254,9 +4458,9 @@ function openAttendanceRegister(courseId){
   if(participants.length===0){showToast('Nessun partecipante iscritto','error');return;}
   document.getElementById('modal-body').className='modal modal-lg';
   document.getElementById('modal-body').innerHTML=`
-    <div class="modal-title">📋 Registro Presenze – ${c.title}</div>
+    <div class="modal-title">${ico('list',14)} Registro Presenze – ${c.title}</div>
     <div style="font-size:12px;color:var(--text2);margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap">
-      <span>📅 ${fmtDate(c.date)}</span><span>🕐 ${c.timeStart}–${c.timeEnd}</span><span>📍 ${c.room}</span>
+      <span>${ico('calendar',13)} ${fmtDate(c.date)}</span><span>${ico('clock',13)} ${c.timeStart}–${c.timeEnd}</span><span>${ico('location',13)} ${c.room}</span>
     </div>
     <div class="gap-8" id="att-list">
       ${participants.map(u=>{
@@ -4270,7 +4474,7 @@ function openAttendanceRegister(courseId){
           </div>
           <button class="btn ${present?'btn-primary':'btn-secondary'} btn-sm" id="att-btn-${u.id}"
             onclick="toggleAttendance(${courseId},${u.id},'${c.date}')">
-            ${present?'✅ Presente':'○ Assente'}
+            ${present?'Presente':'○ Assente'}
           </button>
         </div>`;
       }).join('')}
@@ -4281,7 +4485,7 @@ function openAttendanceRegister(courseId){
     </div>
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal()">Chiudi</button>
-      <button class="btn btn-primary" onclick="closeModal();showToast('Registro presenze salvato ✅')">Salva e chiudi</button>
+      <button class="btn btn-primary" onclick="closeModal();showToast('Registro presenze salvato')">Salva e chiudi</button>
     </div>`;
   openModal();
 }
@@ -4291,7 +4495,7 @@ function toggleAttendance(courseId,userId,date){
   else{DB.courseAttendance.push({id:DB.nextId.attendance++,courseId,userId,date,present:true});rec=DB.courseAttendance[DB.courseAttendance.length-1];}
   const btn=document.getElementById(`att-btn-${userId}`);
   const row=document.getElementById(`att-row-${userId}`);
-  if(btn){btn.className=`btn ${rec.present?'btn-primary':'btn-secondary'} btn-sm`;btn.textContent=rec.present?'✅ Presente':'○ Assente';}
+  if(btn){btn.className=`btn ${rec.present?'btn-primary':'btn-secondary'} btn-sm`;btn.textContent=rec.present?'Presente':'○ Assente';}
   if(row)row.style.background=rec.present?'rgba(5,150,105,.05)':'var(--surface)';
   const cnt=document.getElementById('att-count-present');
   if(cnt)cnt.textContent=DB.courseAttendance.filter(a=>a.courseId===courseId&&a.present).length;
@@ -4306,12 +4510,26 @@ function pgStoricoCliente(clientId){
   const cins=[...DB.checkins].filter(c=>c.userId===clientId).sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
   const first=logs[logs.length-1];const latest=logs[0];
   document.getElementById('page-title').textContent=`Storico – ${uName(u)}`;
+  const _hasBriefing=!!_clientBriefings[clientId];
   return`<div class="gap-20">
     <button class="btn btn-secondary btn-sm" onclick="showPage('clienti')" style="width:fit-content">← Torna ai clienti</button>
+
+    <!-- Header card -->
     <div class="card" style="display:flex;align-items:center;gap:16px">
       <div class="avatar orange" style="width:54px;height:54px;font-size:18px">${uInit(u)}</div>
-      <div><div style="font-size:18px;font-weight:700">${uName(u)}</div><div style="font-size:13px;color:var(--text2)">${u.email} · Iscritto: ${fmtDate(u.joined)}</div>
-        ${getActiveMembership(clientId)?`<span class="badge active" style="margin-top:4px">✅ Abbonamento attivo</span>`:`<span class="badge danger" style="margin-top:4px">❌ Nessun abbonamento</span>`}
+      <div style="flex:1"><div style="font-size:18px;font-weight:700">${uName(u)}</div><div style="font-size:13px;color:var(--text2)">${u.email} · Iscritto: ${fmtDate(u.joined)}</div>
+        ${getActiveMembership(clientId)?`<span class="badge active" style="margin-top:4px">Abbonamento attivo</span>`:`<span class="badge danger" style="margin-top:4px">Nessun abbonamento</span>`}
+      </div>
+    </div>
+
+    <!-- AI Briefing card -->
+    <div class="card" style="border-left:3px solid var(--accent)">
+      <div class="card-header" style="justify-content:space-between">
+        <div class="card-title" style="display:flex;align-items:center;gap:8px">${ico('bot',16)} Briefing AI Pre-Sessione</div>
+        <button class="btn btn-primary btn-sm" id="briefing-btn-${clientId}" onclick="generateClientBriefingAI(${clientId})" style="gap:6px">${ico('bot',13)} ${_hasBriefing?'Aggiorna':'Genera Briefing'}</button>
+      </div>
+      <div id="briefing-text-${clientId}" style="font-size:13.5px;line-height:1.8;color:var(--text)">
+        ${_hasBriefing?md(_clientBriefings[clientId]):`<span style="color:var(--text3);font-size:13px">Clicca "Genera Briefing" per ricevere un'analisi AI del cliente: frequenza, trend peso, stato abbonamento e consigli per la sessione di oggi.</span>`}
       </div>
     </div>
     ${logs.length&&first&&latest?`<div class="grid-4">
@@ -4353,6 +4571,48 @@ function pgStoricoCliente(clientId){
 // Stato temporaneo builder
 let builderPlan={title:'',clientId:null,goal:'Ipertrofia',start:'',end:'',exercises:[]};
 
+async function generateClientBriefingAI(clientId){
+  const btn=document.getElementById(`briefing-btn-${clientId}`);
+  const textEl=document.getElementById(`briefing-text-${clientId}`);
+  if(btn){btn.disabled=true;btn.innerHTML='Analisi in corso...';}
+  const u=getUser(clientId);if(!u)return;
+  const logs=DB.progressLogs.filter(l=>l.userId===clientId).sort((a,b)=>b.date.localeCompare(a.date));
+  const cins=DB.checkins.filter(c=>c.userId===clientId).sort((a,b)=>(b.date+b.time).localeCompare(a.date+a.time));
+  const plan=DB.workoutPlans.find(p=>p.clientId===clientId&&p.status==='active');
+  const mem=getActiveMembership(clientId);
+  const bookings=DB.bookings.filter(b=>b.userId===clientId&&b.status==='booked').length;
+  const now=new Date();
+  const cin30=cins.filter(c=>(now-new Date(c.date))/86400000<=30).length;
+  const cin7=cins.filter(c=>(now-new Date(c.date))/86400000<=7).length;
+  const lastCin=cins[0]?fmtDate(cins[0].date):'mai';
+  const weightTrend=logs.length>=2?`${logs[0].weight>logs[1].weight?'+':''}${(logs[0].weight-logs[1].weight).toFixed(1)}kg`:null;
+  const messages=[
+    {role:'system',content:'Sei un assistente AI per personal trainer. Genera briefing pre-sessione concisi e utili in italiano. Usa grassetto e bullet point. Massimo 160 parole.'},
+    {role:'user',content:`Briefing pre-sessione per il cliente ${uName(u)}:
+- Abbonamento: ${mem?`${mem.plan} (${mem.status==='warning'?'in scadenza':'attivo'})`:'scaduto/assente'}
+- Scheda attiva: ${plan?`"${plan.title}" – obiettivo ${plan.goal}`:'nessuna scheda assegnata'}
+- Check-in ultimi 7 giorni: ${cin7} | ultimi 30 giorni: ${cin30} | ultimo accesso: ${lastCin}
+- Misurazioni: ${logs.length?`peso ${logs[0].weight}kg${logs[0].fat?`, grasso ${logs[0].fat}%`:''}${weightTrend?`, trend ${weightTrend}`:''}`: 'nessun dato'}
+- Corsi prenotati: ${bookings}
+
+Fornisci in massimo 3 sezioni:
+1. **Stato cliente** (1 riga riassuntiva)
+2. **Punti di attenzione** per questa sessione (max 3 bullet)
+3. **Consiglio del giorno** (1 azione concreta)`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:320,temperature:0.7})});
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    _clientBriefings[clientId]=data.choices[0].message.content;
+    if(textEl)textEl.innerHTML=md(_clientBriefings[clientId]);
+    if(btn){btn.disabled=false;btn.innerHTML=`${ico('bot',13)} Aggiorna`;}
+  }catch(e){
+    showToast('Errore generazione briefing. Riprova.','error');
+    if(btn){btn.disabled=false;btn.innerHTML=`${ico('bot',13)} Genera Briefing`;}
+  }
+}
+
 function pgSchede(){
   const myPlans=[...DB.workoutPlans].filter(w=>w.trainerId===currentUser.id).sort((a,b)=>b.start.localeCompare(a.start));
   return`<div class="gap-20">
@@ -4361,7 +4621,7 @@ function pgSchede(){
     <div class="grid-2">
       ${myPlans.map(w=>{const c=getUser(w.clientId);const totalEx=w.days.reduce((a,d)=>a+d.exercises.length,0);return`<div class="card">
         <div class="row-between" style="margin-bottom:12px">
-          <div><div style="font-size:15px;font-weight:700">${w.title}</div><div style="font-size:12px;color:var(--text3);margin-top:2px">👤 ${c?uName(c):'–'} · ${w.goal}</div></div>
+          <div><div style="font-size:15px;font-weight:700">${w.title}</div><div style="font-size:12px;color:var(--text3);margin-top:2px">${ico('user',12)} ${c?uName(c):'–'} · ${w.goal}</div></div>
           <span class="badge ${w.status==='active'?'active':'inactive'}">${w.status==='active'?'Attiva':'Disattiva'}</span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:12px">
@@ -4370,8 +4630,8 @@ function pgSchede(){
           <div style="background:var(--surface2);padding:7px;border-radius:8px;text-align:center"><div style="font-size:10px;font-weight:700">${fmtDate(w.end)}</div><div style="font-size:10px;color:var(--text3)">FINE</div></div>
         </div>
         <div class="row" style="gap:7px">
-          <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center" onclick="openSchedaBuilder(${w.id})">📋 Gestisci</button>
-          <button class="btn ${w.status==='active'?'btn-warning':'btn-primary'} btn-sm" style="flex:1;justify-content:center" onclick="toggleScheda(${w.id})">${w.status==='active'?'⏸ Disattiva':'▶ Attiva'}</button>
+          <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center" onclick="openSchedaBuilder(${w.id})">Gestisci</button>
+          <button class="btn ${w.status==='active'?'btn-warning':'btn-primary'} btn-sm" style="flex:1;justify-content:center" onclick="toggleScheda(${w.id})">${w.status==='active'?'Disattiva':'Attiva'}</button>
         </div>
       </div>`;}).join('')}
     </div>
@@ -4384,7 +4644,7 @@ async function suggestExercisesWithAI(planId){
   const btn=document.getElementById('ai-scheda-btn');
   const box=document.getElementById('ai-scheda-box');
   if(!btn||!box)return;
-  btn.disabled=true;btn.textContent='🤖 Analisi in corso...';
+  btn.disabled=true;btn.innerHTML='Analisi in corso...';
   box.style.display='none';
   const prog=DB.progressLogs.filter(r=>r.userId===plan.clientId).sort((a,b)=>b.date.localeCompare(a.date));
   const lastW=prog.length?prog[0].weight:null;
@@ -4400,13 +4660,13 @@ Suggerisci 6 esercizi aggiuntivi adatti a questo obiettivo, indicando per ognuno
     const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:500,temperature:0.7})});
     if(!res.ok)throw new Error();
     const data=await res.json();
-    box.innerHTML='<div style="font-weight:700;margin-bottom:8px;color:var(--accent)">🤖 Suggerimenti AI per obiettivo '+plan.goal+':</div>'+md(data.choices[0].message.content);
+    box.innerHTML='<div style="font-weight:700;margin-bottom:8px;color:var(--accent)">Suggerimenti AI per obiettivo '+plan.goal+':</div>'+md(data.choices[0].message.content);
     box.style.display='block';
   }catch(e){
     box.innerHTML='<span style="color:var(--danger)">Errore nel recupero suggerimenti. Riprova.</span>';
     box.style.display='block';
   }
-  btn.disabled=false;btn.textContent='🤖 Aggiorna suggerimenti AI';
+  btn.disabled=false;btn.textContent='Aggiorna suggerimenti AI';
 }
 
 function toggleScheda(planId){
@@ -4417,24 +4677,41 @@ function toggleScheda(planId){
 
 function openNuovaScheda(presetClientId){
   const myClients=currentRole==='trainer'?getTrainerClients(currentUser.id):clientUsers();
-  document.getElementById('modal-body').innerHTML=`<div class="modal-title">Nuova Scheda</div>
+  document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('list',18)} Nuova Scheda</div>
     <div class="gap-16">
-      <div class="input-group"><label class="input-label">Titolo *</label><input type="text" class="input" id="ns-t" placeholder="es. Ipertrofia – Ciclo A"></div>
+      <div class="input-group"><label class="input-label">Titolo <span style="color:var(--text3);font-weight:400">(lascia vuoto per generazione automatica)</span></label><input type="text" class="input" id="ns-t" placeholder="es. Ipertrofia – Ciclo A"></div>
       <div class="input-group"><label class="input-label">Cliente *</label>
         <select class="input" id="ns-ci">
           <option value="">— Seleziona cliente —</option>
           ${myClients.map(u=>`<option value="${u.id}" ${presetClientId===u.id?'selected':''}>${uName(u)}</option>`).join('')}
         </select>
       </div>
-      <div class="input-group"><label class="input-label">Obiettivo</label>
-        <select class="input" id="ns-g"><option>Ipertrofia</option><option>Dimagrimento</option><option>Resistenza</option><option>Tonificazione</option><option>Forza</option><option>Riabilitazione</option></select>
+      <div class="form-grid">
+        <div class="input-group"><label class="input-label">Obiettivo</label>
+          <select class="input" id="ns-g"><option>Ipertrofia</option><option>Dimagrimento</option><option>Resistenza</option><option>Tonificazione</option><option>Forza</option><option>Riabilitazione</option></select>
+        </div>
+        <div class="input-group"><label class="input-label">Livello cliente</label>
+          <select class="input" id="ns-lv"><option value="Principiante">Principiante</option><option value="Intermedio" selected>Intermedio</option><option value="Avanzato">Avanzato</option></select>
+        </div>
       </div>
       <div class="form-grid">
+        <div class="input-group"><label class="input-label">Giorni/settimana</label><input type="number" class="input" id="ns-dpw" value="3" min="2" max="6"></div>
         <div class="input-group"><label class="input-label">Data inizio</label><input type="date" class="input" id="ns-s" value="${todayStr()}"></div>
         <div class="input-group"><label class="input-label">Data fine</label><input type="date" class="input" id="ns-e"></div>
       </div>
+      <div style="background:linear-gradient(135deg,rgba(192,25,43,.07),rgba(52,81,199,.07));border:1px solid rgba(192,25,43,.18);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px">
+        <div style="font-size:24px;flex-shrink:0">${ico('bot',28)}</div>
+        <div>
+          <div style="font-weight:700;font-size:13px;margin-bottom:3px">Generazione AI completa</div>
+          <div style="font-size:12px;color:var(--text2)">L'AI costruisce l'intera scheda — giorni, esercizi, serie e reps — in base all'obiettivo e al livello del cliente. Potrai modificarla subito dopo.</div>
+        </div>
+      </div>
     </div>
-    <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">Annulla</button><button class="btn btn-primary" onclick="saveNuovaScheda()">Crea e aggiungi esercizi →</button></div>`;
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal()">Annulla</button>
+      <button class="btn btn-secondary" onclick="saveNuovaScheda()">Crea manualmente →</button>
+      <button class="btn btn-primary" id="ns-ai-btn" onclick="generateSchedaWithAI()" style="gap:7px">${ico('bot',15)} Genera con AI</button>
+    </div>`;
   openModal();
 }
 
@@ -4449,7 +4726,80 @@ function saveNuovaScheda(){
   const c=getUser(cid);addNotification('Nuova scheda assegnata',`"${t}" assegnata a ${c?uName(c):'–'}.`,'info',false,'trainer');
   closeModal();
   openSchedaBuilder(newPlan.id);
-  showToast(`Scheda "${t}" creata! Ora aggiungi gli esercizi 💪`);
+  showToast(`Scheda "${t}" creata! Ora aggiungi gli esercizi.`);
+}
+
+async function generateSchedaWithAI(){
+  const cid=parseInt(document.getElementById('ns-ci').value);
+  if(!cid){showToast('Seleziona prima un cliente','error');return;}
+  const rawTitle=document.getElementById('ns-t').value.trim();
+  const goal=document.getElementById('ns-g').value;
+  const level=document.getElementById('ns-lv').value;
+  const dpw=Math.max(2,Math.min(6,parseInt(document.getElementById('ns-dpw').value)||3));
+  const start=document.getElementById('ns-s').value;
+  const end=document.getElementById('ns-e').value;
+  const autoTitle=rawTitle||`${goal} ${level} – AI`;
+  const c=getUser(cid);
+  const prog=DB.progressLogs.filter(r=>r.userId===cid).sort((a,b)=>b.date.localeCompare(a.date));
+  const lastW=prog.length?prog[0].weight:null;
+  const btn=document.getElementById('ns-ai-btn');
+  if(btn){btn.disabled=true;btn.innerHTML='Generazione in corso...';}
+  const dayNames=['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const macroList='Riscaldamento, Corpo Libero, Sala Pesi, Macchinari, Mobilità/Stretching';
+  const messages=[
+    {role:'system',content:'Sei un personal trainer esperto. Genera schede di allenamento in formato JSON valido. Rispondi ESCLUSIVAMENTE con JSON, senza testo o markdown aggiuntivo.'},
+    {role:'user',content:`Crea una scheda di allenamento per:
+- Cliente: ${c?uName(c):'–'}${lastW?` (peso attuale: ${lastW}kg)`:''}
+- Obiettivo: ${goal}
+- Livello: ${level}
+- Giorni di allenamento a settimana: ${dpw} (usa: ${dayNames.slice(0,dpw).join(', ')})
+
+Rispondi SOLO con questo JSON (zero testo extra, zero backtick):
+{"days":[{"label":"Lunedì","exercises":[{"name":"nome","sets":3,"reps":"8-10","rest":90,"notes":"","macro":"categoria"}]}]}
+
+Regole:
+- macro deve essere ESATTAMENTE uno di: ${macroList}
+- Ogni giorno: 1 esercizio Riscaldamento all'inizio, 5-6 esercizi principali, 1 Mobilità/Stretching finale
+- sets e rest sono numeri interi, reps è una stringa (es. "8-10" o "12")
+- Adatta volume e intensità al livello ${level}`}
+  ];
+  try{
+    const res=await fetch(REGOLO_API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${REGOLO_API_KEY}`},body:JSON.stringify({model:REGOLO_MODEL,messages,max_tokens:2000,temperature:0.5})});
+    if(!res.ok)throw new Error('API '+res.status);
+    const data=await res.json();
+    let raw=data.choices[0].message.content.trim();
+    // Strip markdown code fences if model adds them
+    raw=raw.replace(/^```json\s*/i,'').replace(/^```\s*/,'').replace(/\s*```$/,'').trim();
+    // Extract JSON object if there's surrounding text
+    const jsonStart=raw.indexOf('{');const jsonEnd=raw.lastIndexOf('}');
+    if(jsonStart!==-1&&jsonEnd!==-1)raw=raw.slice(jsonStart,jsonEnd+1);
+    const parsed=JSON.parse(raw);
+    if(!parsed.days||!Array.isArray(parsed.days)||!parsed.days.length)throw new Error('Struttura non valida');
+    const validMacros=Object.keys(EXERCISE_LIBRARY);
+    const newPlan={
+      id:DB.nextId.plan++,title:autoTitle,clientId:cid,trainerId:currentUser.id,
+      goal,start,end,status:'active',
+      days:parsed.days.map(d=>({
+        label:d.label||'Giorno',
+        exercises:(d.exercises||[]).map(e=>({
+          name:String(e.name||'Esercizio'),
+          sets:parseInt(e.sets)||3,
+          reps:String(e.reps||'10'),
+          rest:parseInt(e.rest)||60,
+          notes:String(e.notes||''),
+          macro:validMacros.includes(e.macro)?e.macro:'Sala Pesi'
+        }))
+      }))
+    };
+    DB.workoutPlans.push(newPlan);
+    addNotification('Scheda AI generata',`"${autoTitle}" creata con AI per ${c?uName(c):'–'} (${newPlan.days.length} giorni).`,'success',false,'trainer');
+    closeModal();
+    openSchedaBuilder(newPlan.id);
+    showToast(`Scheda AI "${autoTitle}" pronta — ${newPlan.days.length} giorni, ${newPlan.days.reduce((a,d)=>a+d.exercises.length,0)} esercizi!`,'success');
+  }catch(e){
+    showToast('Errore generazione AI. Controlla la connessione o crea manualmente.','error');
+    if(btn){btn.disabled=false;btn.innerHTML=`${ico('bot',15)} Genera con AI`;}
+  }
 }
 
 function openSchedaBuilder(planId){
@@ -4458,12 +4808,12 @@ function openSchedaBuilder(planId){
   const macros=Object.keys(EXERCISE_LIBRARY);
   document.getElementById('modal-body').className='modal modal-lg';
   document.getElementById('modal-body').innerHTML=`
-    <div class="modal-title">📋 ${plan.title}</div>
+    <div class="modal-title">${ico('list',18)} ${plan.title}</div>
     <div style="font-size:13px;color:var(--text2);margin-bottom:16px">Cliente: <strong>${c?uName(c):'–'}</strong> · Obiettivo: ${plan.goal}</div>
 
     <!-- AI SUGGERIMENTI -->
     <div style="margin-bottom:16px">
-      <button class="btn btn-secondary" onclick="suggestExercisesWithAI(${plan.id})" id="ai-scheda-btn">🤖 Suggerisci esercizi con AI</button>
+      <button class="btn btn-secondary" onclick="suggestExercisesWithAI(${plan.id})" id="ai-scheda-btn">${ico('bot',14)} Suggerisci esercizi con AI</button>
     </div>
     <div id="ai-scheda-box" style="display:none;background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;font-size:13px;line-height:1.8"></div>
 
@@ -4556,7 +4906,7 @@ function addExerciseToBuilder(planId){
   const exSel=document.getElementById('sb-ex');if(exSel)exSel.value='';
   const repsEl=document.getElementById('sb-reps');if(repsEl)repsEl.value='';
   const wEl=document.getElementById('sb-weight');if(wEl)wEl.value='';
-  showToast(`"${exName}" aggiunto! ✅`);
+  showToast(`"${exName}" aggiunto! `);
 }
 
 function removeExerciseFromBuilder(planId,dayLabel,exIdx){
@@ -4573,14 +4923,14 @@ function renderBuilderExercises(plan){
   if(!plan.days||plan.days.length===0)return`<div style="text-align:center;padding:20px;color:var(--text3);font-size:13px">Nessun esercizio aggiunto. Usa il form qui sopra per iniziare.</div>`;
   return plan.days.map(day=>`
     <div class="workout-day" style="margin-bottom:10px">
-      <div class="workout-day-header"><span>📅 ${day.label}</span><span style="color:var(--text3);font-size:11px">${day.exercises.length} esercizi</span></div>
+      <div class="workout-day-header"><span>${ico('calendar',13)} ${day.label}</span><span style="color:var(--text3);font-size:11px">${day.exercises.length} esercizi</span></div>
       ${day.exercises.map((ex,i)=>`<div class="exercise-row">
         ${ex.macro?`<span style="background:${MACRO_COLORS[ex.macro]||'var(--accent3)'};color:#fff;padding:2px 8px;border-radius:99px;font-size:10px;font-weight:700;white-space:nowrap">${ex.macro.split('/')[0].trim()}</span>`:''}
         <div class="exercise-name">${ex.name}</div>
         <span class="exercise-param">${ex.sets} serie</span>
         <span class="exercise-param">${ex.reps} rip.</span>
         <span class="exercise-param">⏱ ${ex.rest}</span>
-        <span class="exercise-param">⚖ ${ex.weight}</span>
+        <span class="exercise-param">peso: ${ex.weight}</span>
         <button class="btn-icon danger" style="margin-left:auto;flex-shrink:0" onclick="removeExerciseFromBuilder(${plan.id},'${day.label.replace(/'/g,"\\'")}',${i})">${ico('trash',13)}</button>
       </div>`).join('')}
     </div>`).join('');
@@ -4628,7 +4978,7 @@ function pgSchedaCliente(){
     </div></div>
 
     ${pendingDays.length===0?`<div class="card" style="text-align:center;padding:24px;border-color:var(--success)">
-      <div style="font-size:36px;margin-bottom:8px">🏆</div>
+      <div style="margin-bottom:8px">${ico('trophy',36)}</div>
       <div style="font-weight:700;color:var(--success);font-size:15px">Tutti gli allenamenti completati!</div>
       <div style="color:var(--text2);font-size:13px;margin-top:4px">Ottimo lavoro. Clicca "Nuovo ciclo" per ricominciare questa settimana mantenendo tutto lo storico.</div>
       <button class="btn btn-primary" style="margin-top:14px" onclick="resetCicloScheda(${p.id})">${ico('repeat',16)} Ricomincia ciclo</button>
@@ -4636,7 +4986,7 @@ function pgSchedaCliente(){
 
     ${pendingDays.map(d=>`<div class="workout-day" id="wday-${d.label.replace(/[^a-z0-9]/gi,'_')}">
       <div class="workout-day-header">
-        <span>📅 ${d.label}</span>
+        <span>${ico('calendar',13)} ${d.label}</span>
         <span style="color:var(--text3);font-size:12px">${d.exercises.length} esercizi</span>
       </div>
       ${d.exercises.map((e,ei)=>`<div class="exercise-row" style="flex-wrap:wrap;gap:8px">
@@ -4673,7 +5023,7 @@ function pgSchedaCliente(){
       <div class="gap-12">
         ${pastLogs.map(log=>`<div style="border:1px solid var(--border);border-radius:12px;overflow:hidden">
           <div style="background:rgba(59,91,219,.05);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)">
-            <div><strong style="font-size:14px">📅 ${log.dayLabel}</strong><div style="font-size:12px;color:var(--text3);margin-top:2px">Completato il ${fmtDate(log.completedAt)}</div></div>
+            <div><strong style="font-size:14px">${ico('calendar',13)} ${log.dayLabel}</strong><div style="font-size:12px;color:var(--text3);margin-top:2px">Completato il ${fmtDate(log.completedAt)}</div></div>
             <span class="badge success">Completato</span>
           </div>
           <div style="padding:12px 16px">
@@ -4719,7 +5069,7 @@ function completaAllenamento(planId, dayLabel){
     DB.completedWorkouts.push({id:Date.now(),userId:currentUser.id,planId,dayLabel,completedAt:todayStr()});
     addNotification('Allenamento completato',`${uName(currentUser)} ha completato "${dayLabel}".`,'info',false,'trainer');
     showPage('scheda-cliente');
-    showToast(`Allenamento "${dayLabel}" completato! 💪`);
+    showToast(`Allenamento "${dayLabel}" completato!`);
   }
 
   if(file){
@@ -4737,7 +5087,7 @@ function resetCicloScheda(planId){
   document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('repeat',20)} Ricomincia ciclo</div>
     <p style="color:var(--text2);margin-bottom:16px">Tutti i giorni torneranno "da fare", ma lo <strong>storico degli allenamenti passati viene mantenuto</strong>. Puoi ricominciare questo ciclo quante volte vuoi.</p>
     <div style="background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.2);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--success);margin-bottom:16px">
-      ✅ I log con pesi, commenti e video restano visibili nella sezione "Allenamenti Passati"
+      ${ico('check',14)} I log con pesi, commenti e video restano visibili nella sezione "Allenamenti Passati"
     </div>
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal()">Annulla</button>
@@ -4749,12 +5099,12 @@ function confermResetCiclo(planId){
   DB.completedWorkouts=DB.completedWorkouts.filter(c=>!(c.userId===currentUser.id&&c.planId===planId));
   closeModal();
   showPage('scheda-cliente');
-  showToast('Nuovo ciclo iniziato! 🔄 Lo storico è stato mantenuto.');
+  showToast('Nuovo ciclo iniziato! Lo storico è stato mantenuto.');
 }
 
 function aggiungiListaAttesa(courseId){
   const mem=getActiveMembership(currentUser.id);
-  if(!mem){showToast('⚠ Abbonamento non attivo!','error');return;}
+  if(!mem){showToast('Abbonamento non attivo!','error');return;}
   if(DB.waitlist.find(w=>w.userId===currentUser.id&&w.courseId===courseId)){
     showToast('Sei già in lista d\'attesa per questo corso','error');return;
   }
@@ -4763,7 +5113,7 @@ function aggiungiListaAttesa(courseId){
   const trainerOfCourse=c?getUser(c.trainerId):null;
   addNotification('Nuova lista d\'attesa',`${uName(currentUser)} si è aggiunto alla lista d'attesa per "${c?c.title:'corso'}".`,'info',false,'trainer');
   filterCorsiC();
-  showToast(`✅ Aggiunto alla lista d'attesa! Ti avviseremo se si libera un posto.`);
+  showToast(`Aggiunto alla lista d'attesa! Ti avviseremo se si libera un posto.`);
 }
 
 // Controlla automaticamente la lista d'attesa — AUTO-PRENOTA il primo in coda
@@ -4777,8 +5127,8 @@ function checkWaitlistForCourse(courseId){
   DB.bookings.push({id:DB.nextId.booking++,userId:first.userId,courseId,status:'booked',bookedAt:todayStr()});
   const u=getUser(first.userId);
   if(u){
-    addNotification('🎉 Posto confermato!',`Il tuo posto in "${c.title}" del ${fmtDate(c.date)} è stato confermato automaticamente dalla lista d\'attesa.`,'success',false,'client');
-    showToast(`🎉 ${uName(u)} prenotato automaticamente da lista d'attesa per "${c.title}"`);
+    addNotification('Posto confermato!',`Il tuo posto in "${c.title}" del ${fmtDate(c.date)} è stato confermato automaticamente dalla lista d\'attesa.`,'success',false,'client');
+    showToast(`${uName(u)} prenotato automaticamente da lista d'attesa per "${c.title}"`);
   }
 }
 function rimuoviListaAttesa(courseId){
@@ -4806,7 +5156,7 @@ function renderMsgContactList(contacts,openContactId,searchQ){
   return filtered.map(u=>{
     const lastMsg=DB.messages.filter(m=>(m.fromId===currentUser.id&&m.toId===u.id)||(m.fromId===u.id&&m.toId===currentUser.id)).sort((a,b)=>b.time.localeCompare(a.time))[0];
     const unread=DB.messages.filter(m=>m.fromId===u.id&&m.toId===currentUser.id&&!m.read).length;
-    const preview=lastMsg?(lastMsg.attachment&&!lastMsg.body?'📷 Foto':(lastMsg.fromId===currentUser.id?'Tu: ':'')+lastMsg.body):'Nessun messaggio';
+    const preview=lastMsg?(lastMsg.attachment&&!lastMsg.body?'Foto':(lastMsg.fromId===currentUser.id?'Tu: ':'')+lastMsg.body):'Nessun messaggio';
     return`<div class="msg-contact ${u.id===openContactId?'active':''}" onclick="openMsgThread(${u.id})">
       <div class="avatar ${u.role==='trainer'?'green':u.role==='admin'?'red':'orange'}" style="width:36px;height:36px;font-size:13px;flex-shrink:0">${uInit(u)}</div>
       <div style="flex:1;min-width:0">
@@ -4841,7 +5191,7 @@ function pgMessaggi(){
   return`<div class="msg-layout">
     <div class="msg-sidebar">
       <div class="msg-sidebar-header" style="padding-bottom:10px">
-        <div style="font-weight:700;font-size:13px">💬 Conversazioni</div>
+        <div style="font-weight:700;font-size:13px">${ico('message',16)} Conversazioni</div>
         <input type="text" class="msg-search" placeholder="Cerca contatto o messaggio..." value="${(window._msgSearch||'').replace(/"/g,'&quot;')}" oninput="filterMsgContacts(this.value)">
       </div>
       <div id="msg-contacts-list">${renderMsgContactList(contacts,openContactId,window._msgSearch||'')}</div>
@@ -4938,7 +5288,7 @@ function sendMsg(toId){
   // Notifica
   const to=getUser(toId);
   const role=to?to.role:'all';
-  const preview=att&&!body?'📷 Foto':`"${body.slice(0,60)}${body.length>60?'…':''}"`;
+  const preview=att&&!body?'Foto':`"${body.slice(0,60)}${body.length>60?'…':''}"`;
   addNotification('Nuovo messaggio',`${uName(currentUser)}: ${preview}`,
     'info',false,role==='trainer'?'trainer':role==='client'?'client':'admin');
   showPage('messaggi');
@@ -5096,10 +5446,10 @@ function calSelectDay(ds){
   const detail=document.getElementById('cal-detail');
   if(!detail)return;
   detail.innerHTML=`<div class="card">
-    <div class="card-header"><div class="card-title">📅 ${label}</div></div>
+    <div class="card-header"><div class="card-title">${ico('calendar',13)} ${label}</div></div>
     ${dayCourses.length===0&&daySpa.length===0&&dayCi.length===0&&dayPT.length===0?
       `<div style="color:var(--text3);font-size:13px;padding:16px;text-align:center">
-        <div style="font-size:24px;margin-bottom:6px">📭</div>
+        <div style="margin-bottom:6px">${ico('bell',24)}</div>
         <div>Nessun evento per questo giorno.</div>
         ${currentRole==='admin'||currentRole==='trainer'?`<button class="btn btn-primary btn-sm" style="margin-top:12px" onclick="openNuovoCorsoDate('${ds}')">${ico('plus',14)} Aggiungi corso</button>`:''}
       </div>`:''
@@ -5112,7 +5462,7 @@ function calSelectDay(ds){
         const pct=Math.round(rb/c.capacity*100);
         return`<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(224,32,32,.04);border:1px solid rgba(224,32,32,.12);border-radius:10px">
           <div style="flex-shrink:0;text-align:center;width:44px"><div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--accent)">${c.timeStart}</div></div>
-          <div style="flex:1"><div style="font-weight:700;font-size:13px">${c.title}</div><div style="font-size:11px;color:var(--text3)">👤 ${t?uName(t):'-'} · ${c.room}</div></div>
+          <div style="flex:1"><div style="font-weight:700;font-size:13px">${c.title}</div><div style="font-size:11px;color:var(--text3)">${ico('user',13)} ${t?uName(t):'-'} · ${c.room}</div></div>
           <div style="text-align:right"><div style="font-size:12px;font-weight:700;color:${pct>=100?'var(--danger)':'var(--text)'}">${rb}/${c.capacity}</div><div style="font-size:10px;color:var(--text3)">${pct}%</div></div>
           ${currentRole==='trainer'||currentRole==='admin'?`<button class="btn btn-secondary btn-sm" onclick="openCourseParticipants(${c.id})">👥</button>`:''}
         </div>`;
@@ -5180,7 +5530,7 @@ function pgLezioniPT(){
         <div style="flex:1;min-width:180px">
           <div style="font-weight:700;font-size:14px">${c?uName(c):'Cliente'}</div>
           <div style="font-size:12px;color:var(--text2);margin-top:2px">
-            📅 ${fmtDate(s.date)} &nbsp;·&nbsp; 🕐 ${s.timeStart}–${endT}
+            ${ico('calendar',13)} ${fmtDate(c.date)}${fmtDate(s.date)} &nbsp;·&nbsp; ${ico('clock',13)} ${s.timeStart}–${endT}
             ${s.notes?`&nbsp;·&nbsp; <em style="color:var(--text3)">${s.notes}</em>`:''}
           </div>
         </div>
@@ -5213,7 +5563,7 @@ function pgLezioniPT(){
         <div class="card-title">${ico('bell',17)} Richieste in Attesa <span class="badge warning" style="margin-left:6px">${pending.length}</span></div>
       </div>
       <div style="padding:0 4px">${pending.map(s=>ptRow(s)).join('')}</div>
-    </div>`:`<div class="card"><div style="padding:16px;color:var(--text3);font-size:13px;text-align:center">✓ Nessuna richiesta in attesa</div></div>`}
+    </div>`:`<div class="card"><div style="padding:16px;color:var(--text3);font-size:13px;text-align:center">Nessuna richiesta in attesa</div></div>`}
 
     ${upcoming.length?`<div class="card">
       <div class="card-header"><div class="card-title">${ico('calendar',17)} Prossime Lezioni</div></div>
@@ -5242,7 +5592,7 @@ function confirmPTSession(id){
   const s=DB.ptSessions.find(x=>x.id===id);
   if(!s)return;
   s.status='confirmed';
-  DB.notifications.push({id:DB.nextId.notification++,userId:s.clientId,title:'Lezione PT confermata ✓',msg:`La tua sessione del ${fmtDate(s.date)} alle ${s.timeStart} è stata confermata dal trainer!`,type:'success',time:new Date().toISOString(),targetRole:'client',read:false});
+  DB.notifications.push({id:DB.nextId.notification++,userId:s.clientId,title:'Lezione PT confermata',msg:`La tua sessione del ${fmtDate(s.date)} alle ${s.timeStart} è stata confermata dal trainer!`,type:'success',time:new Date().toISOString(),targetRole:'client',read:false});
   refreshLezioniPT();
   showToast('Lezione confermata ✓','success');
 }
@@ -5269,7 +5619,7 @@ function pgPrenotaPT(){
   const myTrainerId=Object.keys(DB.trainerClients).find(tid=>DB.trainerClients[tid].includes(currentUser.id));
   const trainers=trainerUsers();
   if(!trainers.length) return`<div class="page"><div class="card" style="text-align:center;padding:40px 20px">
-    <div style="font-size:40px;margin-bottom:12px">🏋️</div>
+    <div style="margin-bottom:12px;color:var(--accent)">${ico('dumbbell',48)}</div>
     <div style="font-size:16px;font-weight:700;margin-bottom:8px">Nessun Personal Trainer disponibile</div>
     <div style="color:var(--text2);font-size:14px">Contatta la reception per essere assegnato a un trainer.</div>
   </div></div>`;
@@ -5286,7 +5636,7 @@ function pgPrenotaPT(){
       <div class="avatar green" style="width:34px;height:34px;font-size:11px;flex-shrink:0">${t?uInit(t):'?'}</div>
       <div style="flex:1">
         <div style="font-weight:700;font-size:13px">${t?uName(t):'Trainer'}</div>
-        <div style="font-size:12px;color:var(--text2)">📅 ${fmtDate(s.date)} · 🕐 ${s.timeStart}–${endT}${s.notes?` · <em>${s.notes}</em>`:''}</div>
+        <div style="font-size:12px;color:var(--text2)">${ico('calendar',13)} ${fmtDate(c.date)}${fmtDate(s.date)} · ${ico('clock',13)} ${s.timeStart}–${endT}${s.notes?` · <em>${s.notes}</em>`:''}</div>
       </div>
       <span class="badge ${PT_STATUS_COLORS[s.status]||'info'}">${PT_STATUS_LABELS[s.status]||s.status}</span>
       ${cancellable&&(s.status==='pending'||s.status==='confirmed')?`<button class="btn btn-danger btn-sm" onclick="clientCancelPT(${s.id})">${ico('trash',12)}</button>`:''}
@@ -5331,7 +5681,7 @@ function pgPrenotaPT(){
             ${upcoming.map(s=>sessionCard(s,true)).join('')}`:'<div style="color:var(--text3);font-size:12px;padding:8px 0">Nessuna sessione in programma.</div>'}
           ${past.length?`<div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px">Passate</div>
             ${past.map(s=>sessionCard(s,false)).join('')}`:''}
-        `:`<div style="padding:12px 0;text-align:center;color:var(--text3)"><div style="font-size:28px;margin-bottom:8px">💪</div><div>Nessuna sessione ancora. Prenota la tua prima lezione PT!</div></div>`}
+        `:`<div style="padding:12px 0;text-align:center;color:var(--text3)"><div style="margin-bottom:8px;color:var(--text3)">${ico('dumbbell',32)}</div><div>Nessuna sessione ancora. Prenota la tua prima lezione PT!</div></div>`}
       </div>
     </div>
   </div>`;
@@ -5417,7 +5767,7 @@ function refreshPTSessionsList(){
       <div class="avatar green" style="width:34px;height:34px;font-size:11px;flex-shrink:0">${t?uInit(t):'?'}</div>
       <div style="flex:1">
         <div style="font-weight:700;font-size:13px">${t?uName(t):'Trainer'}</div>
-        <div style="font-size:12px;color:var(--text2)">📅 ${fmtDate(s.date)} · 🕐 ${s.timeStart}–${endT}${s.notes?` · <em>${s.notes}</em>`:''}</div>
+        <div style="font-size:12px;color:var(--text2)">${ico('calendar',13)} ${fmtDate(c.date)}${fmtDate(s.date)} · ${ico('clock',13)} ${s.timeStart}–${endT}${s.notes?` · <em>${s.notes}</em>`:''}</div>
       </div>
       <span class="badge ${PT_STATUS_COLORS[s.status]||'info'}">${PT_STATUS_LABELS[s.status]||s.status}</span>
       ${cancellable&&(s.status==='pending'||s.status==='confirmed')?`<button class="btn btn-danger btn-sm" onclick="clientCancelPT(${s.id})">${ico('trash',12)}</button>`:''}
@@ -5466,7 +5816,7 @@ function calcBMI(weight,height){
 function bmiCategory(bmi){
   if(bmi===null)return{label:'–',color:'var(--text3)',badge:'inactive'};
   if(bmi<18.5)return{label:'Sottopeso',color:'#3b82f6',badge:'info'};
-  if(bmi<25)return{label:'Normopeso ✓',color:'var(--success)',badge:'active'};
+  if(bmi<25)return{label:'Normopeso',color:'var(--success)',badge:'active'};
   if(bmi<30)return{label:'Sovrappeso',color:'var(--warning)',badge:'warning'};
   return{label:'Obesità',color:'var(--danger)',badge:'danger'};
 }
@@ -5512,7 +5862,7 @@ function pgProgressi(){
 
     <!-- Barra BMI visuale -->
     ${height&&latest?`<div class="card">
-      <div class="card-header"><div class="card-title">📊 Indice di Massa Corporea (BMI)</div></div>
+      <div class="card-header"><div class="card-title">${ico('chart',15)} Indice di Massa Corporea (BMI)</div></div>
       <div style="padding:0 4px">
         <div style="position:relative;height:18px;border-radius:12px;overflow:hidden;display:flex;margin-bottom:10px">
           <div style="flex:1;background:#3b82f6" title="Sottopeso < 18.5"></div>
@@ -5530,7 +5880,7 @@ function pgProgressi(){
     <!-- Grafico Chart.js peso + grasso -->
     ${logs.length>=2?`<div class="card">
       <div class="card-header">
-        <div class="card-title">📈 Andamento nel tempo</div>
+        <div class="card-title">${ico('trending',15)} Andamento nel tempo</div>
         <div style="display:flex;gap:10px;align-items:center;font-size:12px">
           <span style="display:inline-flex;align-items:center;gap:5px"><span style="width:14px;height:3px;background:#6366f1;border-radius:2px;display:inline-block"></span>Peso (kg)</span>
           <span style="display:inline-flex;align-items:center;gap:5px"><span style="width:14px;height:3px;background:#f97316;border-radius:2px;display:inline-block"></span>Grasso (%)</span>
@@ -5541,7 +5891,7 @@ function pgProgressi(){
 
     <!-- Form nuovo progresso -->
     <div class="card">
-      <div class="card-header"><div class="card-title">➕ Inserisci nuovo progresso</div></div>
+      <div class="card-header"><div class="card-title">${ico('plus',16)} Inserisci nuovo progresso</div></div>
       <div class="form-grid">
         <div class="input-group"><label class="input-label">Data</label><input type="date" class="input" id="pr-d" value="${todayStr()}"></div>
         <div class="input-group"><label class="input-label">Peso (kg)</label><input type="number" class="input" id="pr-w" step="0.1" placeholder="es. 74.5" oninput="previewBMI()"></div>
@@ -5550,12 +5900,12 @@ function pgProgressi(){
         <div class="input-group"><label class="input-label">Petto (cm)</label><input type="number" class="input" id="pr-ch" step="0.5"></div>
       </div>
       <div id="bmi-preview" style="margin-top:12px;padding:10px 14px;background:var(--surface2);border-radius:10px;font-size:13px;font-weight:600;display:none"></div>
-      <button class="btn btn-primary mt-12" onclick="saveProgresso()">💾 Salva progressi</button>
+      <button class="btn btn-primary mt-12" onclick="saveProgresso()">${ico('check',15)} Salva progressi</button>
     </div>
 
     <!-- Storico tabella -->
     ${logs.length?`<div class="card">
-      <div class="card-header"><div class="card-title">📋 Storico misurazioni</div></div>
+      <div class="card-header"><div class="card-title">${ico('document',15)} Storico misurazioni</div></div>
       <div class="table-wrap"><table>
         <thead><tr><th>Data</th><th>Peso</th><th>BMI</th><th>Grasso%</th><th>Petto</th><th>Vita</th></tr></thead>
         <tbody>${[...logs].sort((a,b)=>b.date.localeCompare(a.date)).map(p=>{
@@ -5606,7 +5956,7 @@ function previewBMI(){
 }
 
 function openSetHeight(){
-  document.getElementById('modal-body').innerHTML=`<div class="modal-title">📏 Imposta altezza</div>
+  document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('ruler',18)} Imposta altezza</div>
     <div class="input-group"><label class="input-label">Altezza (cm)</label>
       <input type="number" class="input" id="set-h" value="${currentUser.height||''}" placeholder="es. 170" min="100" max="250">
     </div>
@@ -5630,7 +5980,7 @@ async function saveProgresso(){
   DB.progressLogs.push({userId:currentUser.id,date,weight:w,fat:parseFloat(document.getElementById('pr-f').value)||0,chest:parseFloat(document.getElementById('pr-ch').value)||0,waist:parseFloat(document.getElementById('pr-wa').value)||0});
   _progressAiAnalysis=null;
   showPage('progressi');
-  showToast('Progressi salvati! 🤖 Analisi AI in corso...','success');
+  showToast('Progressi salvati! Analisi AI in corso...','success');
   analyzeProgressWithAI();
 }
 
@@ -5660,7 +6010,7 @@ async function analyzeProgressWithAI(){
 
 function renderProgressAiCard(){
   if(!_progressAiAnalysis)return'';
-  return`<div class="card-header" style="justify-content:space-between"><div class="card-title">🤖 Analisi AI dei tuoi progressi</div><button class="btn btn-secondary btn-sm" onclick="_progressAiAnalysis=null;document.getElementById('ai-progress-card').style.display='none'">✕</button></div><div style="font-size:13.5px;line-height:1.8;color:var(--text)">${md(_progressAiAnalysis)}</div>`;
+  return`<div class="card-header" style="justify-content:space-between"><div class="card-title">${ico('bot',15)} Analisi AI dei tuoi progressi</div><button class="btn btn-secondary btn-sm" onclick="_progressAiAnalysis=null;document.getElementById('ai-progress-card').style.display='none'">✕</button></div><div style="font-size:13.5px;line-height:1.8;color:var(--text)">${md(_progressAiAnalysis)}</div>`;
 }
 
 // ─── ABBONAMENTO CLIENTE ───
@@ -5675,7 +6025,7 @@ function pgAbbonamentoCliente(){
       <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:rgba(255,255,255,.6);letter-spacing:2px">${mem.plan}</div>
       <div style="font-size:18px;font-weight:700;margin:4px 0">${uName(currentUser)}</div>
       <div style="font-size:13px;color:rgba(255,255,255,.6)">${fmtDate(mem.start)} → ${fmtDate(mem.end)}</div>
-      ${mem.status==='warning'?'<div style="font-size:12px;color:#fbbf24;font-weight:600;margin-top:8px">⚠ In scadenza presto</div>':''}
+      ${mem.status==='warning'?`<div style="font-size:12px;color:#fbbf24;font-weight:600;margin-top:8px">${ico('warning',13)} In scadenza presto</div>`:''}
       ${daysLeft>0?`<div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:6px">${daysLeft} giorni rimanenti</div>`:''}
     </div>
     <div class="card">
@@ -5697,12 +6047,12 @@ function pgAbbonamentoCliente(){
           Totale: €${mem.price}
         </div>
         <button class="btn btn-primary" style="width:100%;justify-content:center;padding:13px;font-size:15px" onclick="openRinnovoPayment()">
-          💳 Rinnova e Paga
+          Rinnova e Paga
         </button>
       </div>
     </div>
     ${myPayments.length?`<div class="card">
-      <div class="card-header"><div class="card-title">💳 Storico pagamenti</div></div>
+      <div class="card-header"><div class="card-title">${ico('card',15)} Storico pagamenti</div></div>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px">
         <div class="kpi-card green" style="flex:1;min-width:120px;padding:12px 16px"><div class="kpi-label">Totale speso</div><div class="kpi-value" style="font-size:22px">€${myPayments.reduce((s,p)=>s+(p.amount||0),0).toLocaleString('it-IT')}</div></div>
         <div class="kpi-card blue" style="flex:1;min-width:120px;padding:12px 16px"><div class="kpi-label">Transazioni</div><div class="kpi-value" style="font-size:22px">${myPayments.length}</div></div>
@@ -5714,7 +6064,7 @@ function pgAbbonamentoCliente(){
             <div style="font-size:11px;color:var(--text3)">${fmtDate(p.date)} · ${PAY_METHOD_LABELS[p.method]||p.method||'–'}</div></div>
           <div style="text-align:right">
             <div style="font-weight:700;color:var(--success);font-size:15px">€${p.amount}</div>
-            <span class="badge ${p.status==='completed'?'active':'warning'}" style="font-size:10px">${p.status==='completed'?'✅ Completato':'⏳ In attesa'}</span>
+            <span class="badge ${p.status==='completed'?'active':'warning'}" style="font-size:10px">${p.status==='completed'?'Completato':'⏳ In attesa'}</span>
           </div>
         </div>`).join('')}
       </div>
@@ -5744,7 +6094,7 @@ function openRinnovoPayment(){
   if(!sel||!sel.value){showToast('Seleziona un piano','error');return;}
   const[planName,months,price]=sel.value.split('|');
   document.getElementById('modal-body').innerHTML=`
-    <div class="modal-title">💳 Pagamento Rinnovo</div>
+    <div class="modal-title">${ico('card',16)} Pagamento Rinnovo</div>
     <div style="background:rgba(224,32,32,.05);border:1px solid rgba(224,32,32,.15);border-radius:10px;padding:12px 16px;margin-bottom:14px">
       <div style="font-size:13px;color:var(--text2)">Piano: <strong>${planName}</strong></div>
       <div style="display:flex;align-items:center;gap:10px;margin-top:4px">
@@ -5762,11 +6112,11 @@ function openRinnovoPayment(){
         <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Metodo di pagamento</div>
         <div class="gap-8" id="pay-methods">
           ${[
-            {id:'card',icon:'💳',label:'Carta di credito / debito',sub:'Visa, Mastercard, Amex'},
+            {id:'card',icon:'',label:'Carta di credito / debito',sub:'Visa, Mastercard, Amex'},
             {id:'paypal',icon:'🅿️',label:'PayPal',sub:'Paga con il tuo account PayPal'},
-            {id:'apple',icon:'🍎',label:'Apple Pay',sub:'Touch ID o Face ID'},
-            {id:'google',icon:'🔵',label:'Google Pay',sub:'Paga con Google'},
-            {id:'klarna',icon:'⚡',label:'Klarna – Paga in 3 rate',sub:'Senza interessi'},
+            {id:'apple',icon:'',label:'Apple Pay',sub:'Touch ID o Face ID'},
+            {id:'google',icon:'',label:'Google Pay',sub:'Paga con Google'},
+            {id:'klarna',icon:'',label:'Klarna – Paga in 3 rate',sub:'Senza interessi'},
           ].map(m=>`<div class="pay-method-opt" id="pm-${m.id}" onclick="selectPayMethod('${m.id}')"
             style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:2px solid var(--border);border-radius:12px;cursor:pointer;transition:all .15s">
             <div style="font-size:24px;width:36px;text-align:center">${m.icon}</div>
@@ -5802,20 +6152,20 @@ function openRinnovoPayment(){
       </div>
       <div id="klarna-fields" style="display:none" class="gap-8">
         <div style="background:rgba(255,182,185,.15);border:1px solid rgba(255,105,114,.3);border-radius:10px;padding:14px">
-          <div style="font-weight:700;color:#ff6972">⚡ Klarna – 3 rate senza interessi</div>
+          <div style="font-weight:700;color:#ff6972">Klarna – 3 rate senza interessi</div>
           <div style="font-size:13px;margin-top:6px">3 × <strong>€${(price/3).toFixed(2)}</strong> al mese</div>
           <div style="font-size:11px;color:var(--text3);margin-top:4px">Prima rata oggi, poi ogni 30 giorni</div>
         </div>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:6px;margin-top:16px;padding:10px 14px;background:var(--surface2);border-radius:8px">
-      <span style="font-size:16px">🔒</span>
+      <span style="display:inline-flex;vertical-align:middle">${ico('lock',16)}</span>
       <span style="font-size:11px;color:var(--text3)">Pagamento sicuro · Crittografia SSL 256-bit · Dati protetti PCI DSS</span>
     </div>
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal()">Annulla</button>
       <button class="btn btn-primary" id="pay-submit-btn" onclick="processClientPayment('${planName}',${months},${price})" style="min-width:160px">
-        💳 Paga €${price}
+        Paga €${price}
       </button>
     </div>`;
   openModal();
@@ -5848,15 +6198,15 @@ function applyCouponUI(basePrice){
   const origEl=document.getElementById('pay-original-price');
   const btn=document.getElementById('pay-submit-btn');
   if(!result.valid){
-    if(msgEl){msgEl.style.color='var(--danger)';msgEl.textContent='❌ '+result.message;}
+    if(msgEl){msgEl.style.color='var(--danger)';msgEl.textContent=result.message;}
     _activeCouponResult=null;
     return;
   }
   _activeCouponResult=result;
-  if(msgEl){msgEl.style.color='var(--success)';msgEl.textContent='✅ '+result.message;}
+  if(msgEl){msgEl.style.color='var(--success)';msgEl.textContent=result.message;}
   if(priceEl)priceEl.textContent=`€${result.finalPrice}`;
   if(origEl){origEl.style.display='inline';origEl.textContent=`€${basePrice}`;}
-  if(btn){btn.textContent=`💳 Paga €${result.finalPrice}`;btn.onclick=()=>processClientPayment(btn.dataset.plan,btn.dataset.months,result.finalPrice);}
+  if(btn){btn.textContent=`Paga €${result.finalPrice}`;btn.onclick=()=>processClientPayment(btn.dataset.plan,btn.dataset.months,result.finalPrice);}
   // Aggiorna dataset del pulsante
   const btnEl=document.getElementById('pay-submit-btn');
   if(btnEl){const oc=btnEl.getAttribute('onclick')||'';const m=oc.match(/processClientPayment\('(.+?)',(\d+),[\d.]+\)/);if(m){btnEl.setAttribute('onclick',`processClientPayment('${m[1]}',${m[2]},${result.finalPrice})`);btnEl.innerHTML=`💳 Paga €${result.finalPrice}`;}}
@@ -5889,7 +6239,7 @@ function processClientPayment(planName,months,price){
     addNotification('Abbonamento rinnovato',`${uName(currentUser)} ha rinnovato: ${planName} fino al ${fmtDate(newEndStr)}.`,'success',false,'admin');
     closeModal();
     showPage('abbonamento-cliente');
-    showToast(`✅ Pagamento confermato! Piano ${planName} attivato.`,'success');
+    showToast(`Pagamento confermato! Piano ${planName} attivato.`,'success');
     selectedPayMethod=null;
   },1500);
 }
@@ -5940,11 +6290,11 @@ function renderCorsiCGrid(courses){
       <div class="row-between"><span style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:1px">${fmtDate(c.date)}</span><span class="badge ${rb>=c.capacity?'danger':mine?'info':'active'}">${rb>=c.capacity?'Completo':mine?'Prenotato':'Disponibile'}</span></div>
       <div class="course-time">${c.timeStart}</div>
       <div style="font-weight:700;font-size:14px">${c.title}</div>
-      <div style="font-size:12px;color:var(--text3)">👤 ${t?uName(t):'-'} · ${c.room}</div>
+      <div style="font-size:12px;color:var(--text3)">${ico('user',13)} ${t?uName(t):'-'} · ${c.room}</div>
       <div style="font-size:12px;color:var(--text2)">${c.capacity-rb} posti liberi</div>
       <div class="pb-wrap"><div class="pb ${pct>=100?'red':pct>=80?'orange':''}" style="width:${Math.min(pct,100)}%"></div></div>
       <div style="font-size:11px;padding:5px 8px;border-radius:7px;background:${deadlinePassed&&!mine?'rgba(220,38,38,.07)':'rgba(217,119,6,.07)'};color:${deadlinePassed&&!mine?'var(--danger)':'var(--warning)'};margin-top:2px">
-        ⏰ ${deadlinePassed&&!mine?'Prenotazioni chiuse':'Prenota entro: '+deadlineStr}
+        ${ico('clock',13)} ${deadlinePassed&&!mine?'Prenotazioni chiuse':'Prenota entro: '+deadlineStr}
       </div>
       ${mine
         ? `<button class="btn btn-secondary" style="width:100%;justify-content:center" disabled>✓ Già prenotato</button>`
@@ -5969,23 +6319,22 @@ function renderCorsiCGrid(courses){
   }).join('');
 }
 function prenotaCorso(cid){
-  const mem=getActiveMembership(currentUser.id);if(!mem){showToast('⚠ Abbonamento non attivo!','error');return;}
+  const mem=getActiveMembership(currentUser.id);if(!mem){showToast('Abbonamento non attivo!','error');return;}
   const c=getCourse(cid);if(!c||realBooked(cid)>=c.capacity){showToast('Corso non disponibile','error');return;}
   if(DB.bookings.find(b=>b.userId===currentUser.id&&b.courseId===cid&&b.status==='booked')){showToast('Già prenotato!','error');return;}
   // Regola: prenotazione fino a 24 ore prima
   const courseDateTime=new Date(`${c.date}T${c.timeStart}:00`);
   const deadline=new Date(courseDateTime.getTime()-24*60*60*1000);
   if(new Date()>deadline){
-    showToast(`⏰ Prenotazione chiusa! Si prenota fino a 24h prima (entro il ${deadline.toLocaleDateString('it-IT')} alle ${deadline.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})})`, 'error');
+    showToast(`Prenotazione chiusa! Si prenota fino a 24h prima (entro il ${deadline.toLocaleDateString('it-IT')} alle ${deadline.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})})`, 'error');
     return;
   }
   DB.bookings.push({id:DB.nextId.booking++,userId:currentUser.id,courseId:cid,status:'booked',bookedAt:todayStr()});
-  c.booked++;
   if(realBooked(c.id)>=c.capacity)addNotification('Corso al completo',`"${c.title}" del ${fmtDate(c.date)} è al completo.`,'warning',false,'trainer');
   addNotification('Nuova prenotazione',`${uName(currentUser)} ha prenotato "${c.title}".`,'info',false,'trainer');
   sendEmailBooking(cid,currentUser.id);
   filterCorsiC();
-  showToast(`"${c.title}" prenotato! ✅`);
+  showToast(`"${c.title}" prenotato! `);
 }
 
 // ─── MIO QR ───
@@ -5997,9 +6346,9 @@ function pgMioQR(){
       <div style="font-size:13px;color:var(--text2);margin-bottom:4px">Codice: <strong>${currentUser.qrCode}</strong></div>
       <div style="margin:20px auto;display:inline-block">
         ${mem?`<div class="qr-wrap" id="qr-container"></div>
-        <div class="qr-status-ok" style="margin-top:8px">✅ QR Code attivo</div>
+        <div class="qr-status-ok" style="margin-top:8px">${ico('check',14)} QR Code attivo</div>
         <div style="font-size:12px;color:var(--text3);margin-top:3px">Valido fino al ${fmtDate(mem.end)}</div>`:`<div style="padding:36px;background:var(--surface2);border-radius:12px;border:2px dashed var(--danger)">
-          <div style="font-size:44px;margin-bottom:8px">🚫</div>
+          <div style="margin-bottom:8px;color:var(--danger)">${ico('x-circle',44)}</div>
           <div class="qr-status-no">QR non valido</div>
           <div style="font-size:12px;color:var(--text3);margin-top:4px">Abbonamento scaduto.</div>
         </div>`}
@@ -6032,7 +6381,7 @@ function showToast(msg,type='success'){
 function openReportModal(){
   const months=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
   const cy=new Date().getFullYear(),cm=new Date().getMonth()+1;
-  document.getElementById('modal-body').innerHTML=`<div class="modal-title">📄 Genera Report Mensile PDF</div>
+  document.getElementById('modal-body').innerHTML=`<div class="modal-title">${ico('document',16)} Genera Report Mensile PDF</div>
     <div class="form-grid">
       <div class="input-group"><label class="input-label">Mese</label>
         <select class="input" id="rpt-m" onchange="updateReportPreview()">
@@ -6048,7 +6397,7 @@ function openReportModal(){
     <div id="rpt-preview" style="margin:14px 0;padding:14px 16px;background:var(--surface2);border-radius:10px;font-size:13px;line-height:1.8"></div>
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal()">Annulla</button>
-      <button class="btn btn-primary" onclick="generateReportPDF()">📄 Scarica PDF</button>
+      <button class="btn btn-primary" onclick="generateReportPDF()">${ico('document',14)} Scarica PDF</button>
     </div>`;
   openModal();
   updateReportPreview();
@@ -6062,10 +6411,10 @@ function updateReportPreview(){
   const courses=DB.courses.filter(c=>{const d=new Date(c.date);return d.getFullYear()===y&&d.getMonth()+1===m;});
   const newMems=DB.memberships.filter(mem=>{const d=new Date(mem.start);return d.getFullYear()===y&&d.getMonth()+1===m;});
   const el=document.getElementById('rpt-preview');
-  if(el)el.innerHTML=`💰 Ricavi: <strong style="color:var(--success)">€${pays.reduce((s,p)=>s+(p.amount||0),0).toLocaleString('it-IT')}</strong> (${pays.length} transazioni)<br>
-    🏃 Check-in: <strong>${cins.length}</strong><br>
-    📅 Corsi erogati: <strong>${courses.length}</strong><br>
-    📋 Nuovi abbonamenti: <strong>${newMems.length}</strong>`;
+  if(el)el.innerHTML=`Ricavi: <strong style="color:var(--success)">€${pays.reduce((s,p)=>s+(p.amount||0),0).toLocaleString('it-IT')}</strong> (${pays.length} transazioni)<br>
+    Check-in: <strong>${cins.length}</strong><br>
+    ${ico('calendar',13)} Corsi erogati: <strong>${courses.length}</strong><br>
+    Nuovi abbonamenti: <strong>${newMems.length}</strong>`;
 }
 
 function generateReportPDF(){
@@ -6099,7 +6448,7 @@ function generateReportPDF(){
   y_=46;
 
   // ── KPI BOX ──
-  const kpis=[['💰 Ricavi',`€${totalRev.toLocaleString('it-IT')}`, [5,150,105]],['🏃 Check-in',cins.length,[59,91,219]],['📅 Corsi',courses.length,[224,32,32]],['📋 Nuovi abb.',newMems.length,[124,58,237]]];
+  const kpis=[['Ricavi',`€${totalRev.toLocaleString('it-IT')}`, [5,150,105]],['Check-in',cins.length,[59,91,219]],['Corsi',courses.length,[224,32,32]],['Nuovi abb.',newMems.length,[124,58,237]]];
   const bw=42,bh=20,bx=14,gap=4;
   kpis.forEach(([label,val,col],i)=>{
     const x=bx+i*(bw+gap);
@@ -6192,7 +6541,7 @@ function generateReportPDF(){
 
   doc.save(`StayActive_Report_${y}_${String(m).padStart(2,'0')}.pdf`);
   closeModal();
-  showToast(`📄 Report ${mNames[m-1]} ${y} scaricato! ✅`);
+  showToast(`Report ${mNames[m-1]} ${y} scaricato! `);
 }
 
 // ═══ AUTO REMINDER SYSTEM ═══
@@ -6209,7 +6558,7 @@ function runAutoReminders(){
       const u=getUser(m.userId);if(!u)return;
       const key=`remind-scad-${m.id}`;
       if(!DB.notifications.find(n=>n.reminderKey===key)){
-        DB.notifications.unshift({id:DB.nextId.notification++,title:`⚠️ Abbonamento in scadenza`,msg:`${uName(u)} – piano "${m.plan}" scade tra ${daysLeft} giorno${daysLeft>1?'i':''} (${fmtDate(m.end)}).`,time:now.toISOString(),read:false,type:'warning',adminOnly:false,targetRole:'admin',reminderKey:key});
+        DB.notifications.unshift({id:DB.nextId.notification++,title:`Abbonamento in scadenza`,msg:`${uName(u)} – piano "${m.plan}" scade tra ${daysLeft} giorno${daysLeft>1?'i':''} (${fmtDate(m.end)}).`,time:now.toISOString(),read:false,type:'warning',adminOnly:false,targetRole:'admin',reminderKey:key});
         added++;
       }
     }
@@ -6220,7 +6569,7 @@ function runAutoReminders(){
     DB.bookings.filter(b=>b.courseId===c.id&&b.status==='booked').forEach(b=>{
       const key=`remind-corso-${c.id}-${b.userId}`;
       if(!DB.notifications.find(n=>n.reminderKey===key)){
-        DB.notifications.unshift({id:DB.nextId.notification++,title:`📅 Corso domani: ${c.title}`,msg:`Ricorda: "${c.title}" domani alle ${c.timeStart} in ${c.room}. Non dimenticare!`,time:now.toISOString(),read:false,type:'info',adminOnly:false,targetRole:'client',reminderKey:key});
+        DB.notifications.unshift({id:DB.nextId.notification++,title:`${ico('calendar',13)} Corso domani: ${c.title}`,msg:`Ricorda: "${c.title}" domani alle ${c.timeStart} in ${c.room}. Non dimenticare!`,time:now.toISOString(),read:false,type:'info',adminOnly:false,targetRole:'client',reminderKey:key});
         added++;
       }
     });
@@ -6234,7 +6583,7 @@ function runAutoReminders(){
     if(!lastCI||lastCI.date<cutoff){
       const key=`remind-inattivo-${u.id}-${today.slice(0,7)}`;
       if(!DB.notifications.find(n=>n.reminderKey===key)){
-        DB.notifications.unshift({id:DB.nextId.notification++,title:`😴 Cliente inattivo: ${u.firstName}`,msg:`${uName(u)} non registra check-in da oltre 14 giorni. Ultimo accesso: ${lastCI?fmtDate(lastCI.date):'mai'}.`,time:now.toISOString(),read:false,type:'warning',adminOnly:false,targetRole:'admin',reminderKey:key});
+        DB.notifications.unshift({id:DB.nextId.notification++,title:`Cliente inattivo: ${u.firstName}`,msg:`${uName(u)} non registra check-in da oltre 14 giorni. Ultimo accesso: ${lastCI?fmtDate(lastCI.date):'mai'}.`,time:now.toISOString(),read:false,type:'warning',adminOnly:false,targetRole:'admin',reminderKey:key});
         added++;
       }
     }
@@ -6247,7 +6596,7 @@ function runAutoReminders(){
       const u=getUser(m.userId);if(!u)return;
       const key=`remind-expired-${m.id}`;
       if(!DB.notifications.find(n=>n.reminderKey===key)){
-        DB.notifications.unshift({id:DB.nextId.notification++,title:`🔴 Abbonamento scaduto da ${expDays}gg`,msg:`${uName(u)} non ha rinnovato il piano "${m.plan}" (scaduto il ${fmtDate(m.end)}). Contattalo.`,time:now.toISOString(),read:false,type:'warning',adminOnly:false,targetRole:'admin',reminderKey:key});
+        DB.notifications.unshift({id:DB.nextId.notification++,title:`Abbonamento scaduto da ${expDays}gg`,msg:`${uName(u)} non ha rinnovato il piano "${m.plan}" (scaduto il ${fmtDate(m.end)}). Contattalo.`,time:now.toISOString(),read:false,type:'warning',adminOnly:false,targetRole:'admin',reminderKey:key});
         added++;
       }
     }
